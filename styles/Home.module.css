@@ -1,0 +1,9 @@
+.container {
+  padding: 0;
+  margin: 0;
+}
+
+.main {
+  color: #ffffe9;
+  overflow: hidden;
+}

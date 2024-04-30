@@ -1,0 +1,125 @@
+@import url('../css/clash-display.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  cursor: crosshair;
+  background: #10100E fixed;
+  background-size: cover;
+}
+
+body {
+  font-family: 'ClashDisplay-Light';
+  font-size: 14px;
+  font-weight: 300;
+  color: #ffffe9;
+  letter-spacing: 0.05rem;
+}
+
+
+h2 {
+  font-family: 'ClashDisplay-Light';
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+}
+
+h1 {
+  font-family: 'ClashDisplay-Semibold';
+  font-weight: 300;
+}
+
+.menuel {
+  height: 70px;
+  font-size: 70px;
+  line-height: 70px;
+}
+
+.menuitems {
+  letter-spacing: 5rem;
+  padding-left: 5vw;
+  font-size: 140px;
+  height: 140px;
+  line-height: 140px;
+  font-weight: 100;
+}
+
+canvas {
+  display: none;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+  .menuitems {
+    font-size: 19vw;
+    letter-spacing: 0.3rem;
+    padding-left: 1vw;
+    height: 50px;
+    line-height: 50px;
+  }
+}
+
+
+
+@media screen and (max-width: 767px) {
+
+  html {
+    background-color: #10100E;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .menuel {
+    font-size: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+
+  h1 {
+    font-size: 45px;
+    line-height: 100%;
+    letter-spacing: 0.05rem;
+  }
+
+
+  body {
+    font-size: 12px;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dud {
+  color: #abac8eb3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* width */
+::-webkit-scrollbar {
+  height: 2px;
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #171717;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffffe9;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #abac8e;
+}
