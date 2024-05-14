@@ -1,13 +1,12 @@
 import { gql } from 'graphql-request';
 import { GraphQLClient } from 'graphql-request';
 
-//const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
-console
+//const graphqlAPI = 'https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master';
+
 //query to get all posts
 export const getPosts = async (category) => {
-  console.log(process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT)
   const graphQLClient = new GraphQLClient(
-    process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
+    'https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master'
   );
   const query = gql`
     query MyQuery($category: String!) {
@@ -44,7 +43,7 @@ export const getPosts = async (category) => {
 
 export const getRecentTenPosts = async (category) => {
   const graphQLClient = new GraphQLClient(
-    process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
+    'https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master'
   );
   const query = gql`
     query MyQuery($category: String!) {
@@ -74,7 +73,7 @@ export const getRecentTenPosts = async (category) => {
 
 export const getPostDetails = async (slug) => {
   const graphQLClient = new GraphQLClient(
-    process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
+    'https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master'
   );
   const query = gql`
     query MyQuery($slug: String!) {
@@ -105,6 +104,5 @@ export const getPostDetails = async (slug) => {
     }
   `;
   const result = await graphQLClient.request(query, { slug })
-  //const result = await request(graphqlAPI, query, { slug });
   return result.post;
 };
