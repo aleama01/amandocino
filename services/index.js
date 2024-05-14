@@ -2,9 +2,10 @@ import { gql } from 'graphql-request';
 import { GraphQLClient } from 'graphql-request';
 
 //const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
-
+console
 //query to get all posts
 export const getPosts = async (category) => {
+  console.log(process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT)
   const graphQLClient = new GraphQLClient(
     process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
   );
