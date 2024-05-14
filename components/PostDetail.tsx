@@ -67,7 +67,7 @@ const PostDetail = ({ post, posts }: any) => {
 
           <div className='border-[0.5px] border-[#c8c8b6] mx-auto sm:mx-0 w-4/5 my-4' />
 
-          <h1 className='-mt-6 sm:-mt-0 z-30 text-center sm:text-left overflow-hidden' >
+          <h1 className='-mt-2 sm:-mt-0 z-30 text-center sm:text-left overflow-hidden leading-5 sm:leading-normal' >
             <span className='text-[6vw] sm:text-[30px]'>
               <TextScramble phrase={post.title.toUpperCase()} />
             </span>

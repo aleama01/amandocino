@@ -79,7 +79,7 @@ const Homepage = () => {
       <PresentationTitle />
       {
         ismobile ?
-          <div className="h-screen bg-transparent" />
+          <div className="h-[100dvh] bg-transparent" />
           :
           <motion.div className="relative h-[100dvh]  ">
 
