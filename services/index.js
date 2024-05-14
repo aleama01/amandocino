@@ -1,9 +1,13 @@
-import { request, gql } from "graphql-request";
+import { gql } from 'graphql-request';
+import { GraphQLClient } from 'graphql-request';
 
-const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
+//const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
 //query to get all posts
 export const getPosts = async (category) => {
+  const graphQLClient = new GraphQLClient(
+    process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
+  );
   const query = gql`
     query MyQuery($category: String!) {
       postsConnection(first:25,where: { category: { name: $category } }) {
@@ -32,11 +36,15 @@ export const getPosts = async (category) => {
       }
     }
   `;
-  const result = await request(graphqlAPI, query, { category });
+  const result = await graphQLClient.request(query, { category })
+  //const result = await request(graphqlAPI, query, { category });
   return result.postsConnection.edges.reverse();
 };
 
 export const getRecentTenPosts = async (category) => {
+  const graphQLClient = new GraphQLClient(
+    process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
+  );
   const query = gql`
     query MyQuery($category: String!) {
       postsConnection(last:10,where: { category: { name: $category } }) {
@@ -58,11 +66,15 @@ export const getRecentTenPosts = async (category) => {
       }
     }
   `;
-  const result = await request(graphqlAPI, query, { category });
+  const result = await graphQLClient.request(query, { category })
+  //const result = await request(graphqlAPI, query, { category });
   return result.postsConnection.edges.reverse();
 };
 
 export const getPostDetails = async (slug) => {
+  const graphQLClient = new GraphQLClient(
+    process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
+  );
   const query = gql`
     query MyQuery($slug: String!) {
       post(where: { slug: $slug }) {
@@ -91,6 +103,7 @@ export const getPostDetails = async (slug) => {
       }
     }
   `;
-  const result = await request(graphqlAPI, query, { slug });
+  const result = await graphQLClient.request(query, { slug })
+  //const result = await request(graphqlAPI, query, { slug });
   return result.post;
 };
