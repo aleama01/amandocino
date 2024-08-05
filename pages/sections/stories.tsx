@@ -15,7 +15,7 @@ const stories = ({ stories }: { stories: Array<any> }) => {
   return (
     <>
       <Head>
-        <title>Amandocino | Stories</title>
+        <title>Amandocino | Diary</title>
         <meta name="description" content="Discover the personal stories and reflections in our archive, featuring a virtual diary filled with entries in Italian. Dive into the pages that track the passage of time and personal experiences." />
       </Head>
       <div className='flex stories flex-col min-h-screen justify-center pt-[5vh] px-[5vw] overflow-x-hidden ' >

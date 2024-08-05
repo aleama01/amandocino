@@ -12,7 +12,7 @@ import Image from 'next/image'
 const PlacePost = ({ place }: { place: any }) => {
   return (
     <div className='overflow-hidden'>
-      <motion.div className='h-[25vh] sm:h-[35vh] w-[85vw] sm:w-[90vw] flex flex-row justify-center items-center'
+      <motion.div className='h-[25vh] sm:h-[35vh] w-[100vw] sm:w-[90vw] flex flex-row justify-center items-center'
         initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5 } }}>
 
         <h1 className='text-[40px] sm:text-[90px] text-center absolute text-[#ffffe9] z-20 pointer-events-none w-full '>
@@ -22,7 +22,7 @@ const PlacePost = ({ place }: { place: any }) => {
         <div className=' w-full h-full overflow-hidden' >
           <Image loading='eager' priority={true} fetchPriority="high" alt="Place post image"
             width={720} height={510} src={`${place.image.url}`}
-            sizes="(max-width: 768px) 85vw, 90vw"
+            sizes="(max-width: 768px) 100vw, 90vw"
             className=' w-full blur-[1px] h-full bg-cover object-cover object-center bg-center bg-no-repeat z-30 saturate-0 hover:saturate-100 hover:scale-110 brightness-50 hover:brightness-90 duration-500' />
         </div>
       </motion.div>

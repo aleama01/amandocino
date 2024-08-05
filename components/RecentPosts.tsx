@@ -4,7 +4,7 @@ import { isMobile } from '../scripts/isMobile';
 import RecentPost from './RecentPost';
 
 /**
- * Component displayed at the end of friends and stories posts detail to give links to other recent posts.
+ * Component displayed at the end of friends and diary posts detail to give links to other recent posts.
  * 
  * @param posts list of the last five post not including the one the user is already reading.
  * @returns {ReactNode} A react component with a gallery of the recent posts with links to read them.

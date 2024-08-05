@@ -5,10 +5,10 @@ import Head from "next/head"
 
 
 /**
- * Stories post details container.
+ * Diary post details container.
  * 
- * @param post friends and stories section's post details
- * @returns {ReactNode} A react component that is a container for Stories PostDetail component and the Head component of this page.
+ * @param post friends and diary section's post details
+ * @returns {ReactNode} A react component that is a container for Diary PostDetail component and the Head component of this page.
  */
 const PostDetails = ({ post, posts }) => {
   return (

@@ -7,7 +7,7 @@ import RecentPosts from './RecentPosts';
 import Image from 'next/image';
 
 /**
- * Post detail structure for posts in the friends and stories sections.
+ * Post detail structure for posts in the friends and diary sections.
  * 
  * @param post post details such as text, images, title, authors.
  * @returns {ReactNode} A react component displaying all the details of a post: text, images, title, cover image, author, recent post.

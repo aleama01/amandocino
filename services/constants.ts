@@ -6,7 +6,7 @@ export interface ISection {
 
 export const SECTIONS: Array<ISection> = [
   {
-    name: 'stories',
+    name: 'diary',
     image: '/stories.jpg',
     description: [
       "An archive of all the things I write every now and then to keep track of time and stuff.",

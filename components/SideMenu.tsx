@@ -32,7 +32,7 @@ const SideMenu = () => {
         {(pathname != null && pathname != "/sections/stories") &&
           <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={'/sections/stories'}>
             <h1 className='duration-500 menuel '
-              onClick={() => (handleClick())}> STORIES </h1>
+              onClick={() => (handleClick())}> DIARY </h1>
           </Link>
         }
         {(pathname != null && pathname != "/sections/photos") &&

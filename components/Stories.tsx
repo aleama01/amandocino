@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react'
 import Story from './Story';
 
 /**
- * Main component of 'Stories' page that displays the gallery of post of this section.
+ * Main component of 'Diary' page that displays the gallery of post of this section.
  * 
  * @param stories array containing all the posts of this category.
- * @returns {ReactNode} A react component that is a gallery of posts of the 'Stories' category.
+ * @returns {ReactNode} A react component that is a gallery of posts of the 'Diary' category.
  */
 export const Stories = ({ stories }: { stories: Array<any> }) => {
   return (

@@ -53,8 +53,8 @@ export const AboutMe = () => {
         <div className='mx-auto text-justify text-sm w-5/6 sm:w-4/5'>
           Hi, my name is Alessandro :)<br />it&#39;s difficult to summarize myself in such few words, but I&#39;ll try.<br /><br />
 
-          I like writing (whenever I have time to do that) about my life and interactions I have with my surroundings. I love backpacking to places where I can feel again connected with nature, and I recently started doing birdwatching.<br /> Also, I often spend all my day listening to music, I have a lot of instruments which I&#39;ve not yet to learn how to play, but still I love experimenting with them.<br /><br />
-          I&#39;ve completed my bachelor&#39;s in Computer Science Engineering (Politecnico di Milano) and now I&#39;m studying for a double degree master&#39;s in Human-Computer Interaction and UX/UI Design. I am now in my entry year at Aalto University in Finland, and next year I will be studying at KTH in Stockholm, which means that I will have to survive the dark and cold Scandinavian nights of winter :).<br /><br />
+          I like writing (whenever I have time to do that) about my life and interactions I have with my surroundings. I love backpacking to places where I can feel connected with nature, and I recently started doing birdwatching.<br /> Also, I often spend all my day listening to music, I have a lot of instruments which I&#39;ve not yet to learn how to play, but still I love experimenting with them.<br /><br />
+          I&#39;ve completed my bachelor&#39;s in Computer Science Engineering (Politecnico di Milano) and now I&#39;m studying for a double degree master&#39;s in Human-Computer Interaction and UX/UI Design. After my entry year at Aalto University in Finland, I am now studying at KTH in Stockholm, which means that I will still have to survive the dark and cold Scandinavian nights of winter for one year :).<br /><br />
           To get to know me better, check my social media. Or just text me, I would appreciate it better :)<br />
         </div>
         <ul className='sm:hidden flex flex-row w-full justify-center flex-wrap gap-4 pt-8'>

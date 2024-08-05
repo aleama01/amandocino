@@ -4,10 +4,10 @@ import TextScramble from './TextScrambler';
 import Image from 'next/image';
 
 /**
- * Single post component of the 'Stories' section of the website. This is the element displayed in the gallery.
+ * Single post component of the 'Diary' section of the website. This is the element displayed in the gallery.
  *  
  * @param story contains the post details to be displayed. 
- * @returns {ReactNode} A react element that showcases the title, image and excerpt of a post of the 'Stories' category.
+ * @returns {ReactNode} A react element that showcases the title, image and excerpt of a post of the 'Diary' category.
  */
 const Story = ({ story, idx }: any) => {
   return (
