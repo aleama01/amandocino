@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react'
-import { BsArrowLeft, BsChevronDown } from 'react-icons/bs';
+import { BsArrowLeft } from 'react-icons/bs';
 import Projects from '../../components/Projects';
 import { getPosts } from '../../services';
 import Head from 'next/head';
@@ -21,7 +21,6 @@ const projects = ({ projects }: { projects: any }) => {
       </Head>
       <div className='flex flex-col projects min-h-screen overflow-scroll justify-center relative overflow-x-hidden' >
         <Projects projects={projects} />
-        <BsChevronDown className='scale-[1.5] z-10 fixed bottom-10 left-1/2 -translate-x-1/2 text-xs sm:text-sm animate-pulse' />
         <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={`/`} className='fixed font-thin left-2 sm:left-14 text-3xl top-2 sm:text-[32px] z-50' aria-label="Go back to homepage">
           <BsArrowLeft />
         </Link>

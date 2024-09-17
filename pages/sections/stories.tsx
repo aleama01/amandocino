@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { getPosts } from '../../services'
 import { Stories } from '../../components/Stories'
-import { BsArrowLeft, BsChevronDoubleDown, BsChevronDown } from 'react-icons/bs'
+import { BsArrowLeft } from 'react-icons/bs'
 import Head from 'next/head'
 
 /**
@@ -23,7 +23,6 @@ const stories = ({ stories }: { stories: Array<any> }) => {
           <BsArrowLeft />
         </Link>
         <Stories stories={stories} />
-        <BsChevronDown className='scale-[1.5] z-10 fixed bottom-10 left-1/2 -translate-x-1/2 text-xs sm:text-sm animate-pulse' />
       </div>
     </>
   )

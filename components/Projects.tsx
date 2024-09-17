@@ -10,15 +10,12 @@ import Project from './Project'
 const Projects = ({ projects }: { projects: any }) => {
 
   return (
-    <div className='flex flex-col sm:flex-row flex-wrap min-h-screen whitespace-nowrap w-[85vw] pt-[10vh] sm:w-[90vw] space-x-0 sm:space-x-4 space-y-10 sm:space-y-0 items-start mx-auto'>
+    <div className='flex flex-col sm:flex-row flex-wrap min-h-screen whitespace-nowrap w-[85vw] pt-[10vh] sm:w-[90vw] space-x-0 sm:justify-around space-y-10 sm:space-y-6 items-start mx-auto pb-[10vh]'>
       {projects.map((project: any, idx: number) => (
-        <div key={project.node.title} className={`h-[25vh] sm:h-[50vh] w-full ${idx % 5 < 2 ? 'sm:w-[43vw]' : 'sm:w-[27vw]'}`} >
+        <div key={project.node.title} className={`w-full ${idx % 5 < 2 ? 'sm:w-[43vw]' : 'sm:w-[27vw]'}`} >
           <Project project={project.node} />
         </div>
       ))}
-      <div className='w-full text-center text-sm mx-auto'>
-        more coming...
-      </div>
     </div>
   )
 }

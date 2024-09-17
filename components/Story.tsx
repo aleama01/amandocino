@@ -21,7 +21,7 @@ const Story = ({ story, idx }: any) => {
         </div>
       </motion.div>
       <div className='flex flex-col h-auto pointer-events-none '>
-        <h1 className='text-[4vw] py-1 whitespace-pre-wrap leading-none lg:text-[30px] text-left relative'>
+        <h1 className='text-[4vw] py-1 whitespace-pre-wrap leading-none lg:text-[24px] text-left relative'>
           <span className='text-transparent invisible'>{story.title.toUpperCase()}</span>
           {idx < 5 ?
             <span className=' absolute left-0 top-1'>
@@ -30,8 +30,8 @@ const Story = ({ story, idx }: any) => {
             :
             <span className='absolute left-0 top-1'>{story.title.toUpperCase()}</span>}
         </h1>
-        <div className='border-[0.5px] border-[#c8c8b6] w-4/5' />
-        <div className='text-xs sm:text-sm my-2 whitespace-pre-wrap text-[#c8c8b6]'>
+        <div className='border-[0.5px] border-[#9f9f9c] w-4/5' />
+        <div className='text-xs sm:text-sm my-2 whitespace-pre-wrap text-[#9f9f9c]'>
           {story.excerpt}
         </div>
       </div>

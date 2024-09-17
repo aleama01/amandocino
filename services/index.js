@@ -18,6 +18,7 @@ export const getPosts = async (category) => {
             }
             excerpt
             date
+            roles
             highlighted
             slug
             title
@@ -30,6 +31,9 @@ export const getPosts = async (category) => {
             }
             images(first:50) {
               url
+            }
+            tag(first:20) {
+              name
             }
           }
         }

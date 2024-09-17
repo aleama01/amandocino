@@ -65,10 +65,10 @@ const PostDetail = ({ post, posts }: any) => {
               className='w-full h-full object-center object-cover z-10 duration-200' />
           </div>
 
-          <div className='border-[0.5px] border-[#c8c8b6] mx-auto sm:mx-0 w-4/5 my-4' />
+          <div className='border-[0.5px] border-[#9f9f9c] mx-auto sm:mx-0 w-4/5 my-4' />
 
           <h1 className='-mt-2 sm:-mt-0 z-30 text-center sm:text-left overflow-hidden leading-5 sm:leading-normal' >
-            <span className='text-[6vw] sm:text-[30px]'>
+            <span className='text-[6vw] sm:text-[24px]'>
               <TextScramble phrase={post.title.toUpperCase()} />
             </span>
           </h1>
@@ -77,7 +77,7 @@ const PostDetail = ({ post, posts }: any) => {
 
         <div className='mx-auto text-justify w-[80vw] text-sm pt-4 sm:w-2/5 sm:pt-20 z-20'>
 
-          <div className='text-[#c8c8b6] text-right py-1 text-sm pl-0 sm:pl-0 '>
+          <div className='text-[#9f9f9c] text-right py-1 text-sm pl-0 sm:pl-0 '>
             {post.authors.map((author: any) => (
               <div className='flex flex-row gap-x-1 items-center cursor-pointer ' key={author.name}>
                 <a href={author.link} target="_blank" rel="noreferrer" aria-label="External link to author's social media">
@@ -102,7 +102,7 @@ const PostDetail = ({ post, posts }: any) => {
             )
           })}
 
-          <div className='m-2 text-[#c8c8b6] text-sm text-right'>
+          <div className='m-2 text-[#9f9f9c] text-sm text-right'>
             {post.date}
           </div>
 

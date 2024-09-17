@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from 'react';
-import { BsChevronDown } from "react-icons/bs";
 import { motion, useScroll, useTransform } from "framer-motion"
 import { isMobile } from "../scripts/isMobile";
 import SideMenuButton from "./SideMenuButton";
@@ -16,7 +15,7 @@ const PresentationTitle = () => {
   return (
     <div className="flex flex-col items-start px-[10vw] absolute scroll-smooth justify-center w-screen h-screen ">
       <motion.div style={{ translateY: useTransform(scrollYProgress, [0, 1], [0, -200]), opacity: useTransform(scrollYProgress, [0, 1], [1, 0]) }}
-        className="pointer-events-none duration-200 z-20 flex flex-col text-sm sm:text-lg text-[#c8c8b6]"
+        className="pointer-events-none duration-200 z-20 flex flex-col text-sm sm:text-lg text-[#9f9f9c]"
       >
         <p> hellooo, my name is </p>
         <h1 className="text-[10vw] sm:text-[85px] py-1 text-[#ffffe9]" style={{ lineHeight: 0.9 }}>
@@ -106,8 +105,6 @@ const Homepage = () => {
       <motion.div style={{ opacity: useTransform(scrollYProgress, [0, 1], [0, 1.5]), translateY: useTransform(scrollYProgress, [0, 1], [400, -200]) }} className='flex flex-row pointer-events-none w-screen h-screen items-center justify-center'>
         <HomeGallery />
       </motion.div>
-
-      <BsChevronDown className='scale-[1.5] z-10 fixed bottom-10 left-1/2 -translate-x-1/2 text-xs sm:text-sm animate-pulse' />
     </div>
   );
 };

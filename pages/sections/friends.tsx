@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { getPosts } from '../../services'
 import { Friends } from '../../components/Friends'
 import Link from 'next/link'
-import { BsArrowLeft, BsChevronDown } from 'react-icons/bs'
+import { BsArrowLeft } from 'react-icons/bs'
 import Head from 'next/head'
 
 
@@ -24,7 +24,6 @@ const friends = ({ friends }: { friends: Array<any> }) => {
         <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={`/`} className='fixed font-thin left-2 sm:left-14 text-3xl top-2 sm:text-[32px] z-50' aria-label="Go back to homepage">
           <BsArrowLeft />
         </Link>
-        <BsChevronDown className='scale-[1.5] z-10 fixed bottom-10 left-1/2 -translate-x-1/2 text-xs sm:text-sm animate-pulse' />
       </div>
     </>
   )

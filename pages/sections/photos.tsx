@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { BsArrowLeft, BsChevronDown } from 'react-icons/bs'
+import { BsArrowLeft } from 'react-icons/bs'
 import PhotosGallery from '../../components/PhotosGallery'
 import { getPosts } from '../../services'
 import Head from 'next/head'
@@ -23,7 +23,6 @@ const photos = ({ places }: { places: Array<any> }) => {
         <div className='duration-300 pb-10' >
           <PhotosGallery places={places} />
         </div>
-        <BsChevronDown className='scale-[1.5] z-10 fixed bottom-10 left-1/2 -translate-x-1/2 text-xs sm:text-sm animate-pulse' />
         <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={`/`} className='fixed font-thin left-2 sm:left-14 text-3xl top-2 sm:text-[32px] z-50' aria-label="Go back to homepage">
           <BsArrowLeft />
         </Link>

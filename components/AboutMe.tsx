@@ -24,19 +24,19 @@ export const AboutMe = () => {
 
         <ul className='hidden sm:flex text-sm flex-row space-x-4 items-end'>
           <li>
-            <a target="_blank" rel="noreferrer" href='https://www.instagram.com/alessandro_amandonico/' className="text-[#c8c8b6] underline flex flex-row items-center">
+            <a target="_blank" rel="noreferrer" href='https://www.instagram.com/alessandro_amandonico/' className="text-[#9f9f9c] underline flex flex-row items-center">
               Instagram
               <HiOutlineExternalLink className=' scale-120 ml-1' />
             </a>
           </li>
           <li>
-            <a target="_blank" rel="noreferrer" href='https://github.com/aleama01' className="text-[#c8c8b6] underline flex flex-row items-center">
+            <a target="_blank" rel="noreferrer" href='https://github.com/aleama01' className="text-[#9f9f9c] underline flex flex-row items-center">
               Github
               <HiOutlineExternalLink className=' scale-120 ml-1' />
             </a>
           </li>
           <li>
-            <a target="_blank" rel="noreferrer" href='https://www.linkedin.com/in/alessandro-amandonico/' className="text-[#c8c8b6] underline flex flex-row items-center">
+            <a target="_blank" rel="noreferrer" href='https://www.linkedin.com/in/alessandro-amandonico/' className="text-[#9f9f9c] underline flex flex-row items-center">
               Linkedin
               <HiOutlineExternalLink className=' scale-120 ml-1' />
             </a>
@@ -46,7 +46,7 @@ export const AboutMe = () => {
 
 
       <div className='sm:basis-1/3  flex flex-col space-y-2'>
-        <h1 className='text-center text-[30px] sm:w-4/5 sm:text-left mx-auto mt-2 sm:mt-10 ' >
+        <h1 className='text-center text-[24px] sm:w-4/5 sm:text-left mx-auto mt-2 sm:mt-10 ' >
           ABOUT ME
         </h1>
 
@@ -59,19 +59,19 @@ export const AboutMe = () => {
         </div>
         <ul className='sm:hidden flex flex-row w-full justify-center flex-wrap gap-4 pt-8'>
           <li>
-            <a target="_blank" rel="noreferrer" href='https://www.instagram.com/alessandro_amandonico/' className="text-[#c8c8b6] underline flex flex-row items-center">
+            <a target="_blank" rel="noreferrer" href='https://www.instagram.com/alessandro_amandonico/' className="text-[#9f9f9c] underline flex flex-row items-center">
               Instagram
               <HiOutlineExternalLink className=' scale-120 ml-1' />
             </a>
           </li>
           <li>
-            <a target="_blank" rel="noreferrer" href='https://github.com/aleama01' className="text-[#c8c8b6] underline flex flex-row items-center">
+            <a target="_blank" rel="noreferrer" href='https://github.com/aleama01' className="text-[#9f9f9c] underline flex flex-row items-center">
               Github
               <HiOutlineExternalLink className=' scale-120 ml-1' />
             </a>
           </li>
           <li>
-            <a target="_blank" rel="noreferrer" href='https://www.linkedin.com/in/alessandro-amandonico/' className="text-[#c8c8b6] underline flex flex-row items-center">
+            <a target="_blank" rel="noreferrer" href='https://www.linkedin.com/in/alessandro-amandonico/' className="text-[#9f9f9c] underline flex flex-row items-center">
               Linkedin
               <HiOutlineExternalLink className=' scale-120 ml-1' />
             </a>

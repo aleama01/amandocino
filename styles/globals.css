@@ -14,10 +14,22 @@ body {
   font-family: 'ClashDisplay-Light';
   font-size: 14px;
   font-weight: 300;
+  line-height: 1;
   color: #ffffe9;
   letter-spacing: 0.05rem;
 }
 
+.font-medium {
+  font-family: 'ClashDisplay-Medium';
+}
+
+.font-semibold {
+  font-family: 'ClashDisplay-Semibold';
+}
+
+.font-bold {
+  font-family: 'ClashDisplay-Bold';
+}
 
 h2 {
   font-family: 'ClashDisplay-Light';
