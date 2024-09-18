@@ -91,6 +91,7 @@ export const getPostDetails = async (slug) => {
         }
         date
         excerpt
+        roles
         highlighted
         slug
         title
@@ -103,6 +104,9 @@ export const getPostDetails = async (slug) => {
         }
         images (first:50) {
           url
+        }
+        tag (first:20) {
+          name
         }
       }
     }

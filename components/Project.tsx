@@ -16,11 +16,11 @@ const Project = ({ project }: { project: any }) => {
   const { openProjectModal, setOpenProjectModal } = useContext(Context);
 
   const handleClick = () => {
-    setOpenProjectModal(project.title);
+    //setOpenProjectModal(project.title);
   }
 
   return (
-    <div className='overflow-x-hidden'>
+    <div className='overflow-x-hidden '>
       <div onClick={() => handleClick()}>
         <motion.div className='h-[20vh] sm:h-[250px] overflow-hidden w-auto flex flex-row justify-center items-center'
           initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5 } }} onClick={() => handleClick()}>

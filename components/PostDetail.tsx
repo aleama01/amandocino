@@ -13,7 +13,7 @@ import Image from 'next/image';
  * @returns {ReactNode} A react component displaying all the details of a post: text, images, title, cover image, author, recent post.
  */
 const PostDetail = ({ post, posts }: any) => {
-
+  console.log(post)
   // Function to transform text from post body to HTML components
   const getContentFragment = (index: any, text: any, obj: any, type: any) => {
     let modifiedText = text;
@@ -56,6 +56,7 @@ const PostDetail = ({ post, posts }: any) => {
   return (
     <div className='flex flex-col text-[#ffffe9]' >
       <div className='flex flex-col sm:flex-row px-[7vw] py-[5vh]'>
+
         <div className=' justify-self-start sm:pt-20 basis-3/5 relative mt-1 sm:pr-[5vw]' >
 
           <div className=' w-full h-[50vh] sm:w-[50vw] sm:h-[60vh] overflow-hidden' >
@@ -72,6 +73,21 @@ const PostDetail = ({ post, posts }: any) => {
               <TextScramble phrase={post.title.toUpperCase()} />
             </span>
           </h1>
+
+          <div className='text-xs sm:text-sm my-2 font-medium text-center sm:text-left whitespace-pre-wrap text-[#9f9f9c]'>
+            {post.roles}
+          </div>
+
+          <div className='flex-row flex flex-wrap justify-center sm:justify-start gap-1'>
+            {post.tag.map((t: any, index: number) => {
+              return (
+                <div className='bg-[#ffffe9] rounded-full text-xs font-medium p-1 text-[#10100E]' key={index}>
+                  {t.name}
+                </div>
+              )
+            })}
+          </div>
+
         </div>
 
 
