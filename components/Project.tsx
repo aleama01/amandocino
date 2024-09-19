@@ -13,17 +13,13 @@ import Image from 'next/image'
  * @returns {ReactNode} A react element that showcases the title and image of a post of the 'Projects' category.
  */
 const Project = ({ project }: { project: any }) => {
-  const { openProjectModal, setOpenProjectModal } = useContext(Context);
 
-  const handleClick = () => {
-    //setOpenProjectModal(project.title);
-  }
 
   return (
     <div className='overflow-x-hidden '>
-      <div onClick={() => handleClick()}>
+      <div>
         <motion.div className='h-[20vh] sm:h-[250px] overflow-hidden w-auto flex flex-row justify-center items-center'
-          initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5 } }} onClick={() => handleClick()}>
+          initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5 } }} >
           <div className=' h-full w-full overflow-hidden' >
             <Image alt="Project post image"
               loading='eager' priority={true} fetchPriority="high"
@@ -43,16 +39,12 @@ const Project = ({ project }: { project: any }) => {
           <div className='text-xs sm:text-sm my-2 whitespace-pre-wrap text-[#9f9f9c]'>
             {project.excerpt}
           </div>
-          <div className=' flex flex-row text-[#9f9f9c] items-center gap-1 text-xs py-1 justify-end'>
+          <div className=' flex flex-row text-[#9f9f9c] items-center gap-1 text-xs py-1 justify-end sm:pb-6'>
             Discover more
             <BsArrowUpRight className='scale-90' />
           </div>
         </div>
 
-      </div>
-
-      <div className='z-50'>
-        <ProjectModal project={project} />
       </div>
     </div>
   )
