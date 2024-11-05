@@ -63,7 +63,7 @@ const Homepage = () => {
 
         <div className=" flex-row justify-around basis-2/3 sm:basis-1/3 flex" >
           <>|</>
-          <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={`sections/stories`} className='pointer-events-auto '>
+          <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={`sections/diary`} className='pointer-events-auto '>
             diary
           </Link>
           <>|</>
