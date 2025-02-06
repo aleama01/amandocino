@@ -28,14 +28,14 @@ export default PostDetails;
 
 export async function getStaticProps({ params }) {
   const data = await getPostDetails(params.slug);
-  let posts = (await getRecentTenPosts("Stories")) || [];
+  let posts = (await getRecentTenPosts("Diary")) || [];
 
   return {
     props: { post: data, posts: posts },
   };
 }
 export async function getStaticPaths() {
-  const posts = await getPosts("Stories");
+  const posts = await getPosts("Diary");
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
     fallback: false,

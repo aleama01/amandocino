@@ -31,7 +31,7 @@ const stories = ({ stories }: { stories: Array<any> }) => {
 export default stories
 
 export async function getStaticProps() {
-  const stories = (await getPosts('Stories')) || [];
+  const stories = (await getPosts('Diary')) || [];
   return {
     props: { stories }
   }

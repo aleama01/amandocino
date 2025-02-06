@@ -29,8 +29,8 @@ const SideMenu = () => {
       </button>
 
       <div className='flex flex-col items-center h-full justify-center'>
-        {(pathname != null && pathname != "/sections/stories") &&
-          <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={'/sections/stories'}>
+        {(pathname != null && pathname != "/sections/diary") &&
+          <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={'/sections/diary'}>
             <h1 className='duration-500 menuel '
               onClick={() => (handleClick())}> DIARY </h1>
           </Link>
