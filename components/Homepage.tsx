@@ -1,9 +1,16 @@
+'use client';
+
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useScroll, AnimatePresence, useTransform, useAnimation } from "framer-motion"
+import { useRouter } from 'next/navigation';
 import { isMobile } from "../scripts/isMobile";
+import { useTransition } from './TransitionProvider';
+import AnimatedOverlay from './AnimatedOverlay';
 import SideMenuButton from "./SideMenuButton";
 import HomeGallery from "./HomeGallery";
+import Image from "next/image";
+
 
 /**
  * Component shown on landing page presenting the author and the website.
@@ -38,7 +45,7 @@ const PresentationTitle = () => {
  * 
  * @returns {ReactNode} A react component showing all the elements of the homepage.
  */
-const Homepage = () => {
+const HomepageOld = () => {
   // Used for scrolling animation of the PresentationTitle component
   const scrollRef = useRef(null)
   const { scrollYProgress } = useScroll({
@@ -109,5 +116,61 @@ const Homepage = () => {
   );
 };
 
+const Homepage = ({ showContent = true }: { showContent?: boolean }) => {
+  return (
+    <div className="h-[100dvh] w-[100dvw] relative">
+      <AnimatePresence>
+        {showContent && (
+          <>
+            <motion.div
+              initial={{ opacity: 0, x: "10vw", y: "20px", scale: 0 }}
+              animate={{ opacity: 1, x: "10vw", y: "20px", scale: 1 }}
+              exit={{ opacity: 0, x: "10vw", y: "20px", scale: 0 }}
+              transition={{ duration: 0.2, delay: 0.5, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              className="absolute z-10 flex flex-col items-center justify-center"
+            >
+              <Image src="/spring.png" alt="spring" width={400} height={400} />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: "70vw", y: "60vh", scale: 0 }}
+              animate={{ opacity: 1, x: "70vw", y: "60vh", scale: 1 }}
+              exit={{ opacity: 0, x: "70vw", y: "60vh", scale: 0 }}
+              transition={{ duration: 0.2, delay: 0.5, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              className="absolute z-10 flex flex-col items-center justify-center"
+            >
+              <Image src="/flower.png" alt="spring" width={400} height={400} />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: "0", y: "50vh", scale: 0 }}
+              animate={{ opacity: 1, x: "0", y: "50vh", scale: 1 }}
+              exit={{ opacity: 0, x: "0", y: "50vh", scale: 0 }}
+              transition={{ duration: 0.2, delay: 0.5, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              className="absolute z-10 flex flex-col items-center justify-center"
+            >
+              <Image src="/points.png" alt="spring" width={400} height={400} />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: "30vw", y: "70vh", scale: 0 }}
+              animate={{ opacity: 1, x: "30vw", y: "70vh", scale: 1 }}
+              exit={{ opacity: 0, x: "30vw", y: "70vh", scale: 0 }}
+              transition={{ duration: 0.2, delay: 0.5, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              className="absolute z-10 flex flex-col items-center justify-center"
+            >
+              <Image src="/star.png" alt="spring" width={400} height={400} />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: "65vw", y: "10px", scale: 0 }}
+              animate={{ opacity: 1, x: "65vw", y: "10px", scale: 1 }}
+              exit={{ opacity: 0, x: "65vw", y: "10px", scale: 0 }}
+              transition={{ duration: 0.2, delay: 0.5, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              className="absolute z-10 flex flex-col items-center justify-center">
+              <Image src="/crown.png" alt="spring" width={400} height={400} />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
 
 export default Homepage;

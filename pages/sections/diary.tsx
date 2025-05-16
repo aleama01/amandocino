@@ -1,9 +1,11 @@
 import React from 'react'
-import Link from 'next/link'
 import { getPosts } from '../../services'
 import { Stories } from '../../components/Stories'
-import { BsArrowLeft } from 'react-icons/bs'
 import Head from 'next/head'
+import { motion, AnimatePresence, useAnimation } from 'framer-motion'
+import { usePathname } from 'next/navigation'
+import { overlayDirectionMap, SectionKey } from '../../components/Layout'
+
 
 /**
  * Container and wrapper of the 'Stories' component for this page section.
@@ -11,19 +13,39 @@ import Head from 'next/head'
  * @param stories array containing all the posts of this category.
  * @returns {ReactNode} A react component that is a container for Stories component and the Head component of this page.
  */
-const stories = ({ stories }: { stories: Array<any> }) => {
+const stories = ({ stories, showContent = true }: { stories: Array<any>, showContent?: boolean }) => {
   return (
     <>
       <Head>
         <title>Amandocino | Diary</title>
         <meta name="description" content="Discover the personal stories and reflections in our archive, featuring a virtual diary filled with entries in Italian. Dive into the pages that track the passage of time and personal experiences." />
       </Head>
-      <div className='flex stories flex-col min-h-screen justify-center pt-[5vh] px-[5vw] overflow-x-hidden ' >
-        <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={`/`} className='fixed font-thin left-2 sm:left-14 text-3xl top-2 sm:text-[32px] z-40' aria-label="Go back to homepage">
-          <BsArrowLeft />
-        </Link>
-        <Stories stories={stories} />
-      </div>
+      <AnimatePresence>
+        {showContent && (
+          <>
+            <motion.div
+              key={"diary"}
+              initial={{ x: '100vw' }}
+              animate={overlayDirectionMap['diary' as SectionKey]}
+              exit={{ x: '100vw' }}
+              transition={{ type: 'tween', duration: 0.2 }}
+              className='flex flex-col bg-black justify-center z-10 px-[2vw] w-[55vw] max-h-screen overflow-y-auto absolute top-0'
+            >
+              <Stories stories={stories} />
+            </motion.div>
+            <motion.div
+              key={"diary-overlay"}
+              initial={{ x: '100vw', y: '80vh' }}
+              animate={{ x: '-56vw', y: '80vh' }}
+              exit={{ x: '100vw', y: '80vh' }}
+              transition={{ type: 'tween', duration: 0.2 }}
+              className='font-bold text-[128px] text-right'
+            >
+              DIARY
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </>
   )
 }
@@ -31,7 +53,7 @@ const stories = ({ stories }: { stories: Array<any> }) => {
 export default stories
 
 export async function getStaticProps() {
-  const stories = (await getPosts('Diary')) || [];
+  const stories = (await getPosts('Diary')) ?? [];
   return {
     props: { stories }
   }

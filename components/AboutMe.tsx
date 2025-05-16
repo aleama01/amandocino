@@ -11,7 +11,7 @@ import { HiOutlineExternalLink } from 'react-icons/hi'
 export const AboutMe = () => {
 
   return (
-    <div className='flex flex-col sm:flex-row justify-center text-[#ffffe9] items-center min-h-screen px-[5vw] space-y-4 pb-6' >
+    <div className='flex flex-col sm:flex-row justify-center text-[#ffffe9] items-center min-h-screen space-y-4 pb-6' >
 
       <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={`/`} className='fixed font-thin left-2 sm:left-14 text-3xl top-2 sm:text-[32px] z-50' aria-label="Go back to homepage">
         <BsArrowLeft />

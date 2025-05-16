@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^9.56.13",
+    "@react-three/fiber": "^8.13.6",
     "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^0.9.400",
     "@types/node": "18.11.10",

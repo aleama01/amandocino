@@ -11,7 +11,7 @@ const Footer = () => {
     return date.getFullYear()
   }
   return (
-    <div className='absolute bottom-2 w-full text-xs text-[#9f9f9c] z-20 flex flex-row justify-center '>
+    <div className='absolute bottom-2 w-full text-xs text-[#EDF0D8] z-20 flex flex-row justify-center '>
       © {getYear()} Alessandro Amandonico. All rights reserved.
     </div>
   )

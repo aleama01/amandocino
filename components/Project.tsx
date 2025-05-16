@@ -18,7 +18,7 @@ const Project = ({ project }: { project: any }) => {
   return (
     <div className='overflow-x-hidden '>
       <div>
-        <motion.div className='h-[20vh] sm:h-[250px] overflow-hidden w-auto flex flex-row justify-center items-center'
+        <motion.div className='h-[400px] overflow-hidden w-auto flex flex-row justify-center items-center'
           initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5 } }} >
           <div className=' h-full w-full overflow-hidden' >
             <Image alt="Project post image"
@@ -29,19 +29,11 @@ const Project = ({ project }: { project: any }) => {
         </motion.div>
 
         <div className='flex flex-col'>
-          <h1 className='text-[5vw] py-1 whitespace-pre-wrap sm:text-[24px] text-left'>
-            <TextScramble phrase={project.title.toUpperCase()} />
-          </h1>
-          <div className='text-xs sm:text-sm mb-2 font-medium whitespace-pre-wrap text-[#9f9f9c]'>
+          <h2 className=' py-2 whitespace-pre-wrap text-left'>
+            {project.title.toUpperCase()}
+          </h2>
+          <div className='whitespace-pre-wrap text-[#9f9f9c]'>
             {project.roles}
-          </div>
-          <div className='border-[0.5px] border-[#9f9f9c] w-4/5' />
-          <div className='text-xs sm:text-sm my-2 whitespace-pre-wrap text-[#9f9f9c]'>
-            {project.excerpt}
-          </div>
-          <div className=' flex flex-row text-[#9f9f9c] items-center gap-1 text-xs py-1 justify-end sm:pb-6'>
-            Discover more
-            <BsArrowUpRight className='scale-90' />
           </div>
         </div>
 

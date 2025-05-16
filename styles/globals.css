@@ -6,17 +6,33 @@
 
 html {
   cursor: crosshair;
-  background: #10100E fixed;
-  background-size: cover;
+  background: #256D1F fixed;
+  background-image: url('/Static_1.png');
+  /*background-blend-mode: color-burn;*/
+  animation: moveNoise 1s steps(4) infinite;
+  background-size: 800px;
+  background-repeat: repeat;
+}
+
+@keyframes moveNoise {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: -100px -100px;
+  }
+
+  100% {
+    background-position: 100px 100px;
+  }
 }
 
 body {
   font-family: 'ClashDisplay-Light';
   font-size: 14px;
-  font-weight: 300;
   line-height: 1;
-  color: #ffffe9;
-  letter-spacing: 0.05rem;
+  color: #EDF0D8;
 }
 
 .font-medium {
@@ -32,14 +48,14 @@ body {
 }
 
 h2 {
-  font-family: 'ClashDisplay-Light';
-  font-weight: 200;
-  letter-spacing: 0.1rem;
+  font-family: 'ClashDisplay-Medium';
+  font-size: 14px;
 }
 
 h1 {
   font-family: 'ClashDisplay-Semibold';
-  font-weight: 300;
+  letter-spacing: -0.25rem;
+  font-size: 48px;
 }
 
 .menuel {
