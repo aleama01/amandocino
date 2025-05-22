@@ -5,6 +5,8 @@ import { HiOutlineExternalLink } from 'react-icons/hi'
 import TextScramble from './TextScrambler';
 import RecentPosts from './RecentPosts';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 
 /**
  * Post detail structure for posts in the friends and diary sections.
@@ -13,7 +15,7 @@ import Image from 'next/image';
  * @returns {ReactNode} A react component displaying all the details of a post: text, images, title, cover image, author, recent post.
  */
 const PostDetail = ({ post, posts }: any) => {
-  console.log(post)
+
   // Function to transform text from post body to HTML components
   const getContentFragment = (index: any, text: any, obj: any, type: any) => {
     let modifiedText = text;
@@ -32,11 +34,11 @@ const PostDetail = ({ post, posts }: any) => {
 
     switch (type) {
       case 'heading-three':
-        return <h3 key={index} className='mb-3 '>{modifiedText.map((item: any, i: React.Key) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>
+        return <h3 key={index} className=' '>{modifiedText.map((item: any, i: React.Key) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>
       case 'paragraph':
-        return <p key={index} className='mb-3 '>{modifiedText.map((item: any, i: React.Key) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>
+        return <p key={index} className=''>{modifiedText.map((item: any, i: React.Key) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>
       case 'heading-four':
-        return <h4 key={index} className="mb-4">{modifiedText.map((item: any, i: React.Key) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
+        return <h4 key={index} className="">{modifiedText.map((item: any, i: React.Key) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
       case 'image':
         return (
           <Image
@@ -54,34 +56,26 @@ const PostDetail = ({ post, posts }: any) => {
   }
 
   return (
-    <div className='flex flex-col text-[#ffffe9]' >
-      <div className='flex flex-col sm:flex-row px-[7vw] py-[5vh]'>
+    <div className='flex flex-col w-[55vw] py-[5vh] overflow-y-auto overflow-x-hidden px-[2vw] ' >
+      <div className='flex flex-col'>
+        <div className=' justify-self-start relative mt-1' >
 
-        <div className=' justify-self-start sm:pt-20 basis-3/5 relative mt-1 sm:pr-[5vw]' >
-
-          <div className=' w-full h-[50vh] sm:w-[50vw] sm:h-[60vh] overflow-hidden' >
+          <div className=' w-full h-[300px] overflow-hidden' >
             <Image alt="Post main image" width={720} height={720} src={`${post.image.url}`}
               loading='eager' priority={true} fetchPriority="high"
               sizes="(max-width: 768px) 100vw, 50vw"
               className='w-full h-full object-center object-cover z-10 duration-200' />
           </div>
 
-          <div className='border-[0.5px] border-[#9f9f9c] mx-auto sm:mx-0 w-4/5 my-4' />
-
-          <h1 className='-mt-2 sm:-mt-0 z-30 text-center sm:text-left overflow-hidden leading-5 sm:leading-normal' >
-            <span className='text-[6vw] sm:text-[24px]'>
-              <TextScramble phrase={post.title.toUpperCase()} />
+          <h2 className='mt-2 mb-3 z-30 text-center sm:text-left overflow-hidden leading-5 sm:leading-normal' >
+            <span className='text-base'>
+              {post.title.toUpperCase()}
             </span>
-          </h1>
-
-          <div className='text-xs sm:text-sm my-2 font-medium text-center sm:text-left whitespace-pre-wrap text-[#9f9f9c]'>
-            {post.roles}
-          </div>
-
+          </h2>
           <div className='flex-row flex flex-wrap justify-center sm:justify-start gap-1'>
             {post.tag.map((t: any, index: number) => {
               return (
-                <div className='bg-[#ffffe9] rounded-full text-xs font-medium p-1 text-[#10100E]' key={index}>
+                <div className='bg-[#EDF0D8] rounded-full text-xs font-medium p-1 text-[#10100E]' key={index}>
                   {t.name}
                 </div>
               )
@@ -91,19 +85,7 @@ const PostDetail = ({ post, posts }: any) => {
         </div>
 
 
-        <div className='mx-auto text-justify w-[80vw] text-sm pt-4 sm:w-2/5 sm:pt-20 z-20'>
-
-          <div className='text-[#9f9f9c] text-right py-1 text-sm pl-0 sm:pl-0 '>
-            {post.authors.map((author: any) => (
-              <div className='flex flex-row gap-x-1 items-center cursor-pointer ' key={author.name}>
-                <a href={author.link} target="_blank" rel="noreferrer" aria-label="External link to author's social media">
-                  {author.name}
-                </a>
-                <HiOutlineExternalLink className=' scale-120' />
-              </div>
-            ))}
-          </div>
-
+        <div className='text-left text-sm z-20 whitespace-pre-wrap'>
           {post.content.raw.children.map((typeObj: any, index: any) => {
             const children = typeObj.children.map((item: any, itemIndex: any) => getContentFragment(itemIndex, item.text, item, typeObj))
 
@@ -123,13 +105,8 @@ const PostDetail = ({ post, posts }: any) => {
           </div>
 
 
-          <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={`/sections/${post.category.slug}`} className='fixed font-thin left-2 sm:left-14 text-3xl top-2 sm:text-[32px] z-50' aria-label="Go back to previous page">
-            <BsArrowLeft />
-          </Link>
         </div>
-
       </div>
-      <RecentPosts post={post} posts={posts} />
     </div >
   )
 }

@@ -5,4 +5,8 @@ export interface IContext {
   setMobile: (config: boolean) => void;
   openProjectModal: string;
   setOpenProjectModal: (config: string) => void;
+  expandStory: boolean;
+  setExpandStory: (config: boolean) => void;
+  showContent: boolean;
+  setShowContent: (config: boolean) => void;
 };

@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { getPosts } from '../../services'
 import { Stories } from '../../components/Stories'
 import Head from 'next/head'
 import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { overlayDirectionMap, SectionKey } from '../../components/Layout'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { Context } from '../../Context'
 
 
 /**
@@ -13,7 +16,23 @@ import { overlayDirectionMap, SectionKey } from '../../components/Layout'
  * @param stories array containing all the posts of this category.
  * @returns {ReactNode} A react component that is a container for Stories component and the Head component of this page.
  */
-const stories = ({ stories, showContent = true }: { stories: Array<any>, showContent?: boolean }) => {
+const stories = ({ stories }: { stories: Array<any> }) => {
+  const { expandStory, setExpandStory, showContent, setShowContent } = useContext(Context);
+  const router = useRouter();
+
+  const handleStoryClick = (slug: string) => {
+    setShowContent(false);
+
+    setTimeout(() => {
+      setExpandStory(true);
+    }, 400); // Match this to your exit animation duration
+
+    // After animation, navigate
+    setTimeout(() => {
+      router.push(`/sections/diary/${slug}`);
+    }, 400); // Match this to your expand animation duration
+  };
+
   return (
     <>
       <Head>
@@ -25,14 +44,39 @@ const stories = ({ stories, showContent = true }: { stories: Array<any>, showCon
           <>
             <motion.div
               key={"diary"}
-              initial={{ x: '100vw' }}
-              animate={overlayDirectionMap['diary' as SectionKey]}
-              exit={{ x: '100vw' }}
-              transition={{ type: 'tween', duration: 0.2 }}
-              className='flex flex-col bg-black justify-center z-10 px-[2vw] w-[55vw] max-h-screen overflow-y-auto absolute top-0'
+              initial={{ left: '100vw' }}
+              animate={{ ...overlayDirectionMap['diary' as SectionKey] }}
+              exit={{ left: '100vw' }}
+              transition={{ type: 'tween', duration: 0.4 }}
+              className=' bg-[#101411] flex flex-row justify-start z-20 max-h-screen overflow-y-auto absolute top-0'
+              style={{ willChange: 'transform, opacity, left' }}
             >
-              <Stories stories={stories} />
+              <div className='flex flex-col justify-center px-[2vw] w-[55vw] max-h-screen overflow-y-auto'>
+                <Stories stories={stories} onStoryClick={handleStoryClick} />
+              </div>
             </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: "5vw", y: "-100px", scale: 0 }}
+              animate={{ opacity: 1, x: "5vw", y: "-100px", scale: 1 }}
+              exit={{ opacity: 0, x: "5vw", y: "-100px", scale: 0 }}
+              transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              className="absolute flex flex-col items-center justify-center"
+              style={{ willChange: 'transform, opacity' }}
+            >
+              <Image src="/spring.png" alt="spring" width={500} height={500} />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: "35vw", y: "40vh", scale: 0 }}
+              animate={{ opacity: 1, x: "35vw", y: "40vh", scale: 1 }}
+              exit={{ opacity: 0, x: "35vw", y: "40vh", scale: 0 }}
+              transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              className="absolute flex flex-col items-center justify-center"
+              style={{ willChange: 'transform, opacity' }}
+            >
+              <Image src="/spring.png" alt="spring" width={300} height={300} className='rotate-[-50deg]' />
+            </motion.div>
+
             <motion.div
               key={"diary-overlay"}
               initial={{ x: '100vw', y: '80vh' }}
@@ -40,6 +84,7 @@ const stories = ({ stories, showContent = true }: { stories: Array<any>, showCon
               exit={{ x: '100vw', y: '80vh' }}
               transition={{ type: 'tween', duration: 0.2 }}
               className='font-bold text-[128px] text-right'
+              style={{ willChange: 'transform, opacity' }}
             >
               DIARY
             </motion.div>

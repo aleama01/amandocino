@@ -5,9 +5,9 @@ import Homepage from '../components/Homepage'
  * 
  * @returns {ReactNode} The Homepage react component.
  */
-export default function Home({ showContent = true }: { showContent?: boolean }) {
+export default function Home() {
   return (
-    <Homepage showContent={showContent} />
+    <Homepage />
   )
 }
 

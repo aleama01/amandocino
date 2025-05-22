@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { motion, useScroll, AnimatePresence, useTransform, useAnimation } from "framer-motion"
 import { useRouter } from 'next/navigation';
 import { isMobile } from "../scripts/isMobile";
@@ -10,6 +10,7 @@ import AnimatedOverlay from './AnimatedOverlay';
 import SideMenuButton from "./SideMenuButton";
 import HomeGallery from "./HomeGallery";
 import Image from "next/image";
+import { Context } from "../Context";
 
 
 /**
@@ -116,7 +117,8 @@ const HomepageOld = () => {
   );
 };
 
-const Homepage = ({ showContent = true }: { showContent?: boolean }) => {
+const Homepage = () => {
+  const { showContent } = useContext(Context)
   return (
     <div className="h-[100dvh] w-[100dvw] relative">
       <AnimatePresence>
@@ -126,8 +128,9 @@ const Homepage = ({ showContent = true }: { showContent?: boolean }) => {
               initial={{ opacity: 0, x: "10vw", y: "20px", scale: 0 }}
               animate={{ opacity: 1, x: "10vw", y: "20px", scale: 1 }}
               exit={{ opacity: 0, x: "10vw", y: "20px", scale: 0 }}
-              transition={{ duration: 0.2, delay: 0.5, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              transition={{ duration: 0.1, delay: 0.2, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
               className="absolute z-10 flex flex-col items-center justify-center"
+              style={{ willChange: 'transform, opacity' }}
             >
               <Image src="/spring.png" alt="spring" width={400} height={400} />
             </motion.div>
@@ -135,8 +138,9 @@ const Homepage = ({ showContent = true }: { showContent?: boolean }) => {
               initial={{ opacity: 0, x: "70vw", y: "60vh", scale: 0 }}
               animate={{ opacity: 1, x: "70vw", y: "60vh", scale: 1 }}
               exit={{ opacity: 0, x: "70vw", y: "60vh", scale: 0 }}
-              transition={{ duration: 0.2, delay: 0.5, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              transition={{ duration: 0.1, delay: 0.2, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
               className="absolute z-10 flex flex-col items-center justify-center"
+              style={{ willChange: 'transform, opacity' }}
             >
               <Image src="/flower.png" alt="spring" width={400} height={400} />
             </motion.div>
@@ -144,8 +148,9 @@ const Homepage = ({ showContent = true }: { showContent?: boolean }) => {
               initial={{ opacity: 0, x: "0", y: "50vh", scale: 0 }}
               animate={{ opacity: 1, x: "0", y: "50vh", scale: 1 }}
               exit={{ opacity: 0, x: "0", y: "50vh", scale: 0 }}
-              transition={{ duration: 0.2, delay: 0.5, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              transition={{ duration: 0.1, delay: 0.2, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
               className="absolute z-10 flex flex-col items-center justify-center"
+              style={{ willChange: 'transform, opacity' }}
             >
               <Image src="/points.png" alt="spring" width={400} height={400} />
             </motion.div>
@@ -153,8 +158,9 @@ const Homepage = ({ showContent = true }: { showContent?: boolean }) => {
               initial={{ opacity: 0, x: "30vw", y: "70vh", scale: 0 }}
               animate={{ opacity: 1, x: "30vw", y: "70vh", scale: 1 }}
               exit={{ opacity: 0, x: "30vw", y: "70vh", scale: 0 }}
-              transition={{ duration: 0.2, delay: 0.5, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              transition={{ duration: 0.1, delay: 0.2, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
               className="absolute z-10 flex flex-col items-center justify-center"
+              style={{ willChange: 'transform, opacity' }}
             >
               <Image src="/star.png" alt="spring" width={400} height={400} />
             </motion.div>
@@ -162,9 +168,11 @@ const Homepage = ({ showContent = true }: { showContent?: boolean }) => {
               initial={{ opacity: 0, x: "65vw", y: "10px", scale: 0 }}
               animate={{ opacity: 1, x: "65vw", y: "10px", scale: 1 }}
               exit={{ opacity: 0, x: "65vw", y: "10px", scale: 0 }}
-              transition={{ duration: 0.2, delay: 0.5, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
-              className="absolute z-10 flex flex-col items-center justify-center">
+              transition={{ duration: 0.1, delay: 0.2, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              className="absolute z-10 flex flex-col items-center justify-center"
+              style={{ willChange: 'transform, opacity' }}>
               <Image src="/crown.png" alt="spring" width={400} height={400} />
+
             </motion.div>
           </>
         )}

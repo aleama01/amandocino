@@ -12,12 +12,18 @@ export const Context = React.createContext<IContext>({
   setMobile(_config) { },
   openProjectModal: "",
   setOpenProjectModal(_config) { },
+  expandStory: false,
+  setExpandStory(_config) { },
+  showContent: false,
+  setShowContent(_config) { },
 })
 
 const ContextProvider: React.FC<Props> = ({ children }) => {
   const [openSideMenu, setOpenSideMenu] = React.useState<boolean>(false);
   const [mobile, setMobile] = React.useState<boolean>(false);
   const [openProjectModal, setOpenProjectModal] = React.useState<string>("");
+  const [expandStory, setExpandStory] = React.useState<boolean>(false);
+  const [showContent, setShowContent] = React.useState<boolean>(true);
   return (
     <Context.Provider
       value={{
@@ -27,6 +33,10 @@ const ContextProvider: React.FC<Props> = ({ children }) => {
         setMobile,
         openProjectModal,
         setOpenProjectModal,
+        expandStory,
+        setExpandStory,
+        showContent,
+        setShowContent
       }}>
       {children}
     </Context.Provider>
