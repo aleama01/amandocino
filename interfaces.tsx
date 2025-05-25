@@ -9,4 +9,6 @@ export interface IContext {
   setExpandStory: (config: boolean) => void;
   showContent: boolean;
   setShowContent: (config: boolean) => void;
+  flippedIdx: string | null;
+  setFlippedIdx: (config: string | null) => void;
 };

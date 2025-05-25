@@ -51,7 +51,7 @@ const stories = ({ stories }: { stories: Array<any> }) => {
               className=' bg-[#101411] flex flex-row justify-start z-20 max-h-screen overflow-y-auto absolute top-0'
               style={{ willChange: 'transform, opacity, left' }}
             >
-              <div className='flex flex-col justify-center px-[2vw] w-[55vw] max-h-screen overflow-y-auto'>
+              <div className='flex flex-col justify-start px-[2vw] w-[55vw] max-h-screen overflow-y-auto'>
                 <Stories stories={stories} onStoryClick={handleStoryClick} />
               </div>
             </motion.div>
@@ -83,7 +83,7 @@ const stories = ({ stories }: { stories: Array<any> }) => {
               animate={{ x: '-56vw', y: '80vh' }}
               exit={{ x: '100vw', y: '80vh' }}
               transition={{ type: 'tween', duration: 0.2 }}
-              className='font-bold text-[128px] text-right'
+              className='font-bold text-[128px] text-right leading-none'
               style={{ willChange: 'transform, opacity' }}
             >
               DIARY

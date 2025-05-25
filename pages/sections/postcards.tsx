@@ -1,13 +1,14 @@
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { BsArrowLeft } from 'react-icons/bs'
-import PhotosGallery from '../../components/PhotosGallery'
+import Postcards from '../../components/Postcards'
 import { getPosts } from '../../services'
 import Head from 'next/head'
 import { AnimatePresence, motion } from 'framer-motion'
 import { overlayDirectionMap, SectionKey } from '../../components/Layout'
-import { Stories } from '../../components/Stories'
-import stories from './diary'
+import { useRouter } from 'next/router'
+import { Context } from '../../Context'
+import Image from 'next/image'
 
 
 /**
@@ -16,7 +17,23 @@ import stories from './diary'
  * @param places array containing all the posts of this category.
  * @returns {ReactNode} A react component that is a container for Photos component and the Head component of this page.
  */
-const photos = ({ places, showContent = true }: { places: Array<any>, showContent?: boolean }) => {
+const photos = ({ places }: { places: Array<any> }) => {
+  const { expandStory, setExpandStory, showContent, setShowContent } = useContext(Context);
+  const router = useRouter();
+
+  const handleStoryClick = (slug: string) => {
+    setShowContent(false);
+
+    setTimeout(() => {
+      setExpandStory(true);
+    }, 400); // Match this to your exit animation duration
+
+    // After animation, navigate
+    setTimeout(() => {
+      router.push(`/sections/postcards/${slug}`);
+    }, 400); // Match this to your expand animation duration
+  };
+
   return (
     <>
       <Head>
@@ -28,23 +45,43 @@ const photos = ({ places, showContent = true }: { places: Array<any>, showConten
           <>
             <motion.div
               key={"postcards"}
-              initial={{ y: '100vh' }}
+              initial={{ top: '100vh' }}
               animate={overlayDirectionMap['postcards' as SectionKey]}
-              exit={{ y: '100vh' }}
-              transition={{ type: 'tween', duration: 0.2 }}
-              className='flex flex-col bg-black justify-center px-[2vw] w-[100dvw] max-h-screen overflow-y-auto absolute top-0'
+              exit={{ top: '100vh' }}
+              transition={{ type: 'tween', duration: 0.4 }}
+              className='flex flex-col bg-[#101411] justify-center w-[100dvw] max-h-screen overflow-y-auto absolute top-0'
             >
-              <PhotosGallery places={places} />
+              <Postcards places={places} />
             </motion.div>
             <motion.div
               key={"postcards-overlay"}
-              initial={{ x: '32px', y: '100vh' }}
-              animate={{ x: '32px', y: '85vh' }}
-              exit={{ x: '32px', y: '100vh' }}
-              transition={{ type: 'tween', duration: 0.2 }}
-              className='font-bold text-[128px] z-10'
+              initial={{ left: '32px', bottom: '-100vh' }}
+              animate={{ left: '32px', bottom: '0' }}
+              exit={{ left: '32px', bottom: '-100vh' }}
+              transition={{ type: 'tween', duration: 0.4 }}
+              className='font-bold absolute text-[128px] z-10 leading-none'
             >
               POSTCARDS
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, left: '2vw', top: 0, scale: 0 }}
+              animate={{ opacity: 1, left: '2vw', top: 0, scale: 1 }}
+              exit={{ opacity: 0, left: '2vw', top: 0, scale: 0 }}
+              transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              className="absolute flex flex-col items-center justify-center pointer-events-none"
+              style={{ willChange: 'transform, opacity,left ,top' }}
+            >
+              <Image src="/star.png" alt="spring" width={100} height={100} style={{ rotate: "180deg" }} />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, right: '10vw', bottom: "-100px", scale: 0 }}
+              animate={{ opacity: 1, right: '10vw', bottom: "-100px", scale: 1 }}
+              exit={{ opacity: 0, right: '10vw', bottom: "-100px", scale: 0 }}
+              transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              className="absolute flex flex-col items-center justify-center pointer-events-none"
+              style={{ willChange: 'transform, opacity, right, bottom' }}
+            >
+              <Image src="/star.png" alt="spring" width={400} height={400} />
             </motion.div>
           </>
         )}

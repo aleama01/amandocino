@@ -9,6 +9,7 @@ import { useTransition } from './TransitionProvider'
 import { text } from 'stream/consumers'
 import path from 'path'
 import { Context } from '../Context'
+import Contact from './Contact'
 
 export const menuDirectionMap = {
   homepage: { x: '50dvw', y: '50dvh', translateX: '-50%', translateY: '-50%' },
@@ -105,6 +106,7 @@ const Layout = ({ Component, pageProps }: any) => {
   return (
     <div className='relative overflow-hidden h-screen w-screen'>
       <Menu pagename={pagename} handleClickFunction={handleClick} menuControls={menuControls} align={alignList} />
+      <Contact />
       <Component {...pageProps} />
     </div>
   )

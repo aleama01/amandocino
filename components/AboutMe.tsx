@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { BsArrowLeft } from 'react-icons/bs'
 import { HiOutlineExternalLink } from 'react-icons/hi'
+import { motion } from 'framer-motion'
 
 /**
  * Container of all the elements shown in the about me page.
@@ -11,69 +12,40 @@ import { HiOutlineExternalLink } from 'react-icons/hi'
 export const AboutMe = () => {
 
   return (
-    <div className='flex flex-col sm:flex-row justify-center text-[#ffffe9] items-center min-h-screen space-y-4 pb-6' >
+    <div className='flex flex-col sm:flex-row justify-center text-[#EDF0D8] items-start py-[5vh] min-h-screen' >
+      <div className='flex-col basis-2/5 flex justify-center items-center space-y-6 sm:space-y-2 relative' >
 
-      <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={`/`} className='fixed font-thin left-2 sm:left-14 text-3xl top-2 sm:text-[32px] z-50' aria-label="Go back to homepage">
-        <BsArrowLeft />
-      </Link>
-
-      <div className='flex-col flex justify-center items-start  sm:basis-1/3 space-y-6 sm:space-y-2 pt-2 relative' >
-
-        <div className='h-[230px] w-[270px] sm:h-[300px] sm:w-[350px] bg-center bg-no-repeat bg-cover duration-200  mt-10 z-10 '
+        <div className='h-[400px] w-[300px] sm:h-[450px] sm:w-[400px] bg-center bg-no-repeat bg-cover duration-200 z-10 '
           style={{ backgroundImage: `url(/me.jpg)` }} />
-
-        <ul className='hidden sm:flex text-sm flex-row space-x-4 items-end'>
-          <li>
-            <a target="_blank" rel="noreferrer" href='https://www.instagram.com/alessandro_amandonico/' className="text-[#9f9f9c] underline flex flex-row items-center">
-              Instagram
-              <HiOutlineExternalLink className=' scale-120 ml-1' />
-            </a>
-          </li>
-          <li>
-            <a target="_blank" rel="noreferrer" href='https://github.com/aleama01' className="text-[#9f9f9c] underline flex flex-row items-center">
-              Github
-              <HiOutlineExternalLink className=' scale-120 ml-1' />
-            </a>
-          </li>
-          <li>
-            <a target="_blank" rel="noreferrer" href='https://www.linkedin.com/in/alessandro-amandonico/' className="text-[#9f9f9c] underline flex flex-row items-center">
-              Linkedin
-              <HiOutlineExternalLink className=' scale-120 ml-1' />
-            </a>
-          </li>
-        </ul>
       </div>
 
 
-      <div className='sm:basis-1/3  flex flex-col space-y-2'>
-        <h1 className='text-center text-[24px] sm:w-4/5 sm:text-left mx-auto mt-2 sm:mt-10 ' >
-          ABOUT ME
-        </h1>
+      <div className='basis-3/5 pl-[2vw] flex flex-col space-y-2'>
+        <h2 className='font-bold' >
+          HEY!
+        </h2>
 
-        <div className='mx-auto text-justify text-sm w-5/6 sm:w-4/5'>
+        <div className='text-justify'>
           Hi, my name is Alessandro :)<br />it&#39;s difficult to summarize myself in such few words, but I&#39;ll try.<br /><br />
 
           I like writing (whenever I have time to do that) about my life and interactions I have with my surroundings. I love backpacking to places where I can feel connected with nature, and I recently started doing birdwatching.<br /> Also, I often spend all my day listening to music, I have a lot of instruments which I&#39;ve not yet to learn how to play, but still I love experimenting with them.<br /><br />
           I&#39;ve completed my bachelor&#39;s in Computer Science Engineering (Politecnico di Milano) and now I&#39;m studying for a double degree master&#39;s in Human-Computer Interaction and UX/UI Design. After my entry year at Aalto University in Finland, I am now studying at KTH in Stockholm, which means that I will still have to survive the dark and cold Scandinavian nights of winter for one year :).<br /><br />
           To get to know me better, check my social media. Or just text me, I would appreciate it better :)<br />
         </div>
-        <ul className='sm:hidden flex flex-row w-full justify-center flex-wrap gap-4 pt-8'>
+        <ul className='flex flex-col justify-center flex-wrap gap-2 pt-4'>
           <li>
-            <a target="_blank" rel="noreferrer" href='https://www.instagram.com/alessandro_amandonico/' className="text-[#9f9f9c] underline flex flex-row items-center">
-              Instagram
-              <HiOutlineExternalLink className=' scale-120 ml-1' />
+            <a target="_blank" rel="noreferrer" href='https://www.instagram.com/alessandro_amandonico/' className="text-[#EDF0D8]  flex flex-row items-center">
+              <span className='font-medium mr-1'>Instagram: </span> @alessandro_amandonico
             </a>
           </li>
           <li>
-            <a target="_blank" rel="noreferrer" href='https://github.com/aleama01' className="text-[#9f9f9c] underline flex flex-row items-center">
-              Github
-              <HiOutlineExternalLink className=' scale-120 ml-1' />
+            <a target="_blank" rel="noreferrer" href='https://github.com/aleama01' className="text-[#EDF0D8]  flex flex-row items-center">
+              <span className='font-medium mr-1'>Github: </span> aleama01
             </a>
           </li>
           <li>
-            <a target="_blank" rel="noreferrer" href='https://www.linkedin.com/in/alessandro-amandonico/' className="text-[#9f9f9c] underline flex flex-row items-center">
-              Linkedin
-              <HiOutlineExternalLink className=' scale-120 ml-1' />
+            <a target="_blank" rel="noreferrer" href='https://www.linkedin.com/in/alessandro-amandonico/' className="text-[#EDF0D8]  flex flex-row items-center">
+              <span className='font-medium mr-1'>Linkedin: </span> alessandro-amandonico
             </a>
           </li>
         </ul>

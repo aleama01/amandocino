@@ -12,7 +12,7 @@ const SideMenuButton = () => {
 
   return (
     <div>
-      <button aria-label='Open side menu' className='right-2 sm:right-14 text-[#ffffe9] fixed font-thin text-3xl top-2 sm:text-[32px] z-50'
+      <button aria-label='Open side menu' className='right-2 sm:right-14 text-[#EDF0D8] fixed font-thin text-3xl top-2 sm:text-[32px] z-50'
         onClick={() => (setOpenSideMenu(true))}>
         <BsList />
       </button>

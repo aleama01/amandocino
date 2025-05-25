@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { BsArrowLeft } from "react-icons/bs";
 import { getPosts, getPostDetails, getRecentTenPosts } from "../../../services";
 import PostDetail from "../../../components/PostDetail";
@@ -18,6 +18,10 @@ const PostDetails = ({ post, posts }) => {
   const router = useRouter();
   const { showContent, setShowContent, setExpandStory, expandStory } =
     useContext(Context);
+
+  useEffect(() => {
+    if (!expandStory) setExpandStory(true);
+  }, []);
 
   const handleClickBack = () => {
     setExpandStory(false);
@@ -63,11 +67,15 @@ const PostDetails = ({ post, posts }) => {
               transition={{ type: "tween", duration: 0.4 }}
               className="overflow-hidden bg-[#101411] h-screen absolute top-0 w-screen justify-end z-10 flex flex-row"
             >
-              <PostDetail post={post} posts={posts} />
+              <PostDetail
+                post={post}
+                posts={posts}
+                postCategory={post.category.slug}
+              />
               <motion.div
-                initial={{ opacity: 0, left: "17vw", top: "55vh", scale: 0 }}
-                animate={{ opacity: 1, left: "17vw", top: "55vh", scale: 1 }}
-                exit={{ opacity: 0, left: "17vw", top: "55vh", scale: 0 }}
+                initial={{ opacity: 0, left: "19vw", top: "47vh", scale: 0 }}
+                animate={{ opacity: 1, left: "19vw", top: "47vh", scale: 1 }}
+                exit={{ opacity: 0, left: "19vw", top: "47vh", scale: 0 }}
                 transition={{
                   duration: 0.1,
                   type: "spring",
@@ -80,11 +88,21 @@ const PostDetails = ({ post, posts }) => {
                 <Image
                   src="/spring.png"
                   alt="spring"
-                  width={500}
-                  height={500}
+                  width={300}
+                  height={300}
                 />
               </motion.div>
-
+              <motion.div
+                key={"diary-overlay"}
+                initial={{ right: "-100vw", top: "80vh" }}
+                animate={{ right: "56vw", top: "80vh" }}
+                exit={{ right: "-100vw", top: "80vh" }}
+                transition={{ type: "tween", duration: 0.2 }}
+                className="font-bold text-[128px] text-right absolute leading-none"
+                style={{ willChange: "transform, opacity" }}
+              >
+                DIARY
+              </motion.div>
               <motion.div
                 initial={{ opacity: 0, left: "15vw", top: "2vh", scale: 0 }}
                 animate={{ opacity: 1, left: "15vw", top: "2vh", scale: 1 }}

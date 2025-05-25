@@ -20,7 +20,7 @@ const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction
       animate={menuControls}
     >
       <div className='flex flex-row gap-x-6 items-end relative'>
-        <h1 onClick={() => handleClickFunction("homepage" as SectionKey)}>amandocino</h1>
+        <h1 onClick={() => handleClickFunction("homepage" as SectionKey)} className='leading-none'>amandocino</h1>
         <motion.ul
           initial={{ opacity: 0, left: 0 }}
           animate={{

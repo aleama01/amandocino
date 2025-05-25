@@ -1,12 +1,14 @@
 import Link from 'next/link';
-import React from 'react'
+import React, { useContext } from 'react'
 import { BsArrowLeft } from 'react-icons/bs';
 import Projects from '../../components/Projects';
 import { getPosts } from '../../services';
 import Head from 'next/head';
 import { AnimatePresence, motion } from 'framer-motion';
 import { overlayDirectionMap, SectionKey } from '../../components/Layout';
-
+import { useRouter } from 'next/navigation';
+import { Context } from '../../Context';
+import Image from 'next/image';
 
 /**
  * Container and wrapper of the 'Projects' component for this page section.
@@ -14,7 +16,22 @@ import { overlayDirectionMap, SectionKey } from '../../components/Layout';
  * @param projects array containing all the posts of this category.
  * @returns {ReactNode} A react component that is a container for Projects component and the Head component of this page.
  */
-const projects = ({ projects, showContent = true }: { projects: any, showContent?: boolean }) => {
+const projects = ({ projects }: { projects: any }) => {
+  const { expandStory, setExpandStory, showContent, setShowContent } = useContext(Context);
+  const router = useRouter();
+
+  const handleProjectClick = (slug: string) => {
+    setShowContent(false);
+
+    setTimeout(() => {
+      setExpandStory(true);
+    }, 400); // Match this to your exit animation duration
+
+    // After animation, navigate
+    setTimeout(() => {
+      router.push(`/sections/projects/${slug}`);
+    }, 400); // Match this to your expand animation duration
+  };
   return (
     <>
       <Head>
@@ -26,21 +43,44 @@ const projects = ({ projects, showContent = true }: { projects: any, showContent
           <>
             <motion.div
               key={"project"}
-              initial={{ x: '-100vw' }}
+              initial={{ left: '-100vw' }}
               animate={overlayDirectionMap['projects' as SectionKey]}
-              exit={{ x: '-100vw' }}
+              exit={{ left: '-100vw' }}
               transition={{ type: 'tween', duration: 0.2 }}
-              className='flex flex-col bg-black justify-center z-10 px-[2vw] w-[40vw] max-h-screen overflow-y-auto absolute top-0'
+              className='flex flex-col bg-[#101411] justify-start z-10 px-[2vw] w-[40vw] max-h-screen overflow-y-auto absolute top-0'
+              style={{ willChange: 'transform, left', direction: 'rtl' }}
             >
-              <Projects projects={projects} />
+              <Projects projects={projects} onClick={handleProjectClick} />
             </motion.div>
+            <motion.div
+              initial={{ opacity: 0, right: "5vw", top: "-100px", scale: 0 }}
+              animate={{ opacity: 1, right: "5vw", top: "-100px", scale: 1 }}
+              exit={{ opacity: 0, right: "5vw", top: "-100px", scale: 0 }}
+              transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              className="absolute flex flex-col items-center justify-center"
+              style={{ willChange: 'transform, opacity' }}
+            >
+              <Image src="/crown.png" alt="crown" width={500} height={500} />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, right: "27vw", top: "50vh", scale: 0 }}
+              animate={{ opacity: 1, right: "27vw", top: "50vh", scale: 1 }}
+              exit={{ opacity: 0, right: "27vw", top: "50vh", scale: 0 }}
+              transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+              className="absolute flex flex-col items-center justify-center"
+              style={{ willChange: 'transform, opacity' }}
+            >
+              <Image src="/crown.png" alt="crown" width={300} height={300} className='rotate-[-20deg]' />
+            </motion.div>
+
             <motion.div
               key={"project-overlay"}
               initial={{ x: '-100vw', y: '32px' }}
               animate={{ x: '40vw', y: '32px' }}
               exit={{ x: '-100vw', y: '32px' }}
               transition={{ type: 'tween', duration: 0.2 }}
-              className='font-bold text-[128px] z-20'
+              className='font-bold text-[128px] z-20 leading-none'
               style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', rotate: '180deg' }}
             >
               PROJECTS

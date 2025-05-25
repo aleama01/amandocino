@@ -29,9 +29,9 @@ html {
 }
 
 body {
-  font-family: 'ClashDisplay-Light';
+  font-family: 'ClashDisplay-Regular';
   font-size: 14px;
-  line-height: 1;
+  line-height: auto;
   color: #EDF0D8;
 }
 
@@ -144,7 +144,7 @@ a {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #ffffe9;
+  background: #EDF0D8;
 }
 
 /* Handle on hover */

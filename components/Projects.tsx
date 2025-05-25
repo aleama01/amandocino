@@ -8,14 +8,14 @@ import Project from './Project'
  * @param projects array containing all the posts of this category.
  * @returns {ReactNode} A react component that is a gallery of posts of the 'projects' category.
  */
-const Projects = ({ projects }: { projects: any }) => {
+const Projects = ({ projects, onClick }: { projects: any, onClick: Function }) => {
 
   return (
-    <div className='flex flex-col w-[90%] space-y-2 items-start mx-auto py-4'>
+    <div className='flex flex-col w-full space-y-3 items-start mx-auto py-[2vh]'>
       {projects.map((project: any, idx: number) => (
-        <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={`/sections/projects/${project.node.slug}`} key={project.node.title} className={`w-full`} >
+        <div onClick={() => onClick(project.node.slug)} key={project.node.title} className={`w-full`} >
           <Project project={project.node} />
-        </Link>
+        </div>
       ))}
     </div>
   )

@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation';
 import { isMobile } from "../scripts/isMobile";
 import { usePathname } from 'next/navigation';
 import { useTransition } from './TransitionProvider';
-import AnimatedOverlay from './AnimatedOverlay';
 import SideMenuButton from "./SideMenuButton";
 import HomeGallery from "./HomeGallery";
 

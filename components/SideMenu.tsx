@@ -20,7 +20,7 @@ const SideMenu = () => {
   let pathname = usePathname();
 
   return (
-    <div className='fixed inset-0 bg-cover z-[60] duration-300  text-black bg-[#ffffe9] '
+    <div className='fixed inset-0 bg-cover z-[60] duration-300  text-black bg-[#EDF0D8] '
       style={{ opacity: openSideMenu ? '1' : '0', pointerEvents: openSideMenu ? 'auto' : 'none' }}>
 
       <button aria-label='Close side menu' className='right-2 sm:right-14 fixed font-thin text-3xl top-2 sm:text-[32px] '

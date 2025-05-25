@@ -11,7 +11,6 @@ import { useRouter } from 'next/navigation';
 import { isMobile } from "../scripts/isMobile";
 import { usePathname } from 'next/navigation';
 import { TransitionProvider, useTransition } from '../components/TransitionProvider';
-import AnimatedOverlay from '../components/AnimatedOverlay';
 import SideMenuButton from "../components/SideMenuButton";
 import HomeGallery from "../components/HomeGallery";
 import Layout from '../components/Layout'
@@ -56,7 +55,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <meta name="theme-color" content="#ffffff" />
+          <meta name="theme-color" content="#EDF0D8" />
           <title>Amandocino</title>
           <meta name="description" content="Dive in and get to know me, read my posts, watch my photos, look at what my friends do, watch the projects I work on." />
         </Head>

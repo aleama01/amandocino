@@ -16,6 +16,8 @@ export const Context = React.createContext<IContext>({
   setExpandStory(_config) { },
   showContent: false,
   setShowContent(_config) { },
+  flippedIdx: null,
+  setFlippedIdx(_config) { },
 })
 
 const ContextProvider: React.FC<Props> = ({ children }) => {
@@ -24,6 +26,8 @@ const ContextProvider: React.FC<Props> = ({ children }) => {
   const [openProjectModal, setOpenProjectModal] = React.useState<string>("");
   const [expandStory, setExpandStory] = React.useState<boolean>(false);
   const [showContent, setShowContent] = React.useState<boolean>(true);
+  const [flippedIdx, setFlippedIdx] = React.useState<string | null>(null);
+
   return (
     <Context.Provider
       value={{
@@ -36,7 +40,9 @@ const ContextProvider: React.FC<Props> = ({ children }) => {
         expandStory,
         setExpandStory,
         showContent,
-        setShowContent
+        setShowContent,
+        flippedIdx,
+        setFlippedIdx
       }}>
       {children}
     </Context.Provider>
