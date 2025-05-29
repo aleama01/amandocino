@@ -13,7 +13,8 @@ const Friend = ({ friend, idx }: any) => {
   return (
     <div className='overflow-hidden'>
       <motion.div className='h-[15vh] sm:h-[300px] overflow-hidden w-auto flex flex-row justify-center items-center'
-        initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5 } }}>
+        initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5 } }}
+        style={{ willChange: "opacity" }}>
         <div className=' h-full w-full overflow-hidden' >
           <Image loading={idx < 5 ? 'eager' : 'lazy'} priority={idx < 5 ? true : false} fetchPriority={idx < 5 ? "high" : "low"} alt="friend post image"
             width={720} height={720} sizes="(max-width: 768px) 80vw, 43vw"

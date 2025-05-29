@@ -63,7 +63,7 @@ const stories = ({ stories }: { stories: Array<any> }) => {
               className="absolute flex flex-col items-center justify-center"
               style={{ willChange: 'transform, opacity' }}
             >
-              <Image src="/spring.png" alt="spring" width={500} height={500} />
+              <Image src="/drawings/spring.png" alt="spring" width={500} height={500} />
             </motion.div>
 
             <motion.div
@@ -74,7 +74,7 @@ const stories = ({ stories }: { stories: Array<any> }) => {
               className="absolute flex flex-col items-center justify-center"
               style={{ willChange: 'transform, opacity' }}
             >
-              <Image src="/spring.png" alt="spring" width={300} height={300} className='rotate-[-50deg]' />
+              <Image src="/drawings/spring.png" alt="spring" width={300} height={300} className='rotate-[-50deg]' />
             </motion.div>
 
             <motion.div

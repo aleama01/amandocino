@@ -60,7 +60,7 @@ const about = () => {
               className="absolute flex flex-col items-center justify-center"
               style={{ willChange: 'transform, opacity' }}
             >
-              <Image src="/points.png" alt="points" width={400} height={400} />
+              <Image src="/drawings/points_small.png" alt="points_small" width={400} height={400} />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, right: "-5vw", top: "-10vh", scale: 0 }}
@@ -70,7 +70,7 @@ const about = () => {
               className="absolute flex flex-col items-center justify-center"
               style={{ willChange: 'transform, opacity' }}
             >
-              <Image src="/points.png" alt="points" width={500} height={500} />
+              <Image src="/drawings/points_small.png" alt="points_small" width={500} height={500} />
             </motion.div>
           </>
         )}

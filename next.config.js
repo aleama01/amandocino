@@ -5,21 +5,21 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'media.graphassets.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "eu-central-1-shared-euc1-02.graphassets.com",
+        port: "",
+        pathname: "/**",
       },
     ],
   },
   experimental: {
     workerThreads: false,
-    cpus: 1
+    cpus: 1,
   },
   i18n: {
     locales: ["en", "it"],
     defaultLocale: "en",
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

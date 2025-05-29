@@ -1,16 +1,16 @@
-import { gql } from 'graphql-request';
-import { GraphQLClient } from 'graphql-request';
+import { gql } from "graphql-request";
+import { GraphQLClient } from "graphql-request";
 
 //const graphqlAPI = 'https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master';
 
 //query to get all posts
 export const getPosts = async (category) => {
   const graphQLClient = new GraphQLClient(
-    'https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master'
+    "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master"
   );
   const query = gql`
     query MyQuery($category: String!) {
-      postsConnection(first:25,where: { category: { name: $category } }) {
+      postsConnection(first: 100, where: { category: { name: $category } }) {
         edges {
           node {
             content {
@@ -19,7 +19,6 @@ export const getPosts = async (category) => {
             excerpt
             date
             roles
-            highlighted
             slug
             title
             category {
@@ -29,10 +28,10 @@ export const getPosts = async (category) => {
             image {
               url
             }
-            images(first:50) {
+            images(first: 50) {
               url
             }
-            tag(first:20) {
+            tag(first: 20) {
               name
             }
           }
@@ -40,18 +39,18 @@ export const getPosts = async (category) => {
       }
     }
   `;
-  const result = await graphQLClient.request(query, { category })
+  const result = await graphQLClient.request(query, { category });
   //const result = await request(graphqlAPI, query, { category });
   return result.postsConnection.edges.reverse();
 };
 
 export const getRecentTenPosts = async (category) => {
   const graphQLClient = new GraphQLClient(
-    'https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master'
+    "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master"
   );
   const query = gql`
     query MyQuery($category: String!) {
-      postsConnection(last:10,where: { category: { name: $category } }) {
+      postsConnection(last: 10, where: { category: { name: $category } }) {
         edges {
           node {
             excerpt
@@ -70,29 +69,24 @@ export const getRecentTenPosts = async (category) => {
       }
     }
   `;
-  const result = await graphQLClient.request(query, { category })
+  const result = await graphQLClient.request(query, { category });
   //const result = await request(graphqlAPI, query, { category });
   return result.postsConnection.edges.reverse();
 };
 
 export const getPostDetails = async (slug) => {
   const graphQLClient = new GraphQLClient(
-    'https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master'
+    "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master"
   );
   const query = gql`
     query MyQuery($slug: String!) {
       post(where: { slug: $slug }) {
-        authors {
-          name
-          link
-        }
         content {
           raw
         }
         date
         excerpt
         roles
-        highlighted
         slug
         title
         image {
@@ -102,15 +96,15 @@ export const getPostDetails = async (slug) => {
           name
           slug
         }
-        images (first:50) {
+        images(first: 50) {
           url
         }
-        tag (first:20) {
+        tag(first: 20) {
           name
         }
       }
     }
   `;
-  const result = await graphQLClient.request(query, { slug })
+  const result = await graphQLClient.request(query, { slug });
   return result.post;
 };

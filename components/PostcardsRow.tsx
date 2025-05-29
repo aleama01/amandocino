@@ -3,19 +3,58 @@ import Image from 'next/image'
 import { motion, useAnimation } from 'framer-motion'
 import { Context } from '../Context'
 
-const Stamp = () => {
+const Stamp = (stampName: any) => {
+  const url = `/stamps/${stampName}.png`;
   return (
-    <div className='w-[45px] h-[60px] border border-[#101411]' />
+    <Image src={'/test.png'} alt={stampName} width={128} height={128} className='w-[45px] h-auto object-contain bg-transparent' />
   )
 }
 
-const PostcardsRow = ({ places, direction, duration }: { places: Array<any>, direction: Boolean, duration: number }) => {
+const PostcardsRow = ({ postcards, direction, duration }: { postcards: Array<any>, direction: Boolean, duration: number }) => {
   const { flippedIdx, setFlippedIdx } = useContext(Context)
   const rowRef = useRef<HTMLDivElement>(null);
-  const placesLoop = [...places, ...places, ...places];
+  const postcardsLoop = [...postcards, ...postcards, ...postcards];
 
-  const handleClick = (isFlipped: Boolean, place: any) => {
-    setFlippedIdx(isFlipped ? null : place.node.image.url.split('.com/')[1])
+  const handleClick = (isFlipped: Boolean, postcard: any) => {
+    setFlippedIdx(isFlipped ? null : postcard.node.image.url.split('.com/')[1])
+  }
+
+  const getContentFragment = (index: any, text: any, obj: any, type: any) => {
+    let modifiedText = text;
+
+    if (obj) {
+      if (obj.bold) {
+        modifiedText = (<b key={index}>{text}</b>)
+      }
+      if (obj.italic) {
+        modifiedText = (<em key={index}>{text}</em>)
+      }
+      if (obj.underline) {
+        modifiedText = (<u key={index}>{text}</u>)
+      }
+    }
+
+    switch (type) {
+      case 'heading-three':
+        return <h3 key={index} className=' '>{modifiedText.map((item: any, i: React.Key) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>
+      case 'paragraph':
+        return <p key={index} className='text-xs'>{modifiedText.map((item: any, i: React.Key) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>
+      case 'heading-four':
+        return <h4 key={index} className="">{modifiedText.map((item: any, i: React.Key) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
+      case 'image':
+        return (
+          <Image
+            className='my-4 lg:my-8 mx-auto '
+            key={index}
+            alt={obj.title}
+            height={obj.height * 0.4}
+            width={obj.width * 0.4}
+            src={obj.src}
+          />
+        )
+      default:
+        return modifiedText
+    }
   }
 
   return (
@@ -25,8 +64,8 @@ const PostcardsRow = ({ places, direction, duration }: { places: Array<any>, dir
         className="flex flex-row h-full gap-x-2 overflow-hidden"
         style={{ x: 0, cursor: 'grab' }}
         drag="x"
-        dragConstraints={{ left: -places.length * 300, right: places.length * 300 }}
-        animate={{ x: direction ? -places.length * 300 : places.length * 300 }}
+        dragConstraints={{ left: -postcards.length * 300, right: postcards.length * 300 }}
+        animate={{ x: direction ? -postcards.length * 300 : postcards.length * 300 }}
         transition={{
           repeat: Infinity,
           repeatType: "loop",
@@ -35,14 +74,14 @@ const PostcardsRow = ({ places, direction, duration }: { places: Array<any>, dir
         }}
         whileTap={{ cursor: "grabbing" }}
       >
-        {placesLoop.map((place, idx) => {
-          const isFlipped = flippedIdx === place.node.image.url.split('.com/')[1];
+        {postcardsLoop.map((postcard, idx) => {
+          const isFlipped = flippedIdx === postcard.node.image.url.split('.com/')[1];
           return (
             <motion.div
-              key={place.node.image.url.split('.com/')[1]}
+              key={postcard.node.image.url.split('.com/')[1]}
               className="w-[300px] h-full perspective-1000 flex items-center justify-center"
               style={{ perspective: 1000 }}
-              onClick={() => handleClick(isFlipped, place)}
+              onClick={() => handleClick(isFlipped, postcard)}
               animate={{ rotateX: isFlipped ? 180 : 0 }}
               transition={{ duration: 0.6, ease: [.42, 0, .58, 0.6] }}
             >
@@ -58,28 +97,32 @@ const PostcardsRow = ({ places, direction, duration }: { places: Array<any>, dir
                     loading='eager'
                     priority={true}
                     fetchPriority="high"
-                    alt="Place post image"
+                    alt="postcard post image"
                     width={720}
                     height={510}
-                    src={`${place.node.image.url}`}
+                    src={`${postcard.node.image.url}`}
                     className='w-full h-full pointer-events-none object-cover object-center z-30 duration-500'
                   />
                 </motion.div>
                 {/* Back */}
                 <motion.div
-                  className="absolute w-full h-full px-4 py-4 gap-4 flex flex-row text-[#101411] bg-[#EDF0D8] z-10"
+                  className="absolute w-full h-full px-4 py-4 gap-4 flex flex-row items-start text-[#101411] bg-[#EDF0D8] z-10"
                   style={{
                     transform: 'rotateX(180deg)'
                   }}
                   animate={{ opacity: isFlipped ? 1 : 0 }}
                   transition={{ delay: 0.3, duration: 0 }}
                 >
-                  <Stamp />
+                  <Stamp stampName={postcard.node.tag[0].name} />
                   <div className='border-l h-full w-[0px] border-[#101411]' />
                   <div className='basis-2/3 flex flex-col gap-y-2
                   '>
-                    <h3 className='font-medium'>{place.node.title}</h3>
-                    <p className='text-xs leading-3'>Insert here a small description of the picture and the memories that this moment brings up to you everytime you see it. </p>
+                    <h3 className='font-medium'>{postcard.node.title}</h3>
+                    {postcard.node.content.raw.children.map((typeObj: any, index: any) => {
+                      const children = typeObj.children.map((item: any, itemIndex: any) => getContentFragment(itemIndex, item.text, item, typeObj))
+
+                      return getContentFragment(index, children, typeObj, typeObj.type)
+                    })}
                   </div>
                 </motion.div>
               </div>

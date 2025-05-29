@@ -1,4 +1,3 @@
-import React from "react";
 import { getPosts, getPostDetails, getRecentTenPosts } from "../../../services";
 import PostDetail from "../../../components/PostDetail";
 import Head from "next/head";
@@ -15,10 +14,9 @@ import Image from "next/image";
  * @param post Project section's post details
  * @returns {ReactNode} A react component that is a container for Project PostDetail component and the Head component of this page.
  */
-const PostDetails = ({ post, posts }) => {
+const PostDetails = ({ post }) => {
   const router = useRouter();
-  const { showContent, setShowContent, setExpandStory, expandStory } =
-    useContext(Context);
+  const { setShowContent, setExpandStory, expandStory } = useContext(Context);
 
   useEffect(() => {
     if (!expandStory) setExpandStory(true);
@@ -90,7 +88,12 @@ const PostDetails = ({ post, posts }) => {
               className="absolute flex flex-col items-center justify-center z-20"
               style={{ rotate: "10deg" }}
             >
-              <Image src="/crown.png" alt="crown" width={300} height={300} />
+              <Image
+                src="/drawings/crown.png"
+                alt="crown"
+                width={300}
+                height={300}
+              />
             </motion.div>
             {/**
              * 
@@ -108,7 +111,7 @@ const PostDetails = ({ post, posts }) => {
               className="absolute flex flex-col items-center justify-center z-20"
             >
               <Image
-                src="/crown.png"
+                src="/drawings/crown.png"
                 alt="crown"
                 width={200}
                 height={200}
@@ -143,10 +146,9 @@ export default PostDetails;
 
 export async function getStaticProps({ params }) {
   const data = await getPostDetails(params.slug);
-  let posts = (await getRecentTenPosts("Projects")) || [];
 
   return {
-    props: { post: data, posts: posts },
+    props: { post: data },
   };
 }
 export async function getStaticPaths() {

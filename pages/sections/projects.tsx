@@ -46,7 +46,7 @@ const projects = ({ projects }: { projects: any }) => {
               initial={{ left: '-100vw' }}
               animate={overlayDirectionMap['projects' as SectionKey]}
               exit={{ left: '-100vw' }}
-              transition={{ type: 'tween', duration: 0.2 }}
+              transition={{ type: 'tween', duration: 0.4 }}
               className='flex flex-col bg-[#101411] justify-start z-10 px-[2vw] w-[40vw] max-h-screen overflow-y-auto absolute top-0'
               style={{ willChange: 'transform, left', direction: 'rtl' }}
             >
@@ -60,7 +60,7 @@ const projects = ({ projects }: { projects: any }) => {
               className="absolute flex flex-col items-center justify-center"
               style={{ willChange: 'transform, opacity' }}
             >
-              <Image src="/crown.png" alt="crown" width={500} height={500} />
+              <Image src="/drawings/crown.png" alt="crown" width={500} height={500} />
             </motion.div>
 
             <motion.div
@@ -71,7 +71,7 @@ const projects = ({ projects }: { projects: any }) => {
               className="absolute flex flex-col items-center justify-center"
               style={{ willChange: 'transform, opacity' }}
             >
-              <Image src="/crown.png" alt="crown" width={300} height={300} className='rotate-[-20deg]' />
+              <Image src="/drawings/crown.png" alt="crown" width={300} height={300} className='rotate-[-20deg]' />
             </motion.div>
 
             <motion.div

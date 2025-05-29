@@ -1,19 +1,20 @@
 import Link from 'next/link'
-import React, { useContext } from 'react'
-import PlacePost from './PlacePost'
+import React, { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
 import PostcardsRow from './PostcardsRow'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useScroll } from 'framer-motion'
 import { Context } from '../Context'
 
 /**
- * Gallery component of the photos section of the website showing the list of places the user can watch the photos of.
+ * Gallery component of the photos section of the website showing the list of postcards the user can watch the photos of.
  * 
- * @param places list of photos of the different places
- * @returns {ReactNode} A react component with a gallery of places the user can watch the photos of. Each place can be selected to watch the photos in detail.
+ * @param postcards list of photos of the different postcards
+ * @returns {ReactNode} A react component with a gallery of postcards the user can watch the photos of. Each place can be selected to watch the photos in detail.
  */
-const Postcards = ({ places }: { places: Array<any> }) => {
+const Postcards = ({ postcards }: { postcards: Array<any> }) => {
   const { expandStory, setExpandStory, showContent, setShowContent } = useContext(Context);
+  let [batchsize, setBatchSize] = useState(0)
+  useEffect(() => { setBatchSize(Math.floor(postcards.length / 3)) }, [showContent])
   return (
     <AnimatePresence>
       {showContent &&
@@ -25,7 +26,7 @@ const Postcards = ({ places }: { places: Array<any> }) => {
             transition={{ duration: 1, delay: 0.4 }}
             className='h-[18dvh] flex-grow'
           >
-            <PostcardsRow places={places.slice(5, 9)} direction={false} duration={100} />
+            <PostcardsRow postcards={postcards.slice(0, batchsize)} direction={false} duration={100} />
           </motion.div>
           <motion.div
             initial={{ x: "200vw" }}
@@ -34,7 +35,7 @@ const Postcards = ({ places }: { places: Array<any> }) => {
             transition={{ duration: 1, delay: 0.4 }}
             className='h-[18dvh] flex-grow'
           >
-            <PostcardsRow places={places.slice(0, 4)} direction={true} duration={100} />
+            <PostcardsRow postcards={postcards.slice(batchsize, 2 * batchsize)} direction={true} duration={100} />
           </motion.div>
           <motion.div
             initial={{ x: "-200vw" }}
@@ -42,15 +43,7 @@ const Postcards = ({ places }: { places: Array<any> }) => {
             exit={{ x: "-200vw", transition: { delay: 0 } }}
             transition={{ duration: 1, delay: 0.4 }}
             className='h-[18dvh] flex-grow'>
-            <PostcardsRow places={places.slice(5, 9)} direction={false} duration={100} />
-          </motion.div>
-          <motion.div
-            initial={{ x: "200vw" }}
-            animate={{ x: 0 }}
-            exit={{ x: "200vw", transition: { delay: 0 } }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className='h-[18dvh] flex-grow'>
-            <PostcardsRow places={places.slice(0, 4)} direction={true} duration={100} />
+            <PostcardsRow postcards={postcards.slice(2 * batchsize, 3 * batchsize)} direction={false} duration={100} />
           </motion.div>
         </div>
       }

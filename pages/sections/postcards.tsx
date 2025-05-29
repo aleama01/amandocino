@@ -14,10 +14,10 @@ import Image from 'next/image'
 /**
  * Container and wrapper of the 'Photos' component for this page section.
  * 
- * @param places array containing all the posts of this category.
+ * @param postcards array containing all the posts of this category.
  * @returns {ReactNode} A react component that is a container for Photos component and the Head component of this page.
  */
-const photos = ({ places }: { places: Array<any> }) => {
+const photos = ({ postcards }: { postcards: Array<any> }) => {
   const { expandStory, setExpandStory, showContent, setShowContent } = useContext(Context);
   const router = useRouter();
 
@@ -51,7 +51,7 @@ const photos = ({ places }: { places: Array<any> }) => {
               transition={{ type: 'tween', duration: 0.4 }}
               className='flex flex-col bg-[#101411] justify-center w-[100dvw] max-h-screen overflow-y-auto absolute top-0'
             >
-              <Postcards places={places} />
+              <Postcards postcards={postcards} />
             </motion.div>
             <motion.div
               key={"postcards-overlay"}
@@ -71,7 +71,7 @@ const photos = ({ places }: { places: Array<any> }) => {
               className="absolute flex flex-col items-center justify-center pointer-events-none"
               style={{ willChange: 'transform, opacity,left ,top' }}
             >
-              <Image src="/star.png" alt="spring" width={100} height={100} style={{ rotate: "180deg" }} />
+              <Image src="/drawings/star.png" alt="spring" width={100} height={100} style={{ rotate: "180deg" }} />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, right: '10vw', bottom: "-100px", scale: 0 }}
@@ -81,7 +81,7 @@ const photos = ({ places }: { places: Array<any> }) => {
               className="absolute flex flex-col items-center justify-center pointer-events-none"
               style={{ willChange: 'transform, opacity, right, bottom' }}
             >
-              <Image src="/star.png" alt="spring" width={400} height={400} />
+              <Image src="/drawings/star.png" alt="spring" width={400} height={400} />
             </motion.div>
           </>
         )}
@@ -95,8 +95,9 @@ export default photos
 
 
 export async function getStaticProps() {
-  const places = (await getPosts('Travel')) || [];
+  const postcards = (await getPosts('Postcards')) || [];
+
   return {
-    props: { places }
+    props: { postcards }
   }
 }

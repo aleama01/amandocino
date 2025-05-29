@@ -14,10 +14,9 @@ import { useRouter } from "next/router";
  * @param post friends and diary section's post details
  * @returns {ReactNode} A react component that is a container for Diary PostDetail component and the Head component of this page.
  */
-const PostDetails = ({ post, posts }) => {
+const PostDetails = ({ post }) => {
   const router = useRouter();
-  const { showContent, setShowContent, setExpandStory, expandStory } =
-    useContext(Context);
+  const { setShowContent, setExpandStory, expandStory } = useContext(Context);
 
   useEffect(() => {
     if (!expandStory) setExpandStory(true);
@@ -86,7 +85,7 @@ const PostDetails = ({ post, posts }) => {
                 className="absolute flex flex-col items-center justify-center z-20"
               >
                 <Image
-                  src="/spring.png"
+                  src="/drawings/spring.png"
                   alt="spring"
                   width={300}
                   height={300}
@@ -117,7 +116,7 @@ const PostDetails = ({ post, posts }) => {
                 className="absolute flex flex-col items-center justify-center z-20"
               >
                 <Image
-                  src="/spring.png"
+                  src="/drawings/spring.png"
                   alt="spring"
                   width={300}
                   height={300}
@@ -136,10 +135,9 @@ export default PostDetails;
 
 export async function getStaticProps({ params }) {
   const data = await getPostDetails(params.slug);
-  let posts = (await getRecentTenPosts("Diary")) || [];
 
   return {
-    props: { post: data, posts: posts },
+    props: { post: data },
   };
 }
 export async function getStaticPaths() {

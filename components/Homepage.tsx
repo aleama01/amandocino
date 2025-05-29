@@ -131,7 +131,7 @@ const Homepage = () => {
               className="absolute z-10 flex flex-col items-center justify-center"
               style={{ willChange: 'transform, opacity' }}
             >
-              <Image src="/spring.png" alt="spring" width={400} height={400} />
+              <Image src="/drawings/spring.png" alt="spring" width={400} height={400} />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: "70vw", y: "60vh", scale: 0 }}
@@ -141,7 +141,7 @@ const Homepage = () => {
               className="absolute z-10 flex flex-col items-center justify-center"
               style={{ willChange: 'transform, opacity' }}
             >
-              <Image src="/flower.png" alt="spring" width={400} height={400} />
+              <Image src="/drawings/flower.png" alt="spring" width={400} height={400} />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: "0", y: "50vh", scale: 0 }}
@@ -151,7 +151,7 @@ const Homepage = () => {
               className="absolute z-10 flex flex-col items-center justify-center"
               style={{ willChange: 'transform, opacity' }}
             >
-              <Image src="/points.png" alt="spring" width={400} height={400} />
+              <Image src="/drawings/points_small.png" alt="spring" width={400} height={400} />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: "30vw", y: "70vh", scale: 0 }}
@@ -161,7 +161,7 @@ const Homepage = () => {
               className="absolute z-10 flex flex-col items-center justify-center"
               style={{ willChange: 'transform, opacity' }}
             >
-              <Image src="/star.png" alt="spring" width={400} height={400} />
+              <Image src="/drawings/star.png" alt="spring" width={400} height={400} />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: "65vw", y: "10px", scale: 0 }}
@@ -170,7 +170,7 @@ const Homepage = () => {
               transition={{ duration: 0.1, delay: 0.2, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
               className="absolute z-10 flex flex-col items-center justify-center"
               style={{ willChange: 'transform, opacity' }}>
-              <Image src="/crown.png" alt="spring" width={400} height={400} />
+              <Image src="/drawings/crown.png" alt="spring" width={400} height={400} />
 
             </motion.div>
           </>

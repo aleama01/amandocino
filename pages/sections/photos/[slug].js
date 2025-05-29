@@ -3,10 +3,9 @@ import { getPosts, getPostDetails } from "../../../services";
 import PlacePostDetail from "../../../components/PlacePostDetail";
 import Head from "next/head";
 
-
 /**
  * Photos post details container.
- * 
+ *
  * @param post photos section's post details
  * @returns {ReactNode} A react component that is a container for Photos PlacePostDetail component and the Head component of this page.
  */
@@ -34,7 +33,7 @@ export async function getStaticProps({ params }) {
   };
 }
 export async function getStaticPaths() {
-  const posts = await getPosts("Travel");
+  const posts = await getPosts("Postcards");
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
     fallback: false,

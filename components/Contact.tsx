@@ -1,8 +1,6 @@
-import React, { useContext, useState } from 'react'
-import { Context } from '../Context';
+import React, { useState } from 'react'
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
-import { MdClose } from 'react-icons/md';
 
 const ContactModal = ({ handleClick }: { handleClick: any }) => {
   return (
@@ -52,11 +50,12 @@ const Contact = () => {
   return (
     <AnimatePresence>
       <motion.h2
-        initial={{ right: "100vw" }}
+        initial={{ right: "-10vw" }}
         animate={animation}
-        exit={{ right: "100vw" }}
+        exit={{ right: "-10vw" }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
         className='absolute pointer-events-auto top-[5vh] right-[2vw] font-medium z-50'
+        style={{ willChange: "right" }}
       >
         <button onClick={handleClick}>CONTACT</button>
       </motion.h2>
@@ -64,11 +63,12 @@ const Contact = () => {
 
         {openContactModal && (
           <motion.div
-            initial={{ ...animationModal, top: "-100vh" }}
-            animate={{ ...animationModal, top: "0vh" }}
-            exit={{ ...animationModal, top: "-100vh" }}
+            initial={{ ...animationModal, top: "-200px" }}
+            animate={{ ...animationModal, top: "0" }}
+            exit={{ ...animationModal, top: "-200px" }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className='absolute top-0 right-0 z-50'
+            style={{ willChange: "right,top" }}
           >
             <ContactModal handleClick={handleClick} />
           </motion.div>

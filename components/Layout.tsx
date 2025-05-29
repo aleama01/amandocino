@@ -16,7 +16,7 @@ export const menuDirectionMap = {
   diary: { x: '32px', y: '50vh', translateX: '0%', translateY: '-50%' },
   postcards: { x: '10vw', y: '5vh', translateX: '0%', translateY: '-50%' },
   projects: { x: '80vw', y: '50vh', translateX: '-50%', translateY: '-50%' },
-  music: { x: '20vw', y: '5vh', translateX: '-50%', translateY: '-50%' },
+  music: { x: '2vw', y: '5vh', translateX: '0%', translateY: '-50%' },
   about: { x: '80vw', y: '50vh', translateX: '-50%', translateY: '-50%' },
 };
 
@@ -25,7 +25,7 @@ export const overlayDirectionMap = {
   diary: { left: '45vw', top: 0 },
   postcards: { left: 0, top: 0 },
   projects: { left: 0, top: 0 },
-  music: { left: '80vw', top: 0 },
+  music: { left: 0, bottom: 0 },
   about: { left: '60vw', top: 0 },
 };
 
