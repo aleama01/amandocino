@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
  * @param post post details such as text, images, title, authors.
  * @returns {ReactNode} A react component displaying all the details of a post: text, images, title, cover image, author, recent post.
  */
-const PostDetail = ({ post, posts, postCategory }: any) => {
+const PostDetail = ({ post, postCategory }: any) => {
 
   // Function to transform text from post body to HTML components
   const getContentFragment = (index: any, text: any, obj: any, type: any) => {

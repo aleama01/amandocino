@@ -5,7 +5,7 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import SideMenu from '../components/SideMenu'
 import Footer from '../components/Footer'
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { motion, useScroll, AnimatePresence, useTransform, useAnimation } from "framer-motion"
 import { useRouter } from 'next/navigation';
 import { isMobile } from "../scripts/isMobile";
@@ -43,7 +43,6 @@ type SectionKey = keyof typeof menuDirectionMap;
  * @returns The main wrapper of the whole website. 
  */
 export default function App({ Component, pageProps }: AppProps) {
-
   return (
     <ContextProvider>
       <TransitionProvider>

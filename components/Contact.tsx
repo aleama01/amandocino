@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Context } from '../Context';
 
 const ContactModal = ({ handleClick }: { handleClick: any }) => {
   return (
-    <div className='flex flex-row items-start p-6 bg-[#101411] w-[400px]'>
+    <div className='flex flex-row items-start p-6 bg-[#101411] w-full sm:w-[400px]'>
       <button aria-label='Close side menu' className='font-thin text-2xl'
         onClick={handleClick}>
         x
@@ -36,46 +37,84 @@ const ContactModal = ({ handleClick }: { handleClick: any }) => {
 const Contact = () => {
   let pathname = usePathname()
   const [openContactModal, setOpenContactModal] = useState(false)
+  const { mobile, setOpenSideMenu } = useContext(Context)
+
+
   let animation = { right: "2vw" }
   let animationModal = { right: "0vw" }
+
   if (pathname.split('/')[2] === "diary") {
     animation = { right: "57vw" }
     animationModal = { right: "55vw" }
   }
 
   const handleClick = () => {
+    setOpenSideMenu(false)
     setOpenContactModal(!openContactModal)
   }
 
-  return (
-    <AnimatePresence>
-      <motion.h2
-        initial={{ right: "-10vw" }}
-        animate={animation}
-        exit={{ right: "-10vw" }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className='absolute pointer-events-auto top-[5vh] right-[2vw] font-medium z-50'
-        style={{ willChange: "right" }}
-      >
-        <button onClick={handleClick}>CONTACT</button>
-      </motion.h2>
-      <AnimatePresence>
+  if (mobile) {
+    return (
+      <>
+        <motion.h2
+          initial={{ left: "-10vw" }}
+          animate={{ left: "2vw" }}
+          exit={{ left: "-10vw" }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className='absolute pointer-events-auto top-[5vh] left-[2vw] font-medium z-50'
+          style={{ willChange: "left" }}
+        >
+          <button onClick={handleClick}>CONTACT</button>
+        </motion.h2>
+        <AnimatePresence>
 
-        {openContactModal && (
-          <motion.div
-            initial={{ ...animationModal, top: "-200px" }}
-            animate={{ ...animationModal, top: "0" }}
-            exit={{ ...animationModal, top: "-200px" }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className='absolute top-0 right-0 z-50'
-            style={{ willChange: "right,top" }}
-          >
-            <ContactModal handleClick={handleClick} />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </AnimatePresence>
-  )
+          {openContactModal && (
+            <motion.div
+              initial={{ ...animationModal, top: "-200px" }}
+              animate={{ ...animationModal, top: "0" }}
+              exit={{ ...animationModal, top: "-200px" }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className='absolute top-0 left-0 z-50'
+              style={{ willChange: "left,top" }}
+            >
+              <ContactModal handleClick={handleClick} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </>
+    )
+  } else {
+
+    return (
+      <>
+        <motion.h2
+          initial={{ right: "-10vw" }}
+          animate={animation}
+          exit={{ right: "-10vw" }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className='absolute pointer-events-auto top-[5vh] right-[2vw] font-medium z-50'
+          style={{ willChange: "right" }}
+        >
+          <button onClick={handleClick}>CONTACT</button>
+        </motion.h2>
+        <AnimatePresence>
+
+          {openContactModal && (
+            <motion.div
+              initial={{ ...animationModal, top: "-200px" }}
+              animate={{ ...animationModal, top: "0" }}
+              exit={{ ...animationModal, top: "-200px" }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className='absolute top-0 right-0 z-50'
+              style={{ willChange: "right,top" }}
+            >
+              <ContactModal handleClick={handleClick} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </>
+    )
+  }
 }
 
 export default Contact

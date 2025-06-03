@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import SideMenu from './SideMenu'
@@ -10,6 +10,8 @@ import { text } from 'stream/consumers'
 import path from 'path'
 import { Context } from '../Context'
 import Contact from './Contact'
+import { isMobile } from '../scripts/isMobile'
+import SideMenuButton from './SideMenuButton'
 
 export const menuDirectionMap = {
   homepage: { x: '50dvw', y: '50dvh', translateX: '-50%', translateY: '-50%' },
@@ -27,6 +29,15 @@ export const overlayDirectionMap = {
   projects: { left: 0, top: 0 },
   music: { left: 0, bottom: 0 },
   about: { left: '60vw', top: 0 },
+};
+
+export const overlayDirectionMapMobile = {
+  homepage: { left: '100vw', top: '100vh' },
+  diary: { left: 0, top: "20vh" },
+  postcards: { left: 0, top: 0 },
+  projects: { left: 0, top: 0 },
+  music: { left: 0, bottom: 0 },
+  about: { left: 0, top: 0 },
 };
 
 const textAlignMap = {
@@ -59,35 +70,41 @@ const Layout = ({ Component, pageProps }: any) => {
   const menuControls = useAnimation();
   const { setTransition } = useTransition();
   const [alignList, setAlignList] = useState({ from: textAlignMap[pagename], to: textAlignMap[pagename] });
-  const { expandStory, setExpandStory, showContent, setShowContent } = useContext(Context);
+  const { expandStory, setExpandStory, showContent, setShowContent, mobile, setMobile } = useContext(Context);
+  const [showMenuList, setShowMenuList] = useState(true);
 
   const handleClick = async (page: SectionKey) => {
-
     if (pathname.split('/').length > 3 && page === pagename) {
       setExpandStory(false);
       setTimeout(() => {
         router.push(`/sections/${page}`)
-      }, 400); // Match this to your exit animation duration
-
+      }, 400);
       setTimeout(() => {
         setShowContent(true);
       }, 400);
-
       return;
     }
 
-    if (page === pagename) {
-      return;
-    } // Don't animate if already on the page
-
-    setTransition(page, menuDirectionMap[page]);
-    setShowContent(false); // Trigger exit animation
-    setExpandStory(false); // Trigger exit animation
+    if (page === pagename) return;
 
     let from = textAlignMap[pagename];
     let to = textAlignMap[page];
+    setAlignList({ from, to });
+    await new Promise(res => setTimeout(res, 220));
 
-    setAlignList({ from: from, to: to })
+    // 1. Hide menu list
+    if (to === "horizontal" || (from === "horizontal" && to != "horizontal")) {
+      setShowMenuList(false)
+    }
+    // 2. Wait for menu list to disappear (match exit duration in Menu.tsx, e.g. 200ms)
+    await new Promise(res => setTimeout(res, 10));
+
+
+    // 3. Move menu
+    setTransition(page, menuDirectionMap[page]);
+    setShowContent(false);
+    setExpandStory(false);
+
 
     if (page !== "homepage") {
       router.push(`/sections/${page}`);
@@ -95,17 +112,28 @@ const Layout = ({ Component, pageProps }: any) => {
       router.push("/");
     }
 
+    // 4. Wait for menu move animation (match menuControls duration, e.g. 0.5s + 0.5s delay)
     await menuControls.start({ ...menuDirectionMap[page], transition: { duration: 0.5, delay: 0.5 } });
 
+    // 5. Show menu list again (if needed)
+    setShowMenuList(true);
+
     setTimeout(() => {
-      // Reset for next mount
       setShowContent(true);
     }, 200);
   };
 
+  useEffect(() => {
+    let res = isMobile()
+    setMobile(res)
+  }, [pathname])
+
+
   return (
     <div className='relative overflow-hidden h-screen w-screen'>
-      <Menu pagename={pagename} handleClickFunction={handleClick} menuControls={menuControls} align={alignList} />
+      <Menu pagename={pagename} handleClickFunction={handleClick} menuControls={menuControls} align={alignList} showMenuList={showMenuList} />
+      <SideMenuButton />
+      <SideMenu handleClickFunction={handleClick} />
       <Contact />
       <Component {...pageProps} />
     </div>

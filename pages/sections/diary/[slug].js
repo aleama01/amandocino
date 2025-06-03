@@ -66,11 +66,7 @@ const PostDetails = ({ post }) => {
               transition={{ type: "tween", duration: 0.4 }}
               className="overflow-hidden bg-[#101411] h-screen absolute top-0 w-screen justify-end z-10 flex flex-row"
             >
-              <PostDetail
-                post={post}
-                posts={posts}
-                postCategory={post.category.slug}
-              />
+              <PostDetail post={post} postCategory={post.category.slug} />
               <motion.div
                 initial={{ opacity: 0, left: "19vw", top: "47vh", scale: 0 }}
                 animate={{ opacity: 1, left: "19vw", top: "47vh", scale: 1 }}

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Context } from '../Context'
 import { BsList } from 'react-icons/bs';
+import { usePathname } from 'next/navigation';
 
 /**
  * Button component to open the SideMenu component.
@@ -9,10 +10,11 @@ import { BsList } from 'react-icons/bs';
  */
 const SideMenuButton = () => {
   const { setOpenSideMenu } = useContext(Context);
+  let pathname = usePathname();
 
   return (
     <div>
-      <button aria-label='Open side menu' className='right-2 sm:right-14 text-[#EDF0D8] fixed font-thin text-3xl top-2 sm:text-[32px] z-50'
+      <button aria-label='Open side menu' className={`text-[#EDF0D8] fixed font-thin text-3xl top-[4vh] ${pathname === "/" ? "right-[-10vw]" : "right-[2vw]"} sm:text-[32px] duration-[400ms] z-50`}
         onClick={() => (setOpenSideMenu(true))}>
         <BsList />
       </button>
