@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useContext } from 'react'
 import Project from './Project'
+import { Context } from '../Context'
 
 /**
  * Main component of 'projects' page that displays the gallery of post of this section.

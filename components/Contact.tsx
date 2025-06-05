@@ -61,7 +61,7 @@ const Contact = () => {
           animate={{ left: "2vw" }}
           exit={{ left: "-10vw" }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
-          className='absolute pointer-events-auto top-[5vh] left-[2vw] font-medium z-50'
+          className='absolute pointer-events-auto top-[5vh] left-[2vw] w-[120px] font-medium z-50'
           style={{ willChange: "left" }}
         >
           <button onClick={handleClick}>CONTACT</button>

@@ -45,14 +45,14 @@ const stories = ({ stories }: { stories: Array<any> }) => {
               <>
                 <motion.div
                   key={"diary"}
-                  initial={{ left: '100vw', top: "20vh" }}
+                  initial={{ left: 0, top: "100vh" }}
                   animate={{ ...overlayDirectionMapMobile['diary' as SectionKey] }}
-                  exit={{ left: '100vw', top: "20vh" }}
+                  exit={{ left: 0, top: "100vh" }}
                   transition={{ type: 'tween', duration: 0.4 }}
-                  className=' bg-[#101411] flex flex-row justify-start z-20 max-h-[80dvh] overflow-y-auto absolute'
+                  className=' bg-[#101411] flex flex-row justify-start z-20 max-h-[85dvh] overflow-y-auto absolute'
                   style={{ willChange: 'transform, opacity, left' }}
                 >
-                  <div className='flex flex-col justify-start px-[2vw] w-[100vw] max-h-[80dvh] overflow-y-auto'>
+                  <div className='flex flex-col justify-start px-[2vw] w-[100vw] max-h-[85dvh] overflow-y-auto'>
                     <Stories stories={stories} onStoryClick={handleStoryClick} />
                   </div>
                 </motion.div>
@@ -81,11 +81,11 @@ const stories = ({ stories }: { stories: Array<any> }) => {
 
                 <motion.div
                   key={"diary-overlay"}
-                  initial={{ right: '-100vw', bottom: '80vh' }}
-                  animate={{ right: '0vw', bottom: '80vh' }}
-                  exit={{ right: '-100vw', bottom: '80vh' }}
+                  initial={{ right: '-100vw', bottom: '85vh' }}
+                  animate={{ right: '2vw', bottom: '85vh' }}
+                  exit={{ right: '-100vw', bottom: '85vh' }}
                   transition={{ type: 'tween', duration: 0.4 }}
-                  className='font-bold text-[64px] sm:text-[128px] text-right fixed leading-none'
+                  className='font-bold text-[48px] sm:text-[128px] text-right fixed leading-none'
                   style={{ willChange: 'transform, opacity' }}
                 >
                   DIARY
