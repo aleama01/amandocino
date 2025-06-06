@@ -44,47 +44,37 @@ const projects = ({ projects }: { projects: any }) => {
           {showContent && (
             <>
               <motion.div
-                key={"project"}
+                key={"project-mobile"}
                 initial={{ left: 0, top: "100vh" }}
                 animate={overlayDirectionMapMobile['projects' as SectionKey]}
                 exit={{ left: 0, top: "100vh" }}
                 transition={{ type: 'tween', duration: 0.4 }}
-                className='flex flex-col bg-[#101411] justify-start z-10 px-[2vw] w-[100vw] h-[85vh] overflow-y-auto absolute'
+                className='flex flex-col bg-[#101411] justify-start z-10 py-1 w-[100dvw] h-[75dvh] absolute'
                 style={{ willChange: 'transform, left', direction: 'rtl' }}
               >
-                <Projects projects={projects} onClick={handleProjectClick} />
+                <div className='flex flex-col justify-start w-full h-[75dvh] px-[2vw] overflow-y-auto'>
+                  <Projects projects={projects} onClick={handleProjectClick} />
+                </div>
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, right: "15vw", top: "-10px", scale: 0 }}
-                animate={{ opacity: 1, right: "15vw", top: "-10px", scale: 1 }}
-                exit={{ opacity: 0, right: "15vw", top: "-10px", scale: 0 }}
+                initial={{ opacity: 0, left: "32vw", top: "10px", scale: 0 }}
+                animate={{ opacity: 1, left: "32vw", top: "10px", scale: 1 }}
+                exit={{ opacity: 0, left: "32vw", top: "10px", scale: 0 }}
                 transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
-                className="absolute flex flex-col items-center justify-center"
+                className="absolute flex flex-col items-center justify-center w-[90px]"
                 style={{ willChange: 'transform, opacity' }}
               >
-                <Image src="/drawings/crown.png" alt="crown" width={100} height={100} />
+                <Image src="/drawings/crown.png" alt="crown" width={90} height={90} style={{ rotate: "-5deg" }} />
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, right: "27vw", top: "10vh", scale: 0 }}
-                animate={{ opacity: 1, right: "27vw", top: "10vh", scale: 1 }}
-                exit={{ opacity: 0, right: "27vw", top: "10vh", scale: 0 }}
-                transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
-                className="absolute flex flex-col items-center justify-center"
-                style={{ willChange: 'transform, opacity' }}
-              >
-                <Image src="/drawings/crown.png" alt="crown" width={150} height={150} className='rotate-[-20deg]' />
-              </motion.div>
-
-              <motion.div
-                key={"project-overlay"}
-                initial={{ right: '-100vw', bottom: '85vh' }}
-                animate={{ right: '2vw', bottom: '85vh' }}
-                exit={{ right: '-100vw', bottom: '85vh' }}
+                key={"project-overlay-mobile"}
+                initial={{ right: '-100vw', bottom: '75vh' }}
+                animate={{ right: '2vw', bottom: '75vh' }}
+                exit={{ right: '-100vw', bottom: '75vh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
                 className='font-bold text-[48px] text-right absolute leading-none'
-                style={{ willChange: 'transform, opacity' }}
               >
                 PROJECTS
               </motion.div>

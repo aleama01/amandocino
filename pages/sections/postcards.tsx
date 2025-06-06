@@ -49,39 +49,29 @@ const photos = ({ postcards }: { postcards: Array<any> }) => {
                 animate={overlayDirectionMapMobile['postcards' as SectionKey]}
                 exit={{ top: '100vh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
-                className='flex flex-col bg-[#101411] justify-center w-[100dvw] h-[85vh] overflow-y-auto absolute top-0'
+                className='flex flex-col bg-[#101411] justify-center w-[100dvw] h-[75vh] overflow-y-auto absolute top-0'
               >
                 <Postcards postcards={postcards} />
               </motion.div>
               <motion.div
                 key={"postcards-overlay"}
-                initial={{ left: '-100vw', bottom: '85vh' }}
-                animate={{ left: '2vw', bottom: '85vh' }}
-                exit={{ left: '-100vw', bottom: '85vh' }}
+                initial={{ left: '-100vw', bottom: '75vh' }}
+                animate={{ left: '2vw', bottom: '75vh' }}
+                exit={{ left: '-100vw', bottom: '75vh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
                 className='font-bold absolute text-[48px] z-10 leading-none'
               >
                 POSTCARDS
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, left: '25vw', top: "-30px", scale: 0 }}
-                animate={{ opacity: 1, left: '25vw', top: "-30px", scale: 1 }}
-                exit={{ opacity: 0, left: '25vw', top: "-30px", scale: 0 }}
+                initial={{ opacity: 0, left: '35vw', top: "-10px", scale: 0 }}
+                animate={{ opacity: 1, left: '35vw', top: "-10px", scale: 1 }}
+                exit={{ opacity: 0, left: '35vw', top: "-10px", scale: 0 }}
                 transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
                 className="absolute flex flex-col top-0 items-center justify-center pointer-events-none"
                 style={{ willChange: 'transform, opacity,left' }}
               >
                 <Image src="/drawings/star.png" alt="spring" width={120} height={120} style={{ rotate: "2deg" }} />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, right: '-2vw', top: "15vh", scale: 0 }}
-                animate={{ opacity: 1, right: '-2vw', top: "15vh", scale: 1 }}
-                exit={{ opacity: 0, right: '-2vw', top: "15vh", scale: 0 }}
-                transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
-                className="fixed flex flex-col items-center justify-center pointer-events-none"
-                style={{ willChange: 'transform, opacity, right, bottom' }}
-              >
-                <Image src="/drawings/star.png" alt="spring" width={50} height={50} />
               </motion.div>
             </>
           )}

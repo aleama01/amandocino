@@ -12,7 +12,7 @@ import { useTransition } from './TransitionProvider';
 export const Stories = ({ stories, onStoryClick }: { stories: Array<any>, onStoryClick: Function }) => {
 
   return (
-    <div className='flex flex-col py-[2vh] w-full gap-y-3 items-start'>
+    <div className='flex flex-col w-full gap-y-3 items-start'>
       {stories.map((story, idx) => (
         <div onClick={() => onStoryClick(story.node.slug)} key={story.node.title}
           className={"w-full"}>

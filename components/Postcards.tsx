@@ -16,8 +16,8 @@ const Postcards = ({ postcards }: { postcards: Array<any> }) => {
   let [batchsize, setBatchSize] = useState(0)
 
   useEffect(() => {
-    setBatchSize(Math.floor(postcards.length / (mobile ? 4 : 3)))
-  }, [showContent, mobile])
+    setBatchSize(Math.floor(postcards.length / 3))
+  }, [showContent])
 
   if (mobile) {
     return (
@@ -49,15 +49,6 @@ const Postcards = ({ postcards }: { postcards: Array<any> }) => {
               transition={{ duration: 1, delay: 0.4 }}
               className='h-[8dvh] flex-grow'>
               <PostcardsRow postcards={postcards.slice(2 * batchsize, 3 * batchsize)} direction={false} duration={100} />
-            </motion.div>
-            <motion.div
-              initial={{ x: "200vw" }}
-              animate={{ x: 0 }}
-              exit={{ x: "200vw", transition: { delay: 0 } }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className='h-[8dvh] flex-grow'
-            >
-              <PostcardsRow postcards={postcards.slice(3 * batchsize, 4 * batchsize)} direction={true} duration={100} />
             </motion.div>
           </div>
         }

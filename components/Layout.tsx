@@ -33,11 +33,11 @@ export const overlayDirectionMap = {
 
 export const overlayDirectionMapMobile = {
   homepage: { left: '100vw', top: '100vh' },
-  diary: { left: 0, top: "15vh" },
-  postcards: { left: 0, top: "15vh" },
-  projects: { left: 0, top: "15vh" },
-  music: { left: 0, top: "15vh" },
-  about: { left: 0, top: "15vh" },
+  diary: { left: 0, top: "25vh" },
+  postcards: { left: 0, top: "25vh" },
+  projects: { left: 0, top: "25vh" },
+  music: { left: 0, top: "25vh" },
+  about: { left: 0, top: "25vh" },
 };
 
 const textAlignMap = {
@@ -126,7 +126,7 @@ const Layout = ({ Component, pageProps }: any) => {
   useEffect(() => {
     let res = isMobile()
     setMobile(res)
-  }, [pathname])
+  }, [])
 
 
   return (

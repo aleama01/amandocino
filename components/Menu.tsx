@@ -23,6 +23,7 @@ const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction
       setHorizontalMenu(false);
     }
   }, [align.to]);
+
   if (mobile) {
     return (
       <AnimatePresence>
@@ -48,16 +49,9 @@ const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction
                   }}
                   exit={{ opacity: 0 }}>
                   {Object.keys(menuDirectionMap).filter(key => key !== "homepage").map((key, idx) => (
-                    <motion.li
+                    <li
                       key={key}
                       className="my-1 sm:w-[254px] w-[172px] text-center"
-                      initial={{ opacity: 1, x: align.from === "left" ? -200 : align.from === "right" ? 200 : -200 }}
-                      animate={{
-
-                        x: 0,
-                        transition: { duration: 0.2, delay: idx * 0.05 }
-                      }}
-                      exit={{ opacity: 1, x: align.from === "left" ? -200 : align.from === "right" ? 200 : -200, transition: { duration: 0.2, delay: idx * 0.05 } }}
                     >
                       <button
                         key={key}
@@ -65,7 +59,7 @@ const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction
                         onClick={() => handleClickFunction(key as SectionKey)}>
                         [<span className="mx-2 uppercase">{key.toUpperCase()}</span>]
                       </button>
-                    </motion.li>
+                    </li>
                   ))}
                 </motion.ul>
               )}

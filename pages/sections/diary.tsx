@@ -49,14 +49,14 @@ const stories = ({ stories }: { stories: Array<any> }) => {
                   animate={{ ...overlayDirectionMapMobile['diary' as SectionKey] }}
                   exit={{ left: 0, top: "100vh" }}
                   transition={{ type: 'tween', duration: 0.4 }}
-                  className=' bg-[#101411] flex flex-row justify-start z-20 max-h-[85dvh] overflow-y-auto absolute'
+                  className=' bg-[#101411] flex flex-row justify-start z-20 max-h-[75vh] py-1 overflow-y-auto absolute'
                   style={{ willChange: 'transform, opacity, left' }}
                 >
-                  <div className='flex flex-col justify-start px-[2vw] w-[100vw] max-h-[85dvh] overflow-y-auto'>
+                  <div className='flex flex-col justify-start px-[2vw] w-[100vw] max-h-[75vh] overflow-y-auto'>
                     <Stories stories={stories} onStoryClick={handleStoryClick} />
                   </div>
                 </motion.div>
-
+                {/*
                 <motion.div
                   initial={{ opacity: 0, left: "4vw", top: "10vh", scale: 0 }}
                   animate={{ opacity: 1, left: "4vw", top: "10vh", scale: 1 }}
@@ -68,6 +68,8 @@ const stories = ({ stories }: { stories: Array<any> }) => {
                   <Image src="/drawings/spring.png" alt="spring" width={120} height={120} />
                 </motion.div>
 
+                
+                */}
                 <motion.div
                   initial={{ opacity: 0, left: "40vw", top: "-5vh", scale: 0 }}
                   animate={{ opacity: 1, left: "40vw", top: "-5vh", scale: 1 }}
@@ -78,12 +80,11 @@ const stories = ({ stories }: { stories: Array<any> }) => {
                 >
                   <Image src="/drawings/spring.png" alt="spring" width={150} height={150} className='rotate-[-50deg]' />
                 </motion.div>
-
                 <motion.div
                   key={"diary-overlay"}
-                  initial={{ right: '-100vw', bottom: '85vh' }}
-                  animate={{ right: '2vw', bottom: '85vh' }}
-                  exit={{ right: '-100vw', bottom: '85vh' }}
+                  initial={{ right: '-100vw', bottom: '75vh' }}
+                  animate={{ right: '2vw', bottom: '75vh' }}
+                  exit={{ right: '-100vw', bottom: '75vh' }}
                   transition={{ type: 'tween', duration: 0.4 }}
                   className='font-bold text-[48px] sm:text-[128px] text-right fixed leading-none'
                   style={{ willChange: 'transform, opacity' }}

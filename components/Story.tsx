@@ -11,7 +11,7 @@ import Image from 'next/image';
 const Story = ({ story, idx }: any) => {
   return (
     <div className='overflow-hidden text-[#edf0d884] hover:text-[#EDF0D8] duration-200'>
-      <motion.div className='h-[15vh] sm:h-[300px] overflow-hidden w-auto flex flex-row justify-center items-center'
+      <motion.div className='h-[30dvh] sm:h-[300px] overflow-hidden w-auto flex flex-row justify-center items-center'
         initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5 } }}>
         <div className=' w-full h-full overflow-hidden' >
           <Image loading={idx < 3 ? 'eager' : 'lazy'} priority={idx < 3} fetchPriority={idx < 5 ? "high" : "low"} alt="Story post image"
