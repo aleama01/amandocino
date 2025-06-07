@@ -11,7 +11,7 @@ import Image from 'next/image';
  * 
  * @returns {ReactNode} A react component that is a container for AboutMe component and the Head component of this page.
  */
-const about = () => {
+const AboutPage = () => {
   const { showContent, mobile } = useContext(Context)
   if (mobile) {
     return (
@@ -131,4 +131,4 @@ const about = () => {
   }
 }
 
-export default about
+export default AboutPage

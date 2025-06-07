@@ -17,7 +17,7 @@ import Image from 'next/image'
  * @param postcards array containing all the posts of this category.
  * @returns {ReactNode} A react component that is a container for Photos component and the Head component of this page.
  */
-const photos = ({ postcards }: { postcards: Array<any> }) => {
+const PostcardsPage = ({ postcards }: { postcards: Array<any> }) => {
   const { expandStory, setExpandStory, showContent, setShowContent, mobile } = useContext(Context);
   const router = useRouter();
 
@@ -136,7 +136,7 @@ const photos = ({ postcards }: { postcards: Array<any> }) => {
   }
 }
 
-export default photos
+export default PostcardsPage
 
 
 

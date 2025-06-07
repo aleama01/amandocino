@@ -12,7 +12,7 @@ import Head from 'next/head'
  * @param friends array containing all the posts of this category.
  * @returns {ReactNode} A react component that is a container for Friends component and the Head component of this page.
  */
-const friends = ({ friends }: { friends: Array<any> }) => {
+const FriendsPage = ({ friends }: { friends: Array<any> }) => {
   return (
     <>
       <Head>
@@ -29,7 +29,7 @@ const friends = ({ friends }: { friends: Array<any> }) => {
   )
 }
 
-export default friends
+export default FriendsPage
 
 
 export async function getStaticProps() {

@@ -16,7 +16,7 @@ import { Context } from '../../Context'
  * @param stories array containing all the posts of this category.
  * @returns {ReactNode} A react component that is a container for Stories component and the Head component of this page.
  */
-const stories = ({ stories }: { stories: Array<any> }) => {
+const StoriesPage = ({ stories }: { stories: Array<any> }) => {
   const { expandStory, setExpandStory, showContent, setShowContent, mobile } = useContext(Context);
   const router = useRouter();
 
@@ -161,7 +161,7 @@ const stories = ({ stories }: { stories: Array<any> }) => {
   }
 }
 
-export default stories
+export default StoriesPage
 
 export async function getStaticProps() {
   const stories = (await getPosts('Diary')) ?? [];

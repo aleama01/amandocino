@@ -13,7 +13,7 @@ import Image from 'next/image';
 import Music from '../../components/Music';
 import MusicMobile from '../../components/MusicMobile';
 
-const music = ({ songs }: { songs: any }) => {
+const MusicPage = ({ songs }: { songs: any }) => {
   const { expandStory, setExpandStory, showContent, setShowContent, mobile } = useContext(Context);
   const router = useRouter();
   if (mobile) {
@@ -121,7 +121,7 @@ const music = ({ songs }: { songs: any }) => {
   }
 }
 
-export default music
+export default MusicPage
 
 export async function getStaticProps() {
   const songs = await getSongs()

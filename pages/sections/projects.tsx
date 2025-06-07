@@ -16,7 +16,7 @@ import Image from 'next/image';
  * @param projects array containing all the posts of this category.
  * @returns {ReactNode} A react component that is a container for Projects component and the Head component of this page.
  */
-const projects = ({ projects }: { projects: any }) => {
+const ProjectsPage = ({ projects }: { projects: any }) => {
   const { expandStory, setExpandStory, showContent, setShowContent, mobile } = useContext(Context);
   const router = useRouter();
 
@@ -145,7 +145,7 @@ const projects = ({ projects }: { projects: any }) => {
   }
 }
 
-export default projects
+export default ProjectsPage
 
 export async function getStaticProps() {
   const projects = (await getPosts('Projects')) ?? [];
