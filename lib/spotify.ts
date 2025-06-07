@@ -99,24 +99,45 @@ export const getArtists = async()=>{
   return artists;
 }
 
-export const getSongs = async () =>{
-  const numOfSongs = 30
-  const response = await getLikedSongs(numOfSongs);
-  const item  = await response.json();
-  let songs = []
-  for (let el of item.items){
-     let formattedDate = el.track.album.release_date
-      ? el.track.album.release_date.split('-').reverse().join('-')
-      : '';
-    let song = {
-      title:el.track.name,
-      link:el.track.external_urls.spotify,
-      date:formattedDate,
-      artists:el.track.artists.map((_artist:any)=>({name:_artist.name})),
-      album_cover:el.track.album.images[0].url
+export const getSongs = async () => {
+  try {
+    const numOfSongs = 30;
+    const response = await getLikedSongs(numOfSongs);
+    
+    if (!response.ok) {
+      console.error('Spotify API error:', response.statusText);
+      return [];
     }
-    songs.push(song)
-  }
 
-  return songs.reverse()
-}
+    const data = await response.json();
+    
+    // Check if items exists and is an array
+    if (!data?.items || !Array.isArray(data.items)) {
+      console.error('Invalid response format from Spotify API');
+      return [];
+    }
+
+    const songs = data.items.map((el:any) => {
+      if (!el?.track) return null;
+
+      const formattedDate = el.track.album?.release_date
+        ? el.track.album.release_date.split('-').reverse().join('-')
+        : '';
+
+      return {
+        title: el.track.name || '',
+        link: el.track.external_urls?.spotify || '',
+        date: formattedDate,
+        artists: el.track.artists?.map((_artist: any) => ({
+          name: _artist?.name || ''
+        })) || [],
+        album_cover: el.track.album?.images?.[0]?.url || ''
+      };
+    }).filter(Boolean); // Remove any null entries
+
+    return songs.reverse();
+  } catch (error) {
+    console.error('Error fetching songs:', error);
+    return [];
+  }
+};
