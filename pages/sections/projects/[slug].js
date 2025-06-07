@@ -1,5 +1,6 @@
 import { getPosts, getPostDetails, getRecentTenPosts } from "../../../services";
 import PostDetail from "../../../components/PostDetail";
+import PostDetailMobile from "../../../components/PostDetailMobile";
 import Head from "next/head";
 import { useContext, useEffect } from "react";
 import { Context } from "../../../Context";
@@ -16,7 +17,8 @@ import Image from "next/image";
  */
 const PostDetails = ({ post }) => {
   const router = useRouter();
-  const { setShowContent, setExpandStory, expandStory } = useContext(Context);
+  const { setShowContent, setExpandStory, expandStory, mobile } =
+    useContext(Context);
 
   useEffect(() => {
     if (!expandStory) setExpandStory(true);
@@ -32,114 +34,158 @@ const PostDetails = ({ post }) => {
       setShowContent(true);
     }, 400);
   };
-  return (
-    <>
-      <Head>
-        <title>Amandocino | {post.title}</title>
-        <meta name="description" content={post.excerpt} />
-      </Head>
-      <AnimatePresence>
-        {expandStory && (
-          <>
-            <motion.div
-              initial={{ left: "-5vw", top: "5vh" }}
-              animate={{ left: "2vw", top: "5vh" }}
-              exit={{ left: "-5vw", top: "5vh" }}
-              transition={{ duration: 0.2, type: "tween" }}
-              className="absolute flex flex-col items-center z-50 justify-center"
-              style={{ willChange: "transform" }}
-            >
-              <button
-                onClick={() => handleClickBack()}
-                className="font-thin text-3xl sm:text-[32px]"
-                aria-label="Go back to previous page"
+
+  if (mobile) {
+    return (
+      <>
+        <Head>
+          <title>Amandocino | {post.title}</title>
+          <meta name="description" content={post.excerpt} />
+        </Head>
+        <AnimatePresence>
+          {expandStory && (
+            <>
+              <motion.div
+                initial={{ left: "100vw", top: "5vh" }}
+                animate={{ left: "2vw", top: "5vh" }}
+                exit={{ left: "-100vw", top: "5vh" }}
+                transition={{ duration: 0.2, type: "tween" }}
+                className="absolute flex flex-col items-center z-20 justify-center"
+                style={{ willChange: "transform" }}
               >
-                <BsArrowLeft />
-              </button>
-            </motion.div>
+                <button
+                  onClick={() => handleClickBack()}
+                  className="font-thin text-3xl md:text-[32px]"
+                  aria-label="Go back to previous page"
+                >
+                  <BsArrowLeft />
+                </button>
+              </motion.div>
 
-            <motion.div
-              key={"diary-story"}
-              initial={{ right: "100vw" }}
-              animate={{ right: "30vw" }}
-              exit={{ right: "100vw" }}
-              transition={{ type: "tween", duration: 0.4 }}
-              className="overflow-hidden bg-[#101411] h-screen absolute top-0 w-[70vw] justify-end z-10 flex flex-row"
-              style={{ willChange: "transform", direction: "rtl" }}
-            >
-              <PostDetail
-                post={post}
-                posts={posts}
-                postCategory={post.category.slug}
-              />
-            </motion.div>
+              <motion.div
+                key={"project"}
+                initial={{ left: "100vw" }}
+                animate={{ left: 0 }}
+                exit={{ left: "100vw" }}
+                transition={{ type: "tween", duration: 0.4 }}
+                className="overflow-hidden bg-[#101411] h-screen absolute top-0 w-screen justify-end z-10 flex flex-row"
+              >
+                <PostDetailMobile
+                  post={post}
+                  postCategory={post.category.slug}
+                />
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Head>
+          <title>Amandocino | {post.title}</title>
+          <meta name="description" content={post.excerpt} />
+        </Head>
+        <AnimatePresence>
+          {expandStory && (
+            <>
+              <motion.div
+                initial={{ left: "-5vw", top: "5vh" }}
+                animate={{ left: "2vw", top: "5vh" }}
+                exit={{ left: "-5vw", top: "5vh" }}
+                transition={{ duration: 0.2, type: "tween" }}
+                className="absolute flex flex-col items-center z-50 justify-center"
+                style={{ willChange: "transform" }}
+              >
+                <button
+                  onClick={() => handleClickBack()}
+                  className="font-thin text-3xl md:text-[32px]"
+                  aria-label="Go back to previous page"
+                >
+                  <BsArrowLeft />
+                </button>
+              </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, right: "5vw", top: "15vh", scale: 0 }}
-              animate={{ opacity: 1, right: "5vw", top: "15vh", scale: 1 }}
-              exit={{ opacity: 0, right: "5vw", top: "15vh", scale: 0 }}
-              transition={{
-                duration: 0.2,
-                type: "crown",
-                bounce: 0.1,
-                damping: 15,
-                exit: { delay: 0 },
-              }}
-              className="absolute flex flex-col items-center justify-center z-20"
-              style={{ rotate: "10deg" }}
-            >
-              <Image
-                src="/drawings/crown.png"
-                alt="crown"
-                width={300}
-                height={300}
-              />
-            </motion.div>
-            {/**
-             * 
-            <motion.div
-              initial={{ opacity: 0, right: "45vw", top: "15vh", scale: 0 }}
-              animate={{ opacity: 1, right: "45vw", top: "15vh", scale: 1 }}
-              exit={{ opacity: 0, right: "45vw", top: "15vh", scale: 0 }}
-              transition={{
-                duration: 0.2,
-                type: "crown",
-                bounce: 0.1,
-                damping: 15,
-                exit: { delay: 0 },
-              }}
-              className="absolute flex flex-col items-center justify-center z-20"
-            >
-              <Image
-                src="/drawings/crown.png"
-                alt="crown"
-                width={200}
-                height={200}
-                style={{ rotate: "-10deg" }}
-              />
-            </motion.div>
-            */}
+              <motion.div
+                key={"diary-story"}
+                initial={{ right: "100vw" }}
+                animate={{ right: "30vw" }}
+                exit={{ right: "100vw" }}
+                transition={{ type: "tween", duration: 0.4 }}
+                className="overflow-hidden bg-[#101411] h-screen absolute top-0 w-[70vw] justify-end z-10 flex flex-row"
+                style={{ willChange: "transform", direction: "rtl" }}
+              >
+                <PostDetail post={post} postCategory={post.category.slug} />
+              </motion.div>
 
-            <motion.div
-              key={"project-overlay"}
-              initial={{ right: "100vw", top: "32px" }}
-              animate={{ right: "30vw", top: "32px" }}
-              exit={{ right: "100vw", top: "32px" }}
-              transition={{ type: "tween", duration: 0.4 }}
-              className="font-bold absolute text-[128px] z-20"
-              style={{
-                writingMode: "vertical-rl",
-                textOrientation: "mixed",
-                rotate: "180deg",
-              }}
-            >
-              PROJECTS
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </>
-  );
+              <motion.div
+                initial={{ opacity: 0, right: "5vw", top: "15vh", scale: 0 }}
+                animate={{ opacity: 1, right: "5vw", top: "15vh", scale: 1 }}
+                exit={{ opacity: 0, right: "5vw", top: "15vh", scale: 0 }}
+                transition={{
+                  duration: 0.2,
+                  type: "crown",
+                  bounce: 0.1,
+                  damping: 15,
+                  exit: { delay: 0 },
+                }}
+                className="absolute flex flex-col items-center justify-center z-20"
+                style={{ rotate: "10deg" }}
+              >
+                <Image
+                  src="/drawings/crown.png"
+                  alt="crown"
+                  width={300}
+                  height={300}
+                />
+              </motion.div>
+              {/**
+               * 
+              <motion.div
+                initial={{ opacity: 0, right: "45vw", top: "15vh", scale: 0 }}
+                animate={{ opacity: 1, right: "45vw", top: "15vh", scale: 1 }}
+                exit={{ opacity: 0, right: "45vw", top: "15vh", scale: 0 }}
+                transition={{
+                  duration: 0.2,
+                  type: "crown",
+                  bounce: 0.1,
+                  damping: 15,
+                  exit: { delay: 0 },
+                }}
+                className="absolute flex flex-col items-center justify-center z-20"
+              >
+                <Image
+                  src="/drawings/crown.png"
+                  alt="crown"
+                  width={200}
+                  height={200}
+                  style={{ rotate: "-10deg" }}
+                />
+              </motion.div>
+              */}
+
+              <motion.div
+                key={"project-overlay"}
+                initial={{ right: "100vw", top: "32px" }}
+                animate={{ right: "30vw", top: "32px" }}
+                exit={{ right: "100vw", top: "32px" }}
+                transition={{ type: "tween", duration: 0.4 }}
+                className="font-bold absolute text-[128px] z-20"
+                style={{
+                  writingMode: "vertical-rl",
+                  textOrientation: "mixed",
+                  rotate: "180deg",
+                }}
+              >
+                PROJECTS
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
+      </>
+    );
+  }
 };
 
 export default PostDetails;
@@ -153,6 +199,7 @@ export async function getStaticProps({ params }) {
 }
 export async function getStaticPaths() {
   const posts = await getPosts("Projects");
+
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
     fallback: false,

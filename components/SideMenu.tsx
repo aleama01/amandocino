@@ -22,8 +22,8 @@ const SideMenu = ({ handleClickFunction }: { handleClickFunction: (key: SectionK
   const { setOpenSideMenu, openSideMenu } = useContext(Context);
 
   const handleClick = (key: SectionKey) => {
-    setOpenSideMenu(false)
     handleClickFunction(key)
+    setOpenSideMenu(false)
   }
 
   return (
@@ -40,7 +40,7 @@ const SideMenu = ({ handleClickFunction }: { handleClickFunction: (key: SectionK
         style={{ right: openSideMenu ? '0vw' : '-100vw', pointerEvents: openSideMenu ? 'auto' : 'none' }}>
 
         <div className='relative w-full mt-[4vh]'>
-          <button aria-label='Close side menu' className='left-[2vw] font-thin text-3xl absolute sm:text-[32px] '
+          <button aria-label='Close side menu' className='left-[2vw] font-thin text-3xl absolute md:text-[32px] '
             onClick={() => (setOpenSideMenu(false))}>
             <MdClose />
           </button>
@@ -48,24 +48,12 @@ const SideMenu = ({ handleClickFunction }: { handleClickFunction: (key: SectionK
 
         <div className='mx-auto top-1/2 absolute -translate-y-1/2 right-[2vw]'>
           <h1 className='leading-none'>amandocino</h1>
-          <motion.ul
-            className={`list-none absolute font-medium text-sm mt-2`}
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-            }}
-            exit={{ opacity: 0 }}>
+          <ul
+            className={`list-none absolute font-medium text-sm mt-2`}>
             {Object.keys(menuDirectionMap).filter(key => key !== pagename).map((key, idx) => (
-              <motion.li
+              <li
                 key={key}
-                className="my-1 sm:w-[254px] w-[172px] text-right"
-                initial={{ opacity: 1 }}
-                animate={{
-
-                  x: 0,
-                  transition: { duration: 0.2, delay: idx * 0.05 }
-                }}
-                exit={{ opacity: 1, transition: { duration: 0.2, delay: idx * 0.05 } }}
+                className="my-1 md:w-[254px] w-[172px] text-right"
               >
                 <button
                   key={key}
@@ -73,9 +61,9 @@ const SideMenu = ({ handleClickFunction }: { handleClickFunction: (key: SectionK
                   onClick={() => handleClick(key as SectionKey)}>
                   [<span className="mx-2 uppercase">{key.toUpperCase()}</span>]
                 </button>
-              </motion.li>
+              </li>
             ))}
-          </motion.ul>
+          </ul>
         </div>
 
       </div >

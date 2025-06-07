@@ -63,13 +63,13 @@ const PostDetail = ({ post, postCategory }: any) => {
                 className='w-full h-full object-center object-cover z-10 duration-200' />
             </div>
 
-            <h2 className='mt-2 z-30 text-center sm:text-left overflow-hidden leading-5 sm:leading-normal' >
+            <h2 className='mt-2 z-30 text-center md:text-left overflow-hidden leading-5 md:leading-normal' >
               <span className='text-base'>
                 {post.title.toUpperCase()}
               </span>
             </h2>
 
-            <div className='flex-row flex flex-wrap justify-center sm:justify-start gap-x-1'>
+            <div className='flex-row flex flex-wrap justify-center md:justify-start gap-x-1'>
               {post.tag.map((t: any, index: number) => {
                 return (
                   <div className='' key={index}>
@@ -121,7 +121,7 @@ const PostDetail = ({ post, postCategory }: any) => {
                 className='w-full h-full object-center object-cover z-10 duration-200' />
             </div>
 
-            <h2 className='mt-2 z-30 text-center sm:text-left overflow-hidden leading-5 sm:leading-normal' >
+            <h2 className='mt-2 z-30 text-center md:text-left overflow-hidden leading-5 md:leading-normal' >
               <span className='text-base'>
                 {post.title.toUpperCase()}
               </span>
@@ -139,7 +139,7 @@ const PostDetail = ({ post, postCategory }: any) => {
             {post.images.map((image: any, index: any) => {
               return (
                 <div className=' basis-1/2 z-10 my-4 lg:my-8' key={image.url}>
-                  <Image alt="Post gallery image" width={512} height={512} src={`${image.url}`} className='mx-auto w-[300px] h-auto sm:w-full object-cover' />
+                  <Image alt="Post gallery image" width={512} height={512} src={`${image.url}`} className='mx-auto w-[300px] h-auto md:w-full object-cover' />
                 </div>
               )
             })}

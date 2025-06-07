@@ -21,7 +21,7 @@ const friends = ({ friends }: { friends: Array<any> }) => {
       </Head>
       <div className='flex flex-col friends min-h-screen justify-center pt-[5vh] px-[5vw] overflow-x-hidden' >
         <Friends friends={friends} />
-        <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={`/`} className='fixed font-thin left-2 sm:left-14 text-3xl top-2 sm:text-[32px] z-50' aria-label="Go back to homepage">
+        <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={`/`} className='fixed font-thin left-2 md:left-14 text-3xl top-2 md:text-[32px] z-50' aria-label="Go back to homepage">
           <BsArrowLeft />
         </Link>
       </div>

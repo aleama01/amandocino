@@ -86,7 +86,7 @@ const stories = ({ stories }: { stories: Array<any> }) => {
                   animate={{ right: '2vw', bottom: '75vh' }}
                   exit={{ right: '-100vw', bottom: '75vh' }}
                   transition={{ type: 'tween', duration: 0.4 }}
-                  className='font-bold text-[48px] sm:text-[128px] text-right fixed leading-none'
+                  className='font-bold text-[48px] md:text-[128px] text-right fixed leading-none'
                   style={{ willChange: 'transform, opacity' }}
                 >
                   DIARY

@@ -53,23 +53,23 @@ const PostDetailMobile = ({ post, postCategory }: any) => {
   if (postCategory === 'projects') {
     return (
       <div className='flex flex-col w-[100dvw] pt-[12dvh] overflow-y-auto overflow-x-hidden px-[5vw] '>
-        <div className='flex flex-col items-end'>
-          <div className=' justify-self-start relative mt-1 flex flex-col items-end mb-8' >
+        <div className='flex flex-col'>
+          <div className=' justify-self-start relative mt-1 mb-8' >
 
-            <div className=' w-[450px] h-[450px] overflow-hidden' >
+            <div className=' w-full h-[200px] overflow-hidden' >
               <Image alt="Post main image" width={720} height={720} src={`${post.image.url}`}
                 loading='eager' priority={true} fetchPriority="high"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className='w-full h-full object-center object-cover z-10 duration-200' />
             </div>
 
-            <h2 className='mt-2 z-30 text-center sm:text-left overflow-hidden leading-5 sm:leading-normal' >
+            <h2 className='mt-2 z-30 text-center md:text-left overflow-hidden leading-5 md:leading-normal' >
               <span className='text-base'>
                 {post.title.toUpperCase()}
               </span>
             </h2>
 
-            <div className='flex-row flex flex-wrap justify-center sm:justify-start gap-x-1'>
+            <div className='flex-row flex flex-wrap justify-center text-xs gap-x-1'>
               {post.tag.map((t: any, index: number) => {
                 return (
                   <div className='' key={index}>
@@ -99,7 +99,7 @@ const PostDetailMobile = ({ post, postCategory }: any) => {
               )
             })}
 
-            <div className='m-2 text-[#EDF0D8] text-left'>
+            <div className='m-2 text-[#EDF0D8] text-left text-xs'>
               {post.date}
             </div>
 
@@ -121,7 +121,7 @@ const PostDetailMobile = ({ post, postCategory }: any) => {
                 className='w-full h-full object-center object-cover z-10 duration-200' />
             </div>
 
-            <h2 className='mt-2 z-30 text-center sm:text-left overflow-hidden leading-5 sm:leading-normal' >
+            <h2 className='mt-2 z-30 text-center md:text-left overflow-hidden leading-5 md:leading-normal' >
               <span className='text-base'>
                 {post.title.toUpperCase()}
               </span>
@@ -139,7 +139,7 @@ const PostDetailMobile = ({ post, postCategory }: any) => {
             {post.images.map((image: any, index: any) => {
               return (
                 <div className=' basis-1/2 z-10 my-4 lg:my-8' key={image.url}>
-                  <Image alt="Post gallery image" width={512} height={512} src={`${image.url}`} className='mx-auto w-[300px] h-auto sm:w-full object-cover' />
+                  <Image alt="Post gallery image" width={512} height={512} src={`${image.url}`} className='mx-auto w-[300px] h-auto md:w-full object-cover' />
                 </div>
               )
             })}

@@ -34,17 +34,17 @@ const EmailDiv = () => {
 <div className='relative z-30'>
   {pathname != null && pathname != '/' &&
     <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href="/">
-      <div className='absolute max-w-[100vw] text-xl top-2 sm:text-[32px] mx-auto left-1/2 -translate-x-1/2' style={{ fontFamily: 'ClashDisplay-Regular' }}>
+      <div className='absolute max-w-[100vw] text-xl top-2 md:text-[32px] mx-auto left-1/2 -translate-x-1/2' style={{ fontFamily: 'ClashDisplay-Regular' }}>
         AMANDOCINO
       </div>
     </Link>
   }
 
   <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href="/sections/about" >
-    <h2 className='fixed text-base rotate-180 top-[50vh] fixedbug left-1 sm:left-3' style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}> about </h2>
+    <h2 className='fixed text-base rotate-180 top-[50vh] fixedbug left-1 md:left-3' style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}> about </h2>
   </Link>
 
-  <div className='fixed text-base top-[50vh] fixedbug right-1 sm:right-3' style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}>
+  <div className='fixed text-base top-[50vh] fixedbug right-1 md:right-3' style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}>
     <EmailDiv />
   </div>
   {pathname != null && pathname != '/' &&

@@ -5,7 +5,7 @@ import { Context } from '../Context';
 
 const ContactModal = ({ handleClick }: { handleClick: any }) => {
   return (
-    <div className='flex flex-row items-start p-6 bg-[#101411] w-full sm:w-[400px]'>
+    <div className='flex flex-row items-start p-6 bg-[#101411] w-full md:w-[400px]'>
       <button aria-label='Close side menu' className='font-thin text-2xl'
         onClick={handleClick}>
         x

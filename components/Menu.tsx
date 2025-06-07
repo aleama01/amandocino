@@ -31,39 +31,36 @@ const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction
           <motion.div
             className={`absolute z-40`}
             id="menu"
-            initial={{ left: '50dvw', top: '-50dvh', translateX: '-50%', translateY: '-50%' }}
+            initial={{ left: '50dvw', top: '-100dvh', translateX: '-50%', translateY: '-50%' }}
             animate={{ left: '50dvw', top: '50dvh', translateX: '-50%', translateY: '-50%' }}
-            exit={{ left: '50dvw', top: '-50dvh', translateX: '-50%', translateY: '-50%' }}
+            exit={{ left: '50dvw', top: '-100dvh', translateX: '-50%', translateY: '-50%' }}
             style={{ willChange: "transform, opacity" }}
             transition={{ duration: 0.4 }}
           >
 
             <h1 onClick={() => handleClickFunction("homepage" as SectionKey)} className='leading-none'>amandocino</h1>
-            <AnimatePresence>
-              {showMenuList && (
-                <motion.ul
-                  className={`list-none absolute font-medium text-sm mt-2`}
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    opacity: 1,
-                  }}
-                  exit={{ opacity: 0 }}>
-                  {Object.keys(menuDirectionMap).filter(key => key !== "homepage").map((key, idx) => (
-                    <li
-                      key={key}
-                      className="my-1 sm:w-[254px] w-[172px] text-center"
-                    >
-                      <button
-                        key={key}
-                        className="mx-auto box-content text-center"
-                        onClick={() => handleClickFunction(key as SectionKey)}>
-                        [<span className="mx-2 uppercase">{key.toUpperCase()}</span>]
-                      </button>
-                    </li>
-                  ))}
-                </motion.ul>
-              )}
-            </AnimatePresence>
+
+            <motion.ul
+              className={`list-none absolute font-medium text-sm mt-2`}
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+              }}
+              exit={{ opacity: 0 }}>
+              {Object.keys(menuDirectionMap).filter(key => key !== "homepage").map((key, idx) => (
+                <li
+                  key={key}
+                  className="my-1 md:w-[254px] w-[172px] text-center"
+                >
+                  <button
+                    key={key}
+                    className="mx-auto box-content text-center"
+                    onClick={() => handleClickFunction(key as SectionKey)}>
+                    [<span className="mx-2 uppercase">{key.toUpperCase()}</span>]
+                  </button>
+                </li>
+              ))}
+            </motion.ul>
           </motion.div>
         }
       </AnimatePresence>
@@ -134,7 +131,7 @@ const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction
                 {!horizontalMenu && Object.keys(menuDirectionMap).filter(key => key !== "homepage").map((key, idx) => (
                   <motion.li
                     key={key}
-                    className="my-1 sm:w-[254px] w-[172px]"
+                    className="my-1 md:w-[254px] w-[172px]"
                     initial={{ opacity: 1, x: align.from === "left" ? -200 : align.from === "right" ? 200 : -200 }}
                     animate={{
                       opacity: pagename === "postcards" || pagename === "music" ? 0 : 1,

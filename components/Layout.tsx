@@ -74,7 +74,8 @@ const Layout = ({ Component, pageProps }: any) => {
   const [showMenuList, setShowMenuList] = useState(true);
 
   const handleClick = async (page: SectionKey) => {
-    if (pathname.split('/').length > 3 && page === pagename) {
+
+    if (pathname.split('/').length > 3 && page === pagename && !mobile) {
       setExpandStory(false);
       setTimeout(() => {
         router.push(`/sections/${page}`)
@@ -87,40 +88,55 @@ const Layout = ({ Component, pageProps }: any) => {
 
     if (page === pagename) return;
 
-    let from = textAlignMap[pagename];
-    let to = textAlignMap[page];
-    setAlignList({ from, to });
-    await new Promise(res => setTimeout(res, 220));
+    if (!mobile) {
+      let from = textAlignMap[pagename];
+      let to = textAlignMap[page];
+      setAlignList({ from, to });
+      await new Promise(res => setTimeout(res, 220));
 
-    // 1. Hide menu list
-    if (to === "horizontal" || (from === "horizontal" && to != "horizontal")) {
-      setShowMenuList(false)
-    }
-    // 2. Wait for menu list to disappear (match exit duration in Menu.tsx, e.g. 200ms)
-    await new Promise(res => setTimeout(res, 10));
+      // 1. Hide menu list
+      if (to === "horizontal" || (from === "horizontal" && to != "horizontal")) {
+        setShowMenuList(false)
+      }
+      // 2. Wait for menu list to disappear (match exit duration in Menu.tsx, e.g. 200ms)
+      await new Promise(res => setTimeout(res, 200));
+
+      // 3. Move menu
+      setTransition(page, menuDirectionMap[page]);
+
+      setShowContent(false);
+      setExpandStory(false);
 
 
-    // 3. Move menu
-    setTransition(page, menuDirectionMap[page]);
-    setShowContent(false);
-    setExpandStory(false);
+      if (page !== "homepage") {
+        router.push(`/sections/${page}`);
+      } else {
+        router.push("/");
+      }
 
+      // 4. Wait for menu move animation (match menuControls duration, e.g. 0.5s + 0.5s delay)
+      await menuControls.start({ ...menuDirectionMap[page], transition: { duration: 0.5, delay: 0.5 } });
 
-    if (page !== "homepage") {
-      router.push(`/sections/${page}`);
+      // 5. Show menu list again (if needed)
+      setShowMenuList(true);
+
+      setTimeout(() => {
+        setShowContent(true);
+      }, 200);
     } else {
-      router.push("/");
+      setShowContent(false);
+      setExpandStory(false);
+
+      if (page !== "homepage") {
+        await router.push(`/sections/${page}`);
+      } else {
+        await router.push("/");
+      }
+
+      setTimeout(() => {
+        setShowContent(true);
+      }, 400);
     }
-
-    // 4. Wait for menu move animation (match menuControls duration, e.g. 0.5s + 0.5s delay)
-    await menuControls.start({ ...menuDirectionMap[page], transition: { duration: 0.5, delay: 0.5 } });
-
-    // 5. Show menu list again (if needed)
-    setShowMenuList(true);
-
-    setTimeout(() => {
-      setShowContent(true);
-    }, 200);
   };
 
   useEffect(() => {

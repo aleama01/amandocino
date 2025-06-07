@@ -46,16 +46,16 @@ const PostDetails = ({ post }) => {
           {expandStory && (
             <>
               <motion.div
-                initial={{ left: "-5vw", top: "5vh" }}
+                initial={{ left: "100vw", top: "5vh" }}
                 animate={{ left: "2vw", top: "5vh" }}
-                exit={{ left: "-5vw", top: "5vh" }}
+                exit={{ left: "100vw", top: "5vh" }}
                 transition={{ duration: 0.2, type: "tween" }}
-                className="absolute flex flex-col items-center z-50 justify-center"
+                className="absolute flex flex-col items-center z-20 justify-center"
                 style={{ willChange: "transform" }}
               >
                 <button
                   onClick={() => handleClickBack()}
-                  className="font-thin text-3xl sm:text-[32px]"
+                  className="font-thin text-3xl md:text-[32px]"
                   aria-label="Go back to previous page"
                 >
                   <BsArrowLeft />
@@ -73,28 +73,6 @@ const PostDetails = ({ post }) => {
                   post={post}
                   postCategory={post.category.slug}
                 />
-                <motion.div
-                  initial={{ opacity: 0, left: "40vw", top: "-5vh", scale: 0 }}
-                  animate={{ opacity: 1, left: "40vw", top: "-5vh", scale: 1 }}
-                  exit={{ opacity: 0, left: "40vw", top: "-5vh", scale: 0 }}
-                  transition={{
-                    duration: 0.1,
-                    type: "spring",
-                    bounce: 0.1,
-                    damping: 15,
-                    exit: { delay: 0 },
-                  }}
-                  className="absolute flex flex-col items-center justify-center"
-                  style={{ willChange: "transform, opacity" }}
-                >
-                  <Image
-                    src="/drawings/spring.png"
-                    alt="spring"
-                    width={150}
-                    height={150}
-                    className="rotate-[-50deg]"
-                  />
-                </motion.div>
               </motion.div>
             </>
           )}
@@ -121,7 +99,7 @@ const PostDetails = ({ post }) => {
               >
                 <button
                   onClick={() => handleClickBack()}
-                  className="font-thin text-3xl sm:text-[32px]"
+                  className="font-thin text-3xl md:text-[32px]"
                   aria-label="Go back to previous page"
                 >
                   <BsArrowLeft />

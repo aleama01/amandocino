@@ -48,21 +48,21 @@ const HomeGallery = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-screen sm:w-[90vw] relative space-y-2 sm:space-y-6">
-      <div className="flex flex-row justify-between w-full h-[40vh] sm:h-[60vh] items-center">
+    <div className="flex flex-col items-center w-screen md:w-[90vw] relative space-y-2 md:space-y-6">
+      <div className="flex flex-row justify-between w-full h-[40vh] md:h-[60vh] items-center">
 
         <div className=" left-3 absolute text-[30px] pointer-events-auto z-20 cursor-pointer" onClick={handleClickLeft} aria-label="Scroll modal to previous section">
           <BsArrowLeftShort />
         </div>
 
-        <div className='basis-3/4 hidden sm:block' />
+        <div className='basis-3/4 hidden md:block' />
 
-        <div className='absolute w-screen self-start  h-[40vh] sm:h-[60vh] overflow-x-hidden sm:w-[90vw]'>
+        <div className='absolute w-screen self-start  h-[40vh] md:h-[60vh] overflow-x-hidden md:w-[90vw]'>
           <div className="h-full absolute w-auto flex flex-row pointer-events-none select-none">
             {SECTIONS.map((elem, i) => (
               <motion.div
                 key={i}
-                className="relative w-screen sm:w-[70vw]"
+                className="relative w-screen md:w-[70vw]"
                 initial={{ translateX: 0 }}
                 animate={controlsImage}
               >
@@ -75,7 +75,7 @@ const HomeGallery = () => {
         <div className='h-4/5 hidden  w-0 basis-0 mx-6 border-[0.5px] ' />
 
         <div
-          className="relative hidden pl-4 pr-10 py-4 sm:flex flex-col space-y-6 overflow-visible  bg-[#10100E] h-full basis-[25vw] "
+          className="relative hidden pl-4 pr-10 py-4 md:flex flex-col space-y-6 overflow-visible  bg-[#10100E] h-full basis-[25vw] "
         >
           <motion.div animate={controlsText}
             initial={{ opacity: 1 }}
@@ -111,7 +111,7 @@ const HomeGallery = () => {
       </div>
 
       <motion.div
-        className="relative sm:hidden flex mx-[10vw] flex-col space-y-2 self-start overflow-visible justify-start h-full basis-1/4 "
+        className="relative md:hidden flex mx-[10vw] flex-col space-y-2 self-start overflow-visible justify-start h-full basis-1/4 "
         animate={controlsText}
         initial={{ opacity: 1 }}
         transition={{ opacity: { duration: 0.5 } }}
