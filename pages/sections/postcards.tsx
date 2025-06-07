@@ -9,6 +9,7 @@ import { overlayDirectionMap, overlayDirectionMapMobile, SectionKey } from '../.
 import { useRouter } from 'next/router'
 import { Context } from '../../Context'
 import Image from 'next/image'
+import { springTransition } from '../../components/Homepage'
 
 
 /**
@@ -67,7 +68,7 @@ const PostcardsPage = ({ postcards }: { postcards: Array<any> }) => {
                 initial={{ opacity: 0, left: '35vw', top: "-10px", scale: 0 }}
                 animate={{ opacity: 1, left: '35vw', top: "-10px", scale: 1 }}
                 exit={{ opacity: 0, left: '35vw', top: "-10px", scale: 0 }}
-                transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                transition={springTransition}
                 className="absolute flex flex-col top-0 items-center justify-center pointer-events-none"
                 style={{ willChange: 'transform, opacity,left' }}
               >
@@ -112,7 +113,7 @@ const PostcardsPage = ({ postcards }: { postcards: Array<any> }) => {
                 initial={{ opacity: 0, left: '2vw', top: 0, scale: 0 }}
                 animate={{ opacity: 1, left: '2vw', top: 0, scale: 1 }}
                 exit={{ opacity: 0, left: '2vw', top: 0, scale: 0 }}
-                transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                transition={springTransition}
                 className="absolute flex flex-col items-center justify-center pointer-events-none"
                 style={{ willChange: 'transform, opacity,left ,top' }}
               >
@@ -122,7 +123,7 @@ const PostcardsPage = ({ postcards }: { postcards: Array<any> }) => {
                 initial={{ opacity: 0, right: '10vw', bottom: "-100px", scale: 0 }}
                 animate={{ opacity: 1, right: '10vw', bottom: "-100px", scale: 1 }}
                 exit={{ opacity: 0, right: '10vw', bottom: "-100px", scale: 0 }}
-                transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                transition={springTransition}
                 className="absolute flex flex-col items-center justify-center pointer-events-none"
                 style={{ willChange: 'transform, opacity, right, bottom' }}
               >

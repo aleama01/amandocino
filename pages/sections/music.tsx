@@ -12,6 +12,7 @@ import { Context } from '../../Context';
 import Image from 'next/image';
 import Music from '../../components/Music';
 import MusicMobile from '../../components/MusicMobile';
+import { springTransition } from '../../components/Homepage';
 
 const MusicPage = ({ songs }: { songs: any }) => {
   const { expandStory, setExpandStory, showContent, setShowContent, mobile } = useContext(Context);
@@ -41,7 +42,7 @@ const MusicPage = ({ songs }: { songs: any }) => {
                 initial={{ opacity: 0, left: "50vw", top: "2dvh", scale: 0 }}
                 animate={{ opacity: 1, left: "50vw", top: "2dvh", scale: 1 }}
                 exit={{ opacity: 0, left: "50vw", top: "2dvh", scale: 0 }}
-                transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                transition={springTransition}
                 className="fixed flex flex-col items-center justify-center z-10"
                 style={{ willChange: 'transform, opacity' }}
               >
@@ -86,7 +87,7 @@ const MusicPage = ({ songs }: { songs: any }) => {
                   initial={{ opacity: 0, left: "5vw", top: "-10dvh", scale: 0 }}
                   animate={{ opacity: 1, left: "5vw", top: "-10dvh", scale: 1 }}
                   exit={{ opacity: 0, left: "5vw", top: "-10dvh", scale: 0 }}
-                  transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                  transition={springTransition}
                   className="fixed flex flex-col items-center justify-center z-10"
                   style={{ willChange: 'transform, opacity' }}
                 >
@@ -96,7 +97,7 @@ const MusicPage = ({ songs }: { songs: any }) => {
                   initial={{ opacity: 0, right: "2vw", top: "7dvh", scale: 0 }}
                   animate={{ opacity: 1, right: "2vw", top: "7dvh", scale: 1 }}
                   exit={{ opacity: 0, right: "2vw", top: "7dvh", scale: 0 }}
-                  transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                  transition={springTransition}
                   className="fixed flex flex-col items-center justify-center z-10"
                   style={{ willChange: 'transform, opacity' }}
                 >

@@ -8,6 +8,7 @@ import { overlayDirectionMap, overlayDirectionMapMobile, SectionKey } from '../.
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { Context } from '../../Context'
+import { springTransition } from '../../components/Homepage'
 
 
 /**
@@ -61,7 +62,7 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
                   initial={{ opacity: 0, left: "4vw", top: "10vh", scale: 0 }}
                   animate={{ opacity: 1, left: "4vw", top: "10vh", scale: 1 }}
                   exit={{ opacity: 0, left: "4vw", top: "10vh", scale: 0 }}
-                  transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                  transition={springTransition}
                   className="fixed flex flex-col items-center justify-center"
                   style={{ willChange: 'transform, opacity' }}
                 >
@@ -74,7 +75,7 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
                   initial={{ opacity: 0, left: "40vw", top: "-5vh", scale: 0 }}
                   animate={{ opacity: 1, left: "40vw", top: "-5vh", scale: 1 }}
                   exit={{ opacity: 0, left: "40vw", top: "-5vh", scale: 0 }}
-                  transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                  transition={springTransition}
                   className="fixed flex flex-col items-center justify-center"
                   style={{ willChange: 'transform, opacity' }}
                 >
@@ -124,7 +125,7 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
                 initial={{ opacity: 0, x: "5vw", y: "-100px", scale: 0 }}
                 animate={{ opacity: 1, x: "5vw", y: "-100px", scale: 1 }}
                 exit={{ opacity: 0, x: "5vw", y: "-100px", scale: 0 }}
-                transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                transition={springTransition}
                 className="absolute flex flex-col items-center justify-center"
                 style={{ willChange: 'transform, opacity' }}
               >
@@ -135,7 +136,7 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
                 initial={{ opacity: 0, x: "35vw", y: "40vh", scale: 0 }}
                 animate={{ opacity: 1, x: "35vw", y: "40vh", scale: 1 }}
                 exit={{ opacity: 0, x: "35vw", y: "40vh", scale: 0 }}
-                transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                transition={springTransition}
                 className="absolute flex flex-col items-center justify-center"
                 style={{ willChange: 'transform, opacity' }}
               >

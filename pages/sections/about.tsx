@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { overlayDirectionMap, overlayDirectionMapMobile, SectionKey } from '../../components/Layout';
 import { Context } from '../../Context';
 import Image from 'next/image';
+import { springTransition } from '../../components/Homepage';
 
 /**
  * Container and wrapper of the 'AboutMe' component for this page section.
@@ -13,6 +14,7 @@ import Image from 'next/image';
  */
 const AboutPage = () => {
   const { showContent, mobile } = useContext(Context)
+
   if (mobile) {
     return (
       <>
@@ -50,7 +52,7 @@ const AboutPage = () => {
                 initial={{ opacity: 0, right: "17vw", top: "0vh", scale: 0 }}
                 animate={{ opacity: 1, right: "17vw", top: "0vh", scale: 1 }}
                 exit={{ opacity: 0, right: "17vw", top: "0vh", scale: 0 }}
-                transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                transition={springTransition}
                 className="absolute flex flex-col items-center justify-center"
                 style={{ willChange: 'transform, opacity' }}
               >
@@ -106,7 +108,7 @@ const AboutPage = () => {
                 initial={{ opacity: 0, left: "-2vw", bottom: "-100px", scale: 0 }}
                 animate={{ opacity: 1, left: "-2vw", bottom: "-100px", scale: 1 }}
                 exit={{ opacity: 0, left: "-2vw", bottom: "-100px", scale: 0 }}
-                transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                transition={springTransition}
                 className="absolute flex flex-col items-center justify-center"
                 style={{ willChange: 'transform, opacity' }}
               >
@@ -116,7 +118,7 @@ const AboutPage = () => {
                 initial={{ opacity: 0, right: "-5vw", top: "-10vh", scale: 0 }}
                 animate={{ opacity: 1, right: "-5vw", top: "-10vh", scale: 1 }}
                 exit={{ opacity: 0, right: "-5vw", top: "-10vh", scale: 0 }}
-                transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                transition={springTransition}
                 className="absolute flex flex-col items-center justify-center"
                 style={{ willChange: 'transform, opacity' }}
               >

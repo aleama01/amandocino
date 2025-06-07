@@ -9,6 +9,7 @@ import { overlayDirectionMap, overlayDirectionMapMobile, SectionKey } from '../.
 import { useRouter } from 'next/navigation';
 import { Context } from '../../Context';
 import Image from 'next/image';
+import { springTransition } from '../../components/Homepage';
 
 /**
  * Container and wrapper of the 'Projects' component for this page section.
@@ -61,7 +62,7 @@ const ProjectsPage = ({ projects }: { projects: any }) => {
                 initial={{ opacity: 0, left: "32vw", top: "10px", scale: 0 }}
                 animate={{ opacity: 1, left: "32vw", top: "10px", scale: 1 }}
                 exit={{ opacity: 0, left: "32vw", top: "10px", scale: 0 }}
-                transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                transition={springTransition}
                 className="absolute flex flex-col items-center justify-center w-[90px]"
                 style={{ willChange: 'transform, opacity' }}
               >
@@ -108,7 +109,7 @@ const ProjectsPage = ({ projects }: { projects: any }) => {
                 initial={{ opacity: 0, right: "5vw", top: "-100px", scale: 0 }}
                 animate={{ opacity: 1, right: "5vw", top: "-100px", scale: 1 }}
                 exit={{ opacity: 0, right: "5vw", top: "-100px", scale: 0 }}
-                transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                transition={springTransition}
                 className="absolute flex flex-col items-center justify-center"
                 style={{ willChange: 'transform, opacity' }}
               >
@@ -119,7 +120,7 @@ const ProjectsPage = ({ projects }: { projects: any }) => {
                 initial={{ opacity: 0, right: "27vw", top: "50vh", scale: 0 }}
                 animate={{ opacity: 1, right: "27vw", top: "50vh", scale: 1 }}
                 exit={{ opacity: 0, right: "27vw", top: "50vh", scale: 0 }}
-                transition={{ duration: 0.1, type: "spring", bounce: 0.1, damping: 15, exit: { delay: 0 } }}
+                transition={springTransition}
                 className="absolute flex flex-col items-center justify-center"
                 style={{ willChange: 'transform, opacity' }}
               >

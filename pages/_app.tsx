@@ -2,7 +2,6 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import ContextProvider, { Context } from '../Context'
 import Head from 'next/head'
-import Header from '../components/Header'
 import SideMenu from '../components/SideMenu'
 import Footer from '../components/Footer'
 import React, { useState, useEffect, useRef, useContext } from 'react';
@@ -12,7 +11,6 @@ import { isMobile } from "../scripts/isMobile";
 import { usePathname } from 'next/navigation';
 import { TransitionProvider, useTransition } from '../components/TransitionProvider';
 import SideMenuButton from "../components/SideMenuButton";
-import HomeGallery from "../components/HomeGallery";
 import Layout from '../components/Layout'
 import Menu from '../components/Menu'
 
