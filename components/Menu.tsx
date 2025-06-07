@@ -53,7 +53,6 @@ const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction
                   className="my-1 md:w-[254px] w-[172px] text-center"
                 >
                   <button
-                    key={key}
                     className="mx-auto box-content text-center"
                     onClick={() => handleClickFunction(key as SectionKey)}>
                     [<span className="mx-2 uppercase">{key.toUpperCase()}</span>]
