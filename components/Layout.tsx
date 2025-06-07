@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import Header from './Header'
 import Footer from './Footer'
 import SideMenu from './SideMenu'
 import Menu from './Menu'
