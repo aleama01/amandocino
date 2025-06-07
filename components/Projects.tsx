@@ -12,7 +12,7 @@ import { Context } from '../Context'
 const Projects = ({ projects, onClick }: { projects: any, onClick: Function }) => {
 
   return (
-    <div className='flex flex-col w-full space-y-3 items-start mx-auto py-[2vh]'>
+    <div className='flex flex-col w-full space-y-3 items-start mx-auto py-[2dvh]'>
       {projects.map((project: any, idx: number) => (
         <div onClick={() => onClick(project.node.slug)} key={project.node.title} className={`w-full`} >
           <Project project={project.node} />

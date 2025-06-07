@@ -27,9 +27,9 @@ const AboutPage = () => {
             <>
               <motion.div
                 key={"about-background"}
-                initial={{ left: 0, top: '100vh' }}
+                initial={{ left: 0, top: '100dvh' }}
                 animate={overlayDirectionMapMobile['about' as SectionKey]}
-                exit={{ left: 0, top: '100vh' }}
+                exit={{ left: 0, top: '100dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
                 className='flex flex-col bg-[#101411] justify-center w-screen h-[75dvh] py-1 overflow-y-auto absolute'
               >
@@ -40,9 +40,9 @@ const AboutPage = () => {
 
               <motion.div
                 key={"about-overlay-mobile"}
-                initial={{ left: '-100vw', bottom: '75vh' }}
-                animate={{ left: '2vw', bottom: '75vh' }}
-                exit={{ left: '-100vw', bottom: '75vh' }}
+                initial={{ left: '-100vw', bottom: '75dvh' }}
+                animate={{ left: '2vw', bottom: '75dvh' }}
+                exit={{ left: '-100vw', bottom: '75dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
                 className='font-bold text-[48px] text-left absolute leading-none'
               >

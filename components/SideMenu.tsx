@@ -39,7 +39,7 @@ const SideMenu = ({ handleClickFunction }: { handleClickFunction: (key: SectionK
       <div className='fixed w-[80dvw] h-[100dvh] bg-cover z-[60]  text-[#EDF0D8] bg-[#101411] duration-[400ms]'
         style={{ right: openSideMenu ? '0vw' : '-100vw', pointerEvents: openSideMenu ? 'auto' : 'none' }}>
 
-        <div className='relative w-full mt-[4vh]'>
+        <div className='relative w-full mt-[4dvh]'>
           <button aria-label='Close side menu' className='left-[2vw] font-thin text-3xl absolute md:text-[32px] '
             onClick={() => (setOpenSideMenu(false))}>
             <MdClose />

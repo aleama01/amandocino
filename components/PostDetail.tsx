@@ -52,7 +52,7 @@ const PostDetail = ({ post, postCategory }: any) => {
 
   if (postCategory === 'projects') {
     return (
-      <div className='flex flex-col w-[60vw] py-[5vh] overflow-y-auto overflow-x-hidden px-[5vw] '>
+      <div className='flex flex-col w-[60vw] py-[5dvh] overflow-y-auto overflow-x-hidden px-[5vw] '>
         <div className='flex flex-col items-end'>
           <div className=' justify-self-start relative mt-1 flex flex-col items-end mb-8' >
 
@@ -110,7 +110,7 @@ const PostDetail = ({ post, postCategory }: any) => {
     )
   } else if (postCategory === 'diary') {
     return (
-      <div className='flex flex-col w-[55vw] py-[5vh] overflow-y-auto overflow-x-hidden px-[2vw] ' >
+      <div className='flex flex-col w-[55vw] py-[5dvh] overflow-y-auto overflow-x-hidden px-[2vw] ' >
         <div className='flex flex-col'>
           <div className=' justify-self-start relative mt-1 mb-8' >
 

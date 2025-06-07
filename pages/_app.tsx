@@ -17,9 +17,9 @@ import Menu from '../components/Menu'
 
 const menuDirectionMap = {
   homepage: { x: '50dvw', y: '50dvh', translateX: '-50%', translateY: '-50%' },
-  diary: { x: '20vw', y: '50vh', translateX: '-50%', translateY: '-50%' },
-  postcards: { x: '20vw', y: '80vh', translateX: '-50%', translateY: '-50%' },
-  projects: { x: '80vw', y: '50vh', translateX: '-50%', translateY: '-50%' },
+  diary: { x: '20vw', y: '50dvh', translateX: '-50%', translateY: '-50%' },
+  postcards: { x: '20vw', y: '80dvh', translateX: '-50%', translateY: '-50%' },
+  projects: { x: '80vw', y: '50dvh', translateX: '-50%', translateY: '-50%' },
   music: { x: '20vw', y: '5vh', translateX: '-50%', translateY: '-50%' },
   about: { x: '20vw', y: '20vh', translateX: '-50%', translateY: '-50%' },
 };

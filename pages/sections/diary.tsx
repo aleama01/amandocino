@@ -50,10 +50,10 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
                   animate={{ ...overlayDirectionMapMobile['diary' as SectionKey] }}
                   exit={{ left: 0, top: "100vh" }}
                   transition={{ type: 'tween', duration: 0.4 }}
-                  className=' bg-[#101411] flex flex-row justify-start z-20 max-h-[75vh] py-1 overflow-y-auto absolute'
+                  className=' bg-[#101411] flex flex-row justify-start z-20 h-[75dvh] py-1 overflow-y-auto absolute'
                   style={{ willChange: 'transform, opacity, left' }}
                 >
-                  <div className='flex flex-col justify-start px-[2vw] w-[100vw] max-h-[75vh] overflow-y-auto'>
+                  <div className='flex flex-col justify-start px-[2vw] w-[100vw] h-[75dvh] overflow-y-auto'>
                     <Stories stories={stories} onStoryClick={handleStoryClick} />
                   </div>
                 </motion.div>
@@ -83,9 +83,9 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
                 </motion.div>
                 <motion.div
                   key={"diary-overlay"}
-                  initial={{ right: '-100vw', bottom: '75vh' }}
-                  animate={{ right: '2vw', bottom: '75vh' }}
-                  exit={{ right: '-100vw', bottom: '75vh' }}
+                  initial={{ right: '-100vw', bottom: '75dvh' }}
+                  animate={{ right: '2vw', bottom: '75dvh' }}
+                  exit={{ right: '-100vw', bottom: '75dvh' }}
                   transition={{ type: 'tween', duration: 0.4 }}
                   className='font-bold text-[48px] md:text-[128px] text-right fixed leading-none'
                   style={{ willChange: 'transform, opacity' }}
@@ -145,9 +145,9 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
 
               <motion.div
                 key={"diary-overlay"}
-                initial={{ x: '100vw', y: '80vh' }}
-                animate={{ x: '-56vw', y: '80vh' }}
-                exit={{ x: '100vw', y: '80vh' }}
+                initial={{ x: '100vw', y: '80dvh' }}
+                animate={{ x: '-56vw', y: '80dvh' }}
+                exit={{ x: '100vw', y: '80dvh' }}
                 transition={{ type: 'tween', duration: 0.2 }}
                 className='font-bold text-[128px] text-right leading-none'
                 style={{ willChange: 'transform, opacity' }}

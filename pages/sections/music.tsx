@@ -29,9 +29,9 @@ const MusicPage = ({ songs }: { songs: any }) => {
             <>
               <motion.div
                 key={"music"}
-                initial={{ top: '100vh' }}
+                initial={{ top: '100dvh' }}
                 animate={overlayDirectionMapMobile['music' as SectionKey]}
-                exit={{ top: '100vh' }}
+                exit={{ top: '100dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
                 className='flex flex-col bg-[#101411] justify-start py-1 w-screen h-[75dvh] fixed '
                 style={{ willChange: 'transform, left' }}
@@ -50,9 +50,9 @@ const MusicPage = ({ songs }: { songs: any }) => {
               </motion.div>
               <motion.div
                 key={"music-overlay-mobile"}
-                initial={{ left: '-100vw', bottom: '75vh' }}
-                animate={{ left: '2vw', bottom: '75vh' }}
-                exit={{ left: '-100vw', bottom: '75vh' }}
+                initial={{ left: '-100vw', bottom: '75dvh' }}
+                animate={{ left: '2vw', bottom: '75dvh' }}
+                exit={{ left: '-100vw', bottom: '75dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
                 className='font-bold text-[48px] text-left absolute leading-none'
               >

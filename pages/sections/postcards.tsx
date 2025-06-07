@@ -46,19 +46,19 @@ const PostcardsPage = ({ postcards }: { postcards: Array<any> }) => {
             <>
               <motion.div
                 key={"postcards"}
-                initial={{ top: '100vh' }}
+                initial={{ top: '100dvh' }}
                 animate={overlayDirectionMapMobile['postcards' as SectionKey]}
-                exit={{ top: '100vh' }}
+                exit={{ top: '100dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
-                className='flex flex-col bg-[#101411] justify-center w-[100dvw] h-[75vh] overflow-y-auto absolute top-0'
+                className='flex flex-col bg-[#101411] justify-center w-[100dvw] h-[75dvh] overflow-y-auto absolute top-0'
               >
                 <Postcards postcards={postcards} />
               </motion.div>
               <motion.div
                 key={"postcards-overlay"}
-                initial={{ left: '-100vw', bottom: '75vh' }}
-                animate={{ left: '2vw', bottom: '75vh' }}
-                exit={{ left: '-100vw', bottom: '75vh' }}
+                initial={{ left: '-100vw', bottom: '75dvh' }}
+                animate={{ left: '2vw', bottom: '75dvh' }}
+                exit={{ left: '-100vw', bottom: '75dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
                 className='font-bold absolute text-[48px] z-10 leading-none'
               >
@@ -91,9 +91,9 @@ const PostcardsPage = ({ postcards }: { postcards: Array<any> }) => {
             <>
               <motion.div
                 key={"postcards"}
-                initial={{ top: '100vh' }}
+                initial={{ top: '100dvh' }}
                 animate={overlayDirectionMap['postcards' as SectionKey]}
-                exit={{ top: '100vh' }}
+                exit={{ top: '100dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
                 className='flex flex-col bg-[#101411] justify-center w-[100dvw] max-h-screen overflow-y-auto absolute top-0'
               >

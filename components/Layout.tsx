@@ -14,15 +14,15 @@ import SideMenuButton from './SideMenuButton'
 
 export const menuDirectionMap = {
   homepage: { x: '50dvw', y: '50dvh', translateX: '-50%', translateY: '-50%' },
-  diary: { x: '32px', y: '50vh', translateX: '0%', translateY: '-50%' },
+  diary: { x: '32px', y: '50dvh', translateX: '0%', translateY: '-50%' },
   postcards: { x: '10vw', y: '5vh', translateX: '0%', translateY: '-50%' },
-  projects: { x: '80vw', y: '50vh', translateX: '-50%', translateY: '-50%' },
+  projects: { x: '80vw', y: '50dvh', translateX: '-50%', translateY: '-50%' },
   music: { x: '2vw', y: '5vh', translateX: '0%', translateY: '-50%' },
-  about: { x: '80vw', y: '50vh', translateX: '-50%', translateY: '-50%' },
+  about: { x: '80vw', y: '50dvh', translateX: '-50%', translateY: '-50%' },
 };
 
 export const overlayDirectionMap = {
-  homepage: { left: '100vw', top: '100vh' },
+  homepage: { left: '100vw', top: '100dvh' },
   diary: { left: '45vw', top: 0 },
   postcards: { left: 0, top: 0 },
   projects: { left: 0, top: 0 },
@@ -31,7 +31,7 @@ export const overlayDirectionMap = {
 };
 
 export const overlayDirectionMapMobile = {
-  homepage: { left: '100vw', top: '100vh' },
+  homepage: { left: '100vw', top: '100dvh' },
   diary: { left: 0, top: "25vh" },
   postcards: { left: 0, top: "25vh" },
   projects: { left: 0, top: "25vh" },

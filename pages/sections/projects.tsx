@@ -71,9 +71,9 @@ const ProjectsPage = ({ projects }: { projects: any }) => {
 
               <motion.div
                 key={"project-overlay-mobile"}
-                initial={{ right: '-100vw', bottom: '75vh' }}
-                animate={{ right: '2vw', bottom: '75vh' }}
-                exit={{ right: '-100vw', bottom: '75vh' }}
+                initial={{ right: '-100vw', bottom: '75dvh' }}
+                animate={{ right: '2vw', bottom: '75dvh' }}
+                exit={{ right: '-100vw', bottom: '75dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
                 className='font-bold text-[48px] text-right absolute leading-none'
               >
