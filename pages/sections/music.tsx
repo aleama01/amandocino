@@ -19,7 +19,7 @@ const MusicPage = ({ songs }: { songs: any }) => {
   const router = useRouter();
   if (mobile) {
     return (
-      <>
+      <div className='h-[100dvh] overflow-hidden'>
         <Head>
           <title>Amandocino | Music</title>
           <meta name="description" content="Take a look at the projects I’ve embarked on, from academic pursuits to personal passions. This section showcases a range of activities that fuel my creativity and drive." />
@@ -50,9 +50,9 @@ const MusicPage = ({ songs }: { songs: any }) => {
               </motion.div>
               <motion.div
                 key={"music-overlay-mobile"}
-                initial={{ left: '-100vw', bottom: '75dvh' }}
-                animate={{ left: '2vw', bottom: '75dvh' }}
-                exit={{ left: '-100vw', bottom: '75dvh' }}
+                initial={{ left: '-100vw', top: '25dvh' }}
+                animate={{ left: '2vw', top: '25dvh' }}
+                exit={{ left: '-100vw', top: '25dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
                 className='font-bold text-[48px] text-left absolute leading-none'
               >
@@ -61,7 +61,7 @@ const MusicPage = ({ songs }: { songs: any }) => {
             </>
           )}
         </AnimatePresence>
-      </>
+      </div>
     )
   } else {
     return (

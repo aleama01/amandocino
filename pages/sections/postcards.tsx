@@ -43,7 +43,7 @@ const PostcardsPage = ({ postcards }: { postcards: Array<any> }) => {
         </Head>
         <AnimatePresence>
           {showContent && (
-            <>
+            <div className='h-[100dvh] overflow-hidden'>
               <motion.div
                 key={"postcards"}
                 initial={{ top: '100dvh' }}
@@ -56,9 +56,9 @@ const PostcardsPage = ({ postcards }: { postcards: Array<any> }) => {
               </motion.div>
               <motion.div
                 key={"postcards-overlay"}
-                initial={{ left: '-100vw', bottom: '75dvh' }}
-                animate={{ left: '2vw', bottom: '75dvh' }}
-                exit={{ left: '-100vw', bottom: '75dvh' }}
+                initial={{ left: '-100vw', top: '25dvh' }}
+                animate={{ left: '2vw', top: '25dvh' }}
+                exit={{ left: '-100vw', top: '25dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
                 className='font-bold absolute text-[48px] z-10 leading-none'
               >
@@ -74,7 +74,7 @@ const PostcardsPage = ({ postcards }: { postcards: Array<any> }) => {
               >
                 <Image src="/drawings/star.png" alt="spring" width={120} height={120} style={{ rotate: "2deg" }} />
               </motion.div>
-            </>
+            </div>
           )}
         </AnimatePresence>
       </>
@@ -95,7 +95,7 @@ const PostcardsPage = ({ postcards }: { postcards: Array<any> }) => {
                 animate={overlayDirectionMap['postcards' as SectionKey]}
                 exit={{ top: '100dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
-                className='flex flex-col bg-[#101411] justify-center w-[100dvw] max-h-screen overflow-y-auto absolute top-0'
+                className='flex flex-col bg-[#101411] justify-center w-[100dvw] max-h-[100dvh] overflow-y-auto absolute top-0'
               >
                 <Postcards postcards={postcards} />
               </motion.div>

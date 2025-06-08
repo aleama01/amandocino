@@ -53,7 +53,7 @@ export const AboutMe = () => {
     )
   } else {
     return (
-      <div className='flex flex-row justify-center text-[#EDF0D8] items-start py-[5dvh] h-screen' >
+      <div className='flex flex-row justify-center text-[#EDF0D8] items-start py-[5dvh] h-[100dvh]' >
         <div className='flex-col basis-2/5 flex justify-center items-center space-y-2 relative' >
           <div className='h-[450px] w-[400px] bg-center bg-no-repeat bg-cover duration-200 z-10 '
             style={{ backgroundImage: `url(/me.jpg)` }} />

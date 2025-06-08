@@ -24,7 +24,7 @@ const AboutPage = () => {
         </Head>
         <AnimatePresence>
           {showContent && (
-            <>
+            <div className='h-[100dvh] overflow-hidden'>
               <motion.div
                 key={"about-background"}
                 initial={{ left: 0, top: '100dvh' }}
@@ -40,9 +40,9 @@ const AboutPage = () => {
 
               <motion.div
                 key={"about-overlay-mobile"}
-                initial={{ left: '-100vw', bottom: '75dvh' }}
-                animate={{ left: '2vw', bottom: '75dvh' }}
-                exit={{ left: '-100vw', bottom: '75dvh' }}
+                initial={{ left: '-100vw', top: '25dvh' }}
+                animate={{ left: '2vw', top: '25dvh' }}
+                exit={{ left: '-100vw', top: '25dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
                 className='font-bold text-[48px] text-left absolute leading-none'
               >
@@ -58,7 +58,7 @@ const AboutPage = () => {
               >
                 <Image src="/drawings/points_small.png" alt="points_small" width={110} height={110} />
               </motion.div>
-            </>
+            </div>
           )}
         </AnimatePresence>
       </>
@@ -80,7 +80,7 @@ const AboutPage = () => {
                 animate={overlayDirectionMap['about' as SectionKey]}
                 exit={{ left: '100vw' }}
                 transition={{ type: 'tween', duration: 0.4 }}
-                className='flex flex-col bg-[#101411] justify-center px-[2vw] w-[40vw] h-screen overflow-y-auto absolute top-0'
+                className='flex flex-col bg-[#101411] justify-center px-[2vw] w-[40vw] h-[100dvh] overflow-y-auto absolute top-0'
               />
 
               <motion.div
@@ -89,7 +89,7 @@ const AboutPage = () => {
                 animate={{ left: 0 }}
                 exit={{ left: '-100vw' }}
                 transition={{ type: 'tween', duration: 0.4 }}
-                className='z-10 px-[2vw] w-[60vw] max-h-screen absolute top-0'
+                className='z-10 px-[2vw] w-[60vw] max-h-[100dvh] absolute top-0'
               >
                 <AboutMe />
               </motion.div>

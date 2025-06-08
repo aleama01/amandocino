@@ -46,7 +46,7 @@ const SideMenu = ({ handleClickFunction }: { handleClickFunction: (key: SectionK
           </button>
         </div>
 
-        <div className='mx-auto top-1/2 absolute -translate-y-1/2 right-[2vw]'>
+        <div className='mx-auto top-1/2 absolute -translate-y-1/2 right-[4vw]'>
           <h1 className='leading-none'>amandocino</h1>
           <ul
             className={`list-none absolute font-medium text-sm mt-2`}>

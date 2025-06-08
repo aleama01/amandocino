@@ -43,7 +43,7 @@ const ProjectsPage = ({ projects }: { projects: any }) => {
         </Head>
         <AnimatePresence>
           {showContent && (
-            <>
+            <div className='h-[100dvh] overflow-hidden'>
               <motion.div
                 key={"project-mobile"}
                 initial={{ left: 0, top: "100vh" }}
@@ -71,15 +71,15 @@ const ProjectsPage = ({ projects }: { projects: any }) => {
 
               <motion.div
                 key={"project-overlay-mobile"}
-                initial={{ right: '-100vw', bottom: '75dvh' }}
-                animate={{ right: '2vw', bottom: '75dvh' }}
-                exit={{ right: '-100vw', bottom: '75dvh' }}
+                initial={{ right: '-100vw', top: '25dvh' }}
+                animate={{ right: '2vw', top: '25dvh' }}
+                exit={{ right: '-100vw', top: '25dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
                 className='font-bold text-[48px] text-right absolute leading-none'
               >
                 PROJECTS
               </motion.div>
-            </>
+            </div>
           )}
         </AnimatePresence>
       </>
@@ -100,7 +100,7 @@ const ProjectsPage = ({ projects }: { projects: any }) => {
                 animate={overlayDirectionMap['projects' as SectionKey]}
                 exit={{ left: '-100vw' }}
                 transition={{ type: 'tween', duration: 0.4 }}
-                className='flex flex-col bg-[#101411] justify-start z-10 px-[2vw] w-[40vw] max-h-screen overflow-y-auto absolute top-0'
+                className='flex flex-col bg-[#101411] justify-start z-10 px-[2vw] w-[40vw] max-h-[100dvh] overflow-y-auto absolute top-0'
                 style={{ willChange: 'transform, left', direction: 'rtl' }}
               >
                 <Projects projects={projects} onClick={handleProjectClick} />

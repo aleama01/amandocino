@@ -61,7 +61,7 @@ const Contact = () => {
           animate={{ left: "2vw" }}
           exit={{ left: "-10vw" }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
-          className='absolute pointer-events-auto top-[5dvh] left-[2vw] w-[120px] font-medium z-10'
+          className='fixed pointer-events-auto top-[5dvh] left-[2vw] w-[120px] font-medium z-10'
           style={{ willChange: "left" }}
         >
           <button onClick={handleClick}>CONTACT</button>
@@ -74,7 +74,7 @@ const Contact = () => {
               animate={{ ...animationModal, top: "0" }}
               exit={{ ...animationModal, top: "-200px" }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className='absolute top-0 left-0 z-50'
+              className='fixed top-0 left-0 z-50'
               style={{ willChange: "left,top" }}
             >
               <ContactModal handleClick={handleClick} />
@@ -92,7 +92,7 @@ const Contact = () => {
           animate={animation}
           exit={{ right: "-10vw" }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
-          className='absolute pointer-events-auto top-[5dvh] right-[2vw] font-medium z-50'
+          className='fixed pointer-events-auto top-[5dvh] right-[2vw] font-medium z-50'
           style={{ willChange: "right" }}
         >
           <button onClick={handleClick}>CONTACT</button>
@@ -105,7 +105,7 @@ const Contact = () => {
               animate={{ ...animationModal, top: "0" }}
               exit={{ ...animationModal, top: "-200px" }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className='absolute top-0 right-0 z-50'
+              className='fixed top-0 right-0 z-50'
               style={{ willChange: "right,top" }}
             >
               <ContactModal handleClick={handleClick} />

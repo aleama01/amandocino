@@ -32,7 +32,7 @@ const Homepage = () => {
       <div className="h-[100dvh] w-[100dvw]">
         <AnimatePresence>
           {showContent &&
-            <div className="relative h-[100dvh] w-[100dvw]">
+            <div className="relative h-[100dvh] w-[100dvw] overflow-hidden">
               <motion.div
                 initial={{ opacity: 0, left: "-5vw", y: "190px", scale: 0 }}
                 animate={{ opacity: 1, left: "-5vw", y: "190px", scale: 1 }}

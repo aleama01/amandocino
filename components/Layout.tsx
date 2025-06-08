@@ -145,7 +145,7 @@ const Layout = ({ Component, pageProps }: any) => {
 
 
   return (
-    <div className='relative overflow-hidden h-screen w-screen'>
+    <div className='relative overflow-hidden h-[100dvh] w-screen'>
       <Menu pagename={pagename} handleClickFunction={handleClick} menuControls={menuControls} align={alignList} showMenuList={showMenuList} />
       <SideMenuButton />
       <SideMenu handleClickFunction={handleClick} />

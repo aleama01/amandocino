@@ -10,7 +10,7 @@ import Friend from './Friend'
  */
 export const Friends = ({ friends }: { friends: Array<any> }) => {
   return (
-    <div className='flex flex-row flex-wrap min-h-screen py-[5vh] w-full justify-around gap-y-6 items-start' >
+    <div className='flex flex-row flex-wrap min-h-[100dvh] py-[5vh] w-full justify-around gap-y-6 items-start' >
       {friends.map((friend, idx) => (
         <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} href={`/sections/friends/${friend.node.slug}`} key={friend.node.title}
           className={`${idx % 5 < 1 ? 'basis-[80vw]' : 'basis-[40vw]'} ${idx % 8 < 2 ? 'lg:basis-[43vw]' : 'lg:basis-[27vw]'}`}>

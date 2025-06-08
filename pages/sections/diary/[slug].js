@@ -46,10 +46,10 @@ const PostDetails = ({ post }) => {
           {expandStory && (
             <>
               <motion.div
-                initial={{ left: "100vw", top: "5vh" }}
-                animate={{ left: "2vw", top: "5vh" }}
-                exit={{ left: "100vw", top: "5vh" }}
-                transition={{ duration: 0.2, type: "tween" }}
+                initial={{ left: "100vw", top: "5dvh" }}
+                animate={{ left: "2vw", top: "5dvh" }}
+                exit={{ left: "100vw", top: "5dvh" }}
+                transition={{ duration: 0.4, type: "tween" }}
                 className="absolute flex flex-col items-center z-20 justify-center"
                 style={{ willChange: "transform" }}
               >
@@ -67,7 +67,7 @@ const PostDetails = ({ post }) => {
                 animate={{ left: 0 }}
                 exit={{ left: "100vw" }}
                 transition={{ type: "tween", duration: 0.4 }}
-                className="overflow-hidden bg-[#101411] h-screen absolute top-0 w-screen justify-end z-10 flex flex-row"
+                className="overflow-hidden bg-[#101411] h-[100dvh] absolute top-0 w-screen justify-end z-10 flex flex-row"
               >
                 <PostDetailMobile
                   post={post}
@@ -90,9 +90,9 @@ const PostDetails = ({ post }) => {
           {expandStory && (
             <>
               <motion.div
-                initial={{ left: "-5vw", top: "5vh" }}
-                animate={{ left: "2vw", top: "5vh" }}
-                exit={{ left: "-5vw", top: "5vh" }}
+                initial={{ left: "-5vw", top: "5dvh" }}
+                animate={{ left: "2vw", top: "5dvh" }}
+                exit={{ left: "-5vw", top: "5dvh" }}
                 transition={{ duration: 0.2, type: "tween" }}
                 className="absolute flex flex-col items-center z-50 justify-center"
                 style={{ willChange: "transform" }}
@@ -111,7 +111,7 @@ const PostDetails = ({ post }) => {
                 animate={{ left: 0 }}
                 exit={{ left: "100vw" }}
                 transition={{ type: "tween", duration: 0.4 }}
-                className="overflow-hidden bg-[#101411] h-screen absolute top-0 w-screen justify-end z-10 flex flex-row"
+                className="overflow-hidden bg-[#101411] h-[100dvh] absolute top-0 w-screen justify-end z-10 flex flex-row"
               >
                 <PostDetail post={post} postCategory={post.category.slug} />
                 <motion.div

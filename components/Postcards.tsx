@@ -23,7 +23,7 @@ const Postcards = ({ postcards }: { postcards: Array<any> }) => {
     return (
       <AnimatePresence>
         {showContent &&
-          <div className='flex flex-col h-screen overflow-hidden w-full justify-center py-2 gap-2 items-center'>
+          <div className='flex flex-col h-[100dvh] overflow-hidden w-full justify-center py-2 gap-2 items-center'>
             <motion.div
               initial={{ x: "-200vw" }}
               animate={{ x: 0 }}
@@ -58,7 +58,7 @@ const Postcards = ({ postcards }: { postcards: Array<any> }) => {
     return (
       <AnimatePresence>
         {showContent &&
-          <div className='flex flex-col h-screen overflow-hidden w-full justify-start pt-[10dvh] pb-[128px] gap-2 items-center'>
+          <div className='flex flex-col h-[100dvh] overflow-hidden w-full justify-start pt-[10dvh] pb-[128px] gap-2 items-center'>
             <motion.div
               initial={{ x: "-200vw" }}
               animate={{ x: 0 }}
