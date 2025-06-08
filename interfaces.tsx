@@ -11,4 +11,6 @@ export interface IContext {
   setShowContent: (config: boolean) => void;
   flippedIdx: string | null;
   setFlippedIdx: (config: string | null) => void;
+  isAnimating: boolean;
+  setIsAnimating: (config: boolean) => void;
 };

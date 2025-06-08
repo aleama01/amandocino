@@ -48,7 +48,7 @@ const PostDetails = ({ post }) => {
               <motion.div
                 initial={{ left: "100vw", top: "5dvh" }}
                 animate={{ left: "2vw", top: "5dvh" }}
-                exit={{ left: "-100vw", top: "5dvh" }}
+                exit={{ left: "100vw", top: "5dvh" }}
                 transition={{ duration: 0.4, type: "tween" }}
                 className="absolute flex flex-col items-center z-20 justify-center"
                 style={{ willChange: "transform" }}

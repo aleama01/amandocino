@@ -31,7 +31,7 @@ const AboutPage = () => {
                 animate={overlayDirectionMapMobile['about' as SectionKey]}
                 exit={{ left: 0, top: '100dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
-                className='flex flex-col bg-[#101411] justify-center w-screen h-[75dvh] py-1 overflow-y-auto absolute'
+                className='flex flex-col bg-[#101411] justify-center w-screen h-[75dvh] pt-1 pb-[5dvh] overflow-y-auto absolute'
               >
                 <div className='w-full h-[75dvh] px-[2vw] overflow-y-auto'>
                   <AboutMe />
@@ -40,9 +40,9 @@ const AboutPage = () => {
 
               <motion.div
                 key={"about-overlay-mobile"}
-                initial={{ left: '-100vw', top: '25dvh' }}
-                animate={{ left: '2vw', top: '25dvh' }}
-                exit={{ left: '-100vw', top: '25dvh' }}
+                initial={{ left: '-100vw', bottom: ' 75dvh' }}
+                animate={{ left: '2vw', bottom: ' 75dvh' }}
+                exit={{ left: '-100vw', bottom: ' 75dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
                 className='font-bold text-[48px] text-left absolute leading-none'
               >

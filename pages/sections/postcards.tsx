@@ -56,9 +56,9 @@ const PostcardsPage = ({ postcards }: { postcards: Array<any> }) => {
               </motion.div>
               <motion.div
                 key={"postcards-overlay"}
-                initial={{ left: '-100vw', top: '25dvh' }}
-                animate={{ left: '2vw', top: '25dvh' }}
-                exit={{ left: '-100vw', top: '25dvh' }}
+                initial={{ left: '-100vw', bottom: ' 75dvh' }}
+                animate={{ left: '2vw', bottom: ' 75dvh' }}
+                exit={{ left: '-100vw', bottom: ' 75dvh' }}
                 transition={{ type: 'tween', duration: 0.4 }}
                 className='font-bold absolute text-[48px] z-10 leading-none'
               >

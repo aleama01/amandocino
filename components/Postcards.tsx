@@ -23,13 +23,13 @@ const Postcards = ({ postcards }: { postcards: Array<any> }) => {
     return (
       <AnimatePresence>
         {showContent &&
-          <div className='flex flex-col h-[100dvh] overflow-hidden w-full justify-center py-2 gap-2 items-center'>
+          <div className='flex flex-col h-full overflow-hidden w-full justify-center py-2 gap-2 items-center'>
             <motion.div
               initial={{ x: "-200vw" }}
               animate={{ x: 0 }}
               exit={{ x: "-200vw", transition: { delay: 0 } }}
               transition={{ duration: 1, delay: 0.4 }}
-              className='h-[8dvh] flex-grow'
+              className='h-[18dvh] flex-grow'
             >
               <PostcardsRow postcards={postcards.slice(0, batchsize)} direction={false} duration={100} />
             </motion.div>
@@ -38,7 +38,7 @@ const Postcards = ({ postcards }: { postcards: Array<any> }) => {
               animate={{ x: 0 }}
               exit={{ x: "200vw", transition: { delay: 0 } }}
               transition={{ duration: 1, delay: 0.4 }}
-              className='h-[8dvh] flex-grow'
+              className='h-[18dvh] flex-grow'
             >
               <PostcardsRow postcards={postcards.slice(batchsize, 2 * batchsize)} direction={true} duration={100} />
             </motion.div>
@@ -47,7 +47,7 @@ const Postcards = ({ postcards }: { postcards: Array<any> }) => {
               animate={{ x: 0 }}
               exit={{ x: "-200vw", transition: { delay: 0 } }}
               transition={{ duration: 1, delay: 0.4 }}
-              className='h-[8dvh] flex-grow'>
+              className='h-[18dvh] flex-grow'>
               <PostcardsRow postcards={postcards.slice(2 * batchsize, 3 * batchsize)} direction={false} duration={100} />
             </motion.div>
           </div>

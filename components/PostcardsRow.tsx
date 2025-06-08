@@ -11,17 +11,16 @@ const Stamp = (stampName: any) => {
 }
 
 const PostcardsRow = ({ postcards, direction, duration }: { postcards: Array<any>, direction: Boolean, duration: number }) => {
-  const { flippedIdx, setFlippedIdx, mobile } = useContext(Context)
-  const [isAnimating, setIsAnimating] = useState(false);
+  const { flippedIdx, setFlippedIdx, mobile, isAnimating, setIsAnimating } = useContext(Context)
+
   const rowRef = useRef<HTMLDivElement>(null);
   const postcardsLoop = [...postcards, ...postcards, ...postcards];
 
   const handleClick = (isFlipped: Boolean, postcard: any) => {
-    if (isAnimating) return; // Prevent click during animation
+    if (isAnimating) return;
     setIsAnimating(true);
     setFlippedIdx(isFlipped ? null : postcard.node.image.url.split('.com/')[1]);
-    // Reset animating state after animation completes
-    setTimeout(() => setIsAnimating(false), 600); // Match your animation duration
+    setTimeout(() => setIsAnimating(false), 600);
   }
 
   const getContentFragment = (index: any, text: any, obj: any, type: any) => {
@@ -91,7 +90,6 @@ const PostcardsRow = ({ postcards, direction, duration }: { postcards: Array<any
                 onClick={() => handleClick(isFlipped, postcard)}
                 animate={{
                   rotateX: isFlipped ? 180 : 0,
-                  scale: isAnimating ? 1.05 : 1, // Optional: slight scale effect during flip
                 }}
                 transition={{
                   duration: 0.6,
@@ -101,7 +99,48 @@ const PostcardsRow = ({ postcards, direction, duration }: { postcards: Array<any
                 onAnimationStart={() => setIsAnimating(true)}
                 onAnimationComplete={() => setIsAnimating(false)}
               >
-                {/* ...rest of your card content... */}
+                <div className="relative w-full h-full">
+                  {/* Front */}
+                  <motion.div
+                    className="absolute w-full h-full backface-hidden"
+                    style={{ backfaceVisibility: 'hidden' }}
+                    animate={{ opacity: isFlipped ? 0 : 1 }}
+                    transition={{ delay: 0.3, duration: 0 }}
+                  >
+                    <Image
+                      loading='eager'
+                      priority={true}
+                      fetchPriority="high"
+                      alt="postcard post image"
+                      width={720}
+                      height={510}
+                      src={`${postcard.node.image.url}`}
+                      className='w-full h-full pointer-events-none object-cover object-center z-30 duration-500'
+                    />
+                  </motion.div>
+                  {/* Back */}
+                  <motion.div
+                    className="absolute w-full h-full px-2 py-2 gap-2 flex flex-col items-start text-[#101411] bg-[#EDF0D8] z-10"
+                    style={{
+                      transform: 'rotateX(180deg)'
+                    }}
+                    animate={{ opacity: isFlipped ? 1 : 0 }}
+                    transition={{ delay: 0.3, duration: 0 }}
+                  >
+                    <div className='flex flex-row w-full'>
+                      <Stamp stampName={postcard.node.tag[0].name} />
+                      <div className='flex-grow w-full flex flex-col justify-end pl-2 gap-y-2'>
+                        <h3 className='font-medium'>{postcard.node.title}</h3>
+                        <div className='border-t w-4/5 pb-2 h-[1px] border-[#101411]' />
+                      </div>
+                    </div>
+                    {postcard.node.content.raw.children.map((typeObj: any, index: any) => {
+                      const children = typeObj.children.map((item: any, itemIndex: any) => getContentFragment(itemIndex, item.text, item, typeObj))
+
+                      return getContentFragment(index, children, typeObj, typeObj.type)
+                    })}
+                  </motion.div>
+                </div>
               </motion.div>
             )
           })}

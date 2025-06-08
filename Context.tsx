@@ -18,6 +18,8 @@ export const Context = React.createContext<IContext>({
   setShowContent(_config) { },
   flippedIdx: null,
   setFlippedIdx(_config) { },
+  isAnimating: false,
+  setIsAnimating(_config) { },
 })
 
 const ContextProvider: React.FC<Props> = ({ children }) => {
@@ -27,6 +29,7 @@ const ContextProvider: React.FC<Props> = ({ children }) => {
   const [expandStory, setExpandStory] = React.useState<boolean>(false);
   const [showContent, setShowContent] = React.useState<boolean>(true);
   const [flippedIdx, setFlippedIdx] = React.useState<string | null>(null);
+  const [isAnimating, setIsAnimating] = React.useState<boolean>(false);
 
   return (
     <Context.Provider
@@ -42,7 +45,9 @@ const ContextProvider: React.FC<Props> = ({ children }) => {
         showContent,
         setShowContent,
         flippedIdx,
-        setFlippedIdx
+        setFlippedIdx,
+        isAnimating,
+        setIsAnimating,
       }}>
       {children}
     </Context.Provider>

@@ -83,9 +83,9 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
                 </motion.div>
                 <motion.div
                   key={"diary-overlay"}
-                  initial={{ right: '-100vw', top: '25dvh' }}
-                  animate={{ right: '2vw', top: '25dvh' }}
-                  exit={{ right: '-100vw', top: '25dvh' }}
+                  initial={{ right: '-100vw', bottom: ' 75dvh' }}
+                  animate={{ right: '2vw', bottom: ' 75dvh' }}
+                  exit={{ right: '-100vw', bottom: ' 75dvh' }}
                   transition={{ type: 'tween', duration: 0.4 }}
                   className='font-bold text-[48px] md:text-[128px] text-right fixed leading-none'
                   style={{ willChange: 'transform, opacity' }}
