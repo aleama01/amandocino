@@ -10,7 +10,7 @@ const Story = ({ story, idx, isVisible }: {
   return (
     <div className='overflow-hidden text-[#edf0d884] hover:text-[#EDF0D8] duration-200'>
       <motion.div
-        className='h-[30dvh] md:h-[300px] overflow-hidden w-auto flex flex-row justify-center items-center'
+        className='h-[200px] md:h-[300px] overflow-hidden w-auto flex flex-row justify-center items-center'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { duration: 0.5 } }}
       >
@@ -18,8 +18,8 @@ const Story = ({ story, idx, isVisible }: {
           <Image
             loading="lazy"
             alt="Story post image"
-            width={720}
-            height={720}
+            width={512}
+            height={512}
             sizes="(max-width: 768px) 80vw, 43vw"
             className='w-full h-full bg-cover object-cover object-center bg-center bg-no-repeat z-30 
                      saturate-0 hover:saturate-100 brightness-50 hover:brightness-90 duration-200'

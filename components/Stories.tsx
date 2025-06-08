@@ -1,23 +1,25 @@
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Story from './Story';
 import { useTransition } from './TransitionProvider';
 import { useVirtualizer } from '@tanstack/react-virtual';
+import { Context } from '../Context';
 
 export const Stories = ({ stories, onStoryClick }: { stories: Array<any>, onStoryClick: Function }) => {
   const parentRef = React.useRef<HTMLDivElement>(null);
+  const { mobile } = useContext(Context)
 
   const virtualizer = useVirtualizer({
     count: stories.length,
     getScrollElement: () => parentRef.current,
-    estimateSize: () => 350, // height of story + gap
+    estimateSize: () => mobile ? 230 : 330, // height of story + gap
     overscan: 3 // number of items to render above/below viewport
   });
 
   return (
     <div
       ref={parentRef}
-      className='flex flex-col w-full h-[100vh] overflow-auto'
+      className='flex flex-col w-full h-[100dvh] my-1 md:pb-0 md:my-[2dvh] overflow-auto'
     >
       <div
         style={{

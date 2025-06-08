@@ -32,11 +32,11 @@ export const overlayDirectionMap = {
 
 export const overlayDirectionMapMobile = {
   homepage: { left: '100vw', top: '100dvh' },
-  diary: { left: 0, top: "25vh" },
-  postcards: { left: 0, top: "25vh" },
-  projects: { left: 0, top: "25vh" },
-  music: { left: 0, top: "25vh" },
-  about: { left: 0, top: "25vh" },
+  diary: { left: 0, top: "25dvh" },
+  postcards: { left: 0, top: "25dvh" },
+  projects: { left: 0, top: "25dvh" },
+  music: { left: 0, top: "25dvh" },
+  about: { left: 0, top: "25dvh" },
 };
 
 const textAlignMap = {
