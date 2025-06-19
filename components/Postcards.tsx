@@ -22,13 +22,13 @@ const Postcards = ({ postcards }: { postcards: Array<any> }) => {
   if (mobile) {
     return (
       <AnimatePresence>
-        {showContent &&
+        {showContent == "postcards" &&
           <div className='flex flex-col h-full overflow-hidden w-full justify-center py-2 gap-2 items-center'>
             <motion.div
               initial={{ x: "-200vw" }}
               animate={{ x: 0 }}
               exit={{ x: "-200vw", transition: { delay: 0 } }}
-              transition={{ duration: 1, delay: 0.4 }}
+              transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
               className='h-[18dvh] flex-grow'
             >
               <PostcardsRow postcards={postcards.slice(0, batchsize)} direction={false} duration={100} />
@@ -37,7 +37,7 @@ const Postcards = ({ postcards }: { postcards: Array<any> }) => {
               initial={{ x: "200vw" }}
               animate={{ x: 0 }}
               exit={{ x: "200vw", transition: { delay: 0 } }}
-              transition={{ duration: 1, delay: 0.4 }}
+              transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
               className='h-[18dvh] flex-grow'
             >
               <PostcardsRow postcards={postcards.slice(batchsize, 2 * batchsize)} direction={true} duration={100} />
@@ -46,7 +46,7 @@ const Postcards = ({ postcards }: { postcards: Array<any> }) => {
               initial={{ x: "-200vw" }}
               animate={{ x: 0 }}
               exit={{ x: "-200vw", transition: { delay: 0 } }}
-              transition={{ duration: 1, delay: 0.4 }}
+              transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
               className='h-[18dvh] flex-grow'>
               <PostcardsRow postcards={postcards.slice(2 * batchsize, 3 * batchsize)} direction={false} duration={100} />
             </motion.div>
@@ -57,13 +57,13 @@ const Postcards = ({ postcards }: { postcards: Array<any> }) => {
   } else {
     return (
       <AnimatePresence>
-        {showContent &&
+        {showContent == "postcards" &&
           <div className='flex flex-col h-[100dvh] overflow-hidden w-full justify-start pt-[10dvh] pb-[128px] gap-2 items-center'>
             <motion.div
               initial={{ x: "-200vw" }}
               animate={{ x: 0 }}
               exit={{ x: "-200vw", transition: { delay: 0 } }}
-              transition={{ duration: 1, delay: 0.4 }}
+              transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
               className='h-[18dvh] flex-grow'
             >
               <PostcardsRow postcards={postcards.slice(0, batchsize)} direction={false} duration={100} />
@@ -72,7 +72,7 @@ const Postcards = ({ postcards }: { postcards: Array<any> }) => {
               initial={{ x: "200vw" }}
               animate={{ x: 0 }}
               exit={{ x: "200vw", transition: { delay: 0 } }}
-              transition={{ duration: 1, delay: 0.4 }}
+              transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
               className='h-[18dvh] flex-grow'
             >
               <PostcardsRow postcards={postcards.slice(batchsize, 2 * batchsize)} direction={true} duration={100} />
@@ -81,7 +81,7 @@ const Postcards = ({ postcards }: { postcards: Array<any> }) => {
               initial={{ x: "-200vw" }}
               animate={{ x: 0 }}
               exit={{ x: "-200vw", transition: { delay: 0 } }}
-              transition={{ duration: 1, delay: 0.4 }}
+              transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
               className='h-[18dvh] flex-grow'>
               <PostcardsRow postcards={postcards.slice(2 * batchsize, 3 * batchsize)} direction={false} duration={100} />
             </motion.div>

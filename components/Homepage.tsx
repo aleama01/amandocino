@@ -31,7 +31,7 @@ const Homepage = () => {
     return (
       <div className="h-[100dvh] w-[100dvw]">
         <AnimatePresence>
-          {showContent &&
+          {showContent == "homepage" &&
             <div className="relative h-[100dvh] w-[100dvw] overflow-hidden">
               <motion.div
                 initial={{ opacity: 0, left: "-5vw", y: "190px", scale: 0 }}
@@ -92,17 +92,17 @@ const Homepage = () => {
     return (
       <div className="h-[100dvh] w-[100dvw] relative">
         <AnimatePresence>
-          {showContent &&
+          {showContent == "homepage" &&
             <>
               <motion.div
-                initial={{ opacity: 0, x: "10vw", y: "20px", scale: 0 }}
-                animate={{ opacity: 1, x: "10vw", y: "20px", scale: 1 }}
-                exit={{ opacity: 0, x: "10vw", y: "20px", scale: 0 }}
+                initial={{ opacity: 0, x: "23vw", y: "20px", scale: 0 }}
+                animate={{ opacity: 1, x: "23vw", y: "20px", scale: 1 }}
+                exit={{ opacity: 0, x: "23vw", y: "20px", scale: 0 }}
                 transition={springTransition}
                 className="absolute z-10 flex flex-col items-center justify-center"
                 style={{ willChange: 'transform, opacity' }}
               >
-                <Image src="/drawings/spring.png" alt="spring" width={400} height={400} />
+                <Image src="/drawings/spring.png" alt="spring" width={350} height={350} />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: "70vw", y: "60vh", scale: 0 }}
@@ -112,27 +112,27 @@ const Homepage = () => {
                 className="absolute z-10 flex flex-col items-center justify-center"
                 style={{ willChange: 'transform, opacity' }}
               >
-                <Image src="/drawings/flower.png" alt="spring" width={400} height={400} />
+                <Image src="/drawings/flower.png" alt="flower" width={350} height={350} />
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, x: "0", y: "50vh", scale: 0 }}
-                animate={{ opacity: 1, x: "0", y: "50vh", scale: 1 }}
-                exit={{ opacity: 0, x: "0", y: "50vh", scale: 0 }}
+                initial={{ opacity: 0, x: "-2vw", y: "35vh", scale: 0 }}
+                animate={{ opacity: 1, x: "-2vw", y: "35vh", scale: 1 }}
+                exit={{ opacity: 0, x: "-2vw", y: "35vh", scale: 0 }}
                 transition={springTransition}
                 className="absolute z-10 flex flex-col items-center justify-center"
                 style={{ willChange: 'transform, opacity' }}
               >
-                <Image src="/drawings/points_small.png" alt="spring" width={400} height={400} />
+                <Image src="/drawings/points_small.png" alt="points_small" width={350} height={350} />
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, x: "30vw", y: "70vh", scale: 0 }}
-                animate={{ opacity: 1, x: "30vw", y: "70vh", scale: 1 }}
-                exit={{ opacity: 0, x: "30vw", y: "70vh", scale: 0 }}
+                initial={{ opacity: 0, x: "20vw", y: "70vh", scale: 0 }}
+                animate={{ opacity: 1, x: "20vw", y: "70vh", scale: 1 }}
+                exit={{ opacity: 0, x: "20vw", y: "70vh", scale: 0 }}
                 transition={springTransition}
                 className="absolute z-10 flex flex-col items-center justify-center"
                 style={{ willChange: 'transform, opacity' }}
               >
-                <Image src="/drawings/star.png" alt="spring" width={400} height={400} />
+                <Image src="/drawings/star.png" alt="star" width={350} height={350} />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: "65vw", y: "10px", scale: 0 }}
@@ -141,7 +141,7 @@ const Homepage = () => {
                 transition={springTransition}
                 className="absolute z-10 flex flex-col items-center justify-center"
                 style={{ willChange: 'transform, opacity' }}>
-                <Image src="/drawings/crown.png" alt="spring" width={400} height={400} />
+                <Image src="/drawings/crown.png" alt="crown" width={350} height={350} />
 
               </motion.div>
             </>}

@@ -62,7 +62,6 @@ const Music = ({ songs }: { songs: Array<any> }) => {
             key={song.title || idx}
             className="h-full min-w-[60px] flex flex-row items-end justify-center"
             onMouseEnter={() => setHoveredIdx(idx)}
-            onMouseLeave={() => setHoveredIdx(null)}
             onClick={() => window.open(song.link, "_blank", "noopener,noreferrer")}
             tabIndex={0}
             role="button"
@@ -79,8 +78,8 @@ const Music = ({ songs }: { songs: Array<any> }) => {
               />
             )}
             <div
-              className={`flex flex-row border-r h-3/4 w-full gap-x-2 items-center justify-end
-                ${hoveredIdx === idx ? ' border-[#EDF0D8] text-[#EDF0D8]' : 'border-transparent text-[#EDF0D884]'}`} style={{ writingMode: 'vertical-lr', textOrientation: 'mixed', rotate: '180deg' }}>
+              className={`flex flex-row border-r h-[90%] w-full gap-x-2 items-center justify-end
+                ${hoveredIdx === idx ? ' border-[#EDF0D8] text-[#EDF0D8]' : 'border-transparent text-[#EDF0D884]'}`} style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', rotate: '180deg' }}>
               <div className={`justify-self-start flex-1 ${hoveredIdx === idx ? "opacity-100" : "opacity-0"} font-medium text-[16px]`}>
                 {song.date}
               </div>

@@ -21,7 +21,10 @@ const PostDetails = ({ post }) => {
     useContext(Context);
 
   useEffect(() => {
-    if (!expandStory) setExpandStory(true);
+    if (!expandStory) {
+      setExpandStory(true);
+      setShowContent("diaryslug");
+    }
   }, []);
 
   const handleClickBack = () => {
@@ -31,7 +34,7 @@ const PostDetails = ({ post }) => {
     }, 400); // Match this to your exit animation duration
 
     setTimeout(() => {
-      setShowContent(true);
+      setShowContent(post.category.slug);
     }, 400);
   };
 
@@ -49,7 +52,7 @@ const PostDetails = ({ post }) => {
                 initial={{ left: "100vw", top: "5dvh" }}
                 animate={{ left: "2vw", top: "5dvh" }}
                 exit={{ left: "100vw", top: "5dvh" }}
-                transition={{ duration: 0.4, type: "tween" }}
+                transition={{ duration: 0.4, ease: "easeInOut", type: "tween" }}
                 className="absolute flex flex-col items-center z-20 justify-center"
                 style={{ willChange: "transform" }}
               >
@@ -66,7 +69,7 @@ const PostDetails = ({ post }) => {
                 initial={{ left: "100vw" }}
                 animate={{ left: 0 }}
                 exit={{ left: "100vw" }}
-                transition={{ type: "tween", duration: 0.4 }}
+                transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
                 className="overflow-hidden bg-[#101411] h-[100dvh] absolute top-0 w-screen justify-end z-10 flex flex-row"
               >
                 <PostDetailMobile
@@ -110,7 +113,7 @@ const PostDetails = ({ post }) => {
                 initial={{ left: "100vw" }}
                 animate={{ left: 0 }}
                 exit={{ left: "100vw" }}
-                transition={{ type: "tween", duration: 0.4 }}
+                transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
                 className="overflow-hidden bg-[#101411] h-[100dvh] absolute top-0 w-screen justify-end z-10 flex flex-row"
               >
                 <PostDetail post={post} postCategory={post.category.slug} />

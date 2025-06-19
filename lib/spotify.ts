@@ -125,7 +125,7 @@ export const getSongs = async () => {
         : '';
 
       return {
-        title: el.track.name || '',
+        title: el.track.name.split("(")[0] || '',
         link: el.track.external_urls?.spotify || '',
         date: formattedDate,
         artists: el.track.artists?.map((_artist: any) => ({

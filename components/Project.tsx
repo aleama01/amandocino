@@ -19,7 +19,7 @@ const Project = ({ project }: { project: any }) => {
       <div>
         {mobile ?
           <motion.div className='h-[30dvh] overflow-hidden w-auto flex flex-row justify-center items-center'
-            initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5 } }} >
+            initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5, ease: "easeInOut" } }} >
             <div className=' h-full w-full overflow-hidden' >
               <Image alt="Project post image"
                 loading='eager' priority={true} fetchPriority="high"
@@ -29,7 +29,7 @@ const Project = ({ project }: { project: any }) => {
           </motion.div>
           :
           <motion.div className='h-[400px] overflow-hidden w-auto flex flex-row justify-center items-center'
-            initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5 } }} >
+            initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5, ease: "easeInOut" } }} >
             <div className=' h-full w-full overflow-hidden' >
               <Image alt="Project post image"
                 loading='eager' priority={true} fetchPriority="high"

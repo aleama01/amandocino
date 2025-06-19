@@ -31,7 +31,7 @@ const PostDetails = ({ post }) => {
     }, 400); // Match this to your exit animation duration
 
     setTimeout(() => {
-      setShowContent(true);
+      setShowContent(post.category.slug);
     }, 400);
   };
 
@@ -49,7 +49,7 @@ const PostDetails = ({ post }) => {
                 initial={{ left: "100vw", top: "5dvh" }}
                 animate={{ left: "2vw", top: "5dvh" }}
                 exit={{ left: "100vw", top: "5dvh" }}
-                transition={{ duration: 0.4, type: "tween" }}
+                transition={{ duration: 0.4, ease: "easeInOut", type: "tween" }}
                 className="absolute flex flex-col items-center z-20 justify-center"
                 style={{ willChange: "transform" }}
               >
@@ -67,7 +67,7 @@ const PostDetails = ({ post }) => {
                 initial={{ left: "100vw" }}
                 animate={{ left: 0 }}
                 exit={{ left: "100vw" }}
-                transition={{ type: "tween", duration: 0.4 }}
+                transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
                 className="overflow-hidden bg-[#101411] h-[100dvh] absolute top-0 w-screen justify-end z-10 flex flex-row"
               >
                 <PostDetailMobile
@@ -112,7 +112,7 @@ const PostDetails = ({ post }) => {
                 initial={{ right: "100vw" }}
                 animate={{ right: "30vw" }}
                 exit={{ right: "100vw" }}
-                transition={{ type: "tween", duration: 0.4 }}
+                transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
                 className="overflow-hidden bg-[#101411] h-[100dvh] absolute top-0 w-[70vw] justify-end z-10 flex flex-row"
                 style={{ willChange: "transform", direction: "rtl" }}
               >
@@ -170,7 +170,7 @@ const PostDetails = ({ post }) => {
                 initial={{ right: "100vw", top: "32px" }}
                 animate={{ right: "30vw", top: "32px" }}
                 exit={{ right: "100vw", top: "32px" }}
-                transition={{ type: "tween", duration: 0.4 }}
+                transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
                 className="font-bold absolute text-[128px] z-20"
                 style={{
                   writingMode: "vertical-rl",

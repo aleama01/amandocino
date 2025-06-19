@@ -7,8 +7,8 @@ export interface IContext {
   setOpenProjectModal: (config: string) => void;
   expandStory: boolean;
   setExpandStory: (config: boolean) => void;
-  showContent: boolean;
-  setShowContent: (config: boolean) => void;
+  showContent: string;
+  setShowContent: (config: string) => void;
   flippedIdx: string | null;
   setFlippedIdx: (config: string | null) => void;
   isAnimating: boolean;

@@ -4,9 +4,9 @@ import { motion, useAnimation } from 'framer-motion'
 import { Context } from '../Context'
 
 const Stamp = (stampName: any) => {
-  const url = `/stamps/${stampName}.png`;
+
   return (
-    <Image src={'/test.png'} alt={stampName} width={128} height={128} className='w-[45px] h-auto object-contain bg-transparent' />
+    <Image src={`/stamps/${stampName["stampName"]}_stamp.jpg`} alt={stampName} width={128} height={128} className='w-[45px] h-auto object-contain bg-transparent' />
   )
 }
 
@@ -92,9 +92,8 @@ const PostcardsRow = ({ postcards, direction, duration }: { postcards: Array<any
                   rotateX: isFlipped ? 180 : 0,
                 }}
                 transition={{
-                  duration: 0.6,
-                  ease: [.42, 0, .58, 0.6],
-                  scale: { duration: 0.3 }
+                  duration: 0.4,
+                  ease: [.42, 0, .58, 0.4],
                 }}
                 onAnimationStart={() => setIsAnimating(true)}
                 onAnimationComplete={() => setIsAnimating(false)}
@@ -105,7 +104,7 @@ const PostcardsRow = ({ postcards, direction, duration }: { postcards: Array<any
                     className="absolute w-full h-full backface-hidden"
                     style={{ backfaceVisibility: 'hidden' }}
                     animate={{ opacity: isFlipped ? 0 : 1 }}
-                    transition={{ delay: 0.3, duration: 0 }}
+                    transition={{ delay: 0.2, duration: 0.05 }}
                   >
                     <Image
                       loading='eager'
@@ -125,10 +124,10 @@ const PostcardsRow = ({ postcards, direction, duration }: { postcards: Array<any
                       transform: 'rotateX(180deg)'
                     }}
                     animate={{ opacity: isFlipped ? 1 : 0 }}
-                    transition={{ delay: 0.3, duration: 0 }}
+                    transition={{ delay: 0.2, duration: 0.05 }}
                   >
                     <div className='flex flex-row w-full'>
-                      <Stamp stampName={postcard.node.tag[0].name} />
+                      <Stamp stampName={postcard.node.tag[0].title} />
                       <div className='flex-grow w-full flex flex-col justify-end pl-2 gap-y-2'>
                         <h3 className='font-medium'>{postcard.node.title}</h3>
                         <div className='border-t w-4/5 pb-2 h-[1px] border-[#101411]' />
@@ -174,7 +173,7 @@ const PostcardsRow = ({ postcards, direction, duration }: { postcards: Array<any
                 style={{ perspective: 1000 }}
                 onClick={() => handleClick(isFlipped, postcard)}
                 animate={{ rotateX: isFlipped ? 180 : 0 }}
-                transition={{ duration: 0.6, ease: [.42, 0, .58, 0.6] }}
+                transition={{ duration: 0.4, ease: [.42, 0, .58, 0.4] }}
               >
                 <div className="relative w-full h-full">
                   {/* Front */}
@@ -182,7 +181,7 @@ const PostcardsRow = ({ postcards, direction, duration }: { postcards: Array<any
                     className="absolute w-full h-full backface-hidden"
                     style={{ backfaceVisibility: 'hidden' }}
                     animate={{ opacity: isFlipped ? 0 : 1 }}
-                    transition={{ delay: 0.3, duration: 0 }}
+                    transition={{ delay: 0.2, duration: 0.05 }}
                   >
                     <Image
                       loading='eager'
@@ -202,7 +201,7 @@ const PostcardsRow = ({ postcards, direction, duration }: { postcards: Array<any
                       transform: 'rotateX(180deg)'
                     }}
                     animate={{ opacity: isFlipped ? 1 : 0 }}
-                    transition={{ delay: 0.3, duration: 0 }}
+                    transition={{ delay: 0.2, duration: 0.05 }}
                   >
                     <Stamp stampName={postcard.node.tag[0].name} />
                     <div className='border-l h-full w-[0px] border-[#101411]' />

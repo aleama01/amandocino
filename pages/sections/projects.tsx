@@ -22,7 +22,7 @@ const ProjectsPage = ({ projects }: { projects: any }) => {
   const router = useRouter();
 
   const handleProjectClick = (slug: string) => {
-    setShowContent(false);
+    setShowContent("");
 
     setTimeout(() => {
       setExpandStory(true);
@@ -42,14 +42,14 @@ const ProjectsPage = ({ projects }: { projects: any }) => {
           <meta name="description" content="Take a look at the projects I’ve embarked on, from academic pursuits to personal passions. This section showcases a range of activities that fuel my creativity and drive." />
         </Head>
         <AnimatePresence>
-          {showContent && (
+          {showContent == "projects" && (
             <div className='h-[100dvh] overflow-hidden'>
               <motion.div
                 key={"project-mobile"}
                 initial={{ left: 0, top: "100vh" }}
                 animate={overlayDirectionMapMobile['projects' as SectionKey]}
                 exit={{ left: 0, top: "100vh" }}
-                transition={{ type: 'tween', duration: 0.4 }}
+                transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                 className='flex flex-col bg-[#101411] justify-start z-10 py-1 w-[100dvw] h-[75dvh] absolute'
                 style={{ willChange: 'transform, left', direction: 'rtl' }}
               >
@@ -74,7 +74,7 @@ const ProjectsPage = ({ projects }: { projects: any }) => {
                 initial={{ right: '-100vw', bottom: ' 75dvh' }}
                 animate={{ right: '2vw', bottom: ' 75dvh' }}
                 exit={{ right: '-100vw', bottom: ' 75dvh' }}
-                transition={{ type: 'tween', duration: 0.4 }}
+                transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                 className='font-bold text-[48px] text-right absolute leading-none'
               >
                 PROJECTS
@@ -92,34 +92,34 @@ const ProjectsPage = ({ projects }: { projects: any }) => {
           <meta name="description" content="Take a look at the projects I’ve embarked on, from academic pursuits to personal passions. This section showcases a range of activities that fuel my creativity and drive." />
         </Head>
         <AnimatePresence>
-          {showContent && (
+          {showContent == "projects" && (
             <>
               <motion.div
                 key={"project"}
                 initial={{ left: '-100vw' }}
                 animate={overlayDirectionMap['projects' as SectionKey]}
                 exit={{ left: '-100vw' }}
-                transition={{ type: 'tween', duration: 0.4 }}
+                transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                 className='flex flex-col bg-[#101411] justify-start z-10 px-[2vw] w-[40vw] max-h-[100dvh] overflow-y-auto absolute top-0'
                 style={{ willChange: 'transform, left', direction: 'rtl' }}
               >
                 <Projects projects={projects} onClick={handleProjectClick} />
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, right: "5vw", top: "-100px", scale: 0 }}
-                animate={{ opacity: 1, right: "5vw", top: "-100px", scale: 1 }}
-                exit={{ opacity: 0, right: "5vw", top: "-100px", scale: 0 }}
+                initial={{ opacity: 0, right: "10vw", top: "-10px", scale: 0 }}
+                animate={{ opacity: 1, right: "10vw", top: "-10px", scale: 1 }}
+                exit={{ opacity: 0, right: "10vw", top: "-10px", scale: 0 }}
                 transition={springTransition}
                 className="absolute flex flex-col items-center justify-center"
                 style={{ willChange: 'transform, opacity' }}
               >
-                <Image src="/drawings/crown.png" alt="crown" width={500} height={500} />
+                <Image src="/drawings/crown.png" alt="crown" width={450} height={450} className='rotate-[10deg]' />
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, right: "27vw", top: "50vh", scale: 0 }}
-                animate={{ opacity: 1, right: "27vw", top: "50vh", scale: 1 }}
-                exit={{ opacity: 0, right: "27vw", top: "50vh", scale: 0 }}
+                initial={{ opacity: 0, right: "27vw", top: "60vh", scale: 0 }}
+                animate={{ opacity: 1, right: "27vw", top: "60vh", scale: 1 }}
+                exit={{ opacity: 0, right: "27vw", top: "60vh", scale: 0 }}
                 transition={springTransition}
                 className="absolute flex flex-col items-center justify-center"
                 style={{ willChange: 'transform, opacity' }}

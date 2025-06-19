@@ -10,24 +10,17 @@ interface MenuProps {
   menuControls: any;
   handleClickFunction: (key: SectionKey) => void;
   align: { from: string, to: string };
-  showMenuList: boolean;
+  showMenuList: string;
+  menuDirection: string;
 }
 
-const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction, align, showMenuList }) => {
-  const [horizontalMenu, setHorizontalMenu] = useState<boolean>(false);
+const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction, align, showMenuList, menuDirection }) => {
   const { mobile, showContent } = useContext(Context)
-  useEffect(() => {
-    if (align.to === "horizontal") {
-      setHorizontalMenu(true);
-    } else {
-      setHorizontalMenu(false);
-    }
-  }, [align.to]);
 
   if (mobile) {
     return (
       <AnimatePresence>
-        {showContent && pagename === "homepage" &&
+        {pagename === "homepage" &&
           <motion.div
             className={`absolute z-40`}
             id="menu"
@@ -35,7 +28,7 @@ const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction
             animate={{ left: '50dvw', top: '50dvh', translateX: '-50%', translateY: '-50%' }}
             exit={{ left: '50dvw', top: '-100dvh', translateX: '-50%', translateY: '-50%' }}
             style={{ willChange: "transform, opacity" }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
           >
 
             <h1 onClick={() => handleClickFunction("homepage" as SectionKey)} className='leading-none'>amandocino</h1>
@@ -46,7 +39,8 @@ const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction
               animate={{
                 opacity: 1,
               }}
-              exit={{ opacity: 0 }}>
+              exit={{ opacity: 0 }}
+              transition={{}}>
               {Object.keys(menuDirectionMap).filter(key => key !== "homepage").map((key, idx) => (
                 <li
                   key={key}
@@ -76,33 +70,33 @@ const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction
         <div className='flex flex-row gap-x-6 items-end relative'>
           <h1 onClick={() => handleClickFunction("homepage" as SectionKey)} className='leading-none'>amandocino</h1>
           <AnimatePresence>
-            {showMenuList &&
+            {showMenuList === "horizontal" &&
               <motion.ul
-                initial={{ opacity: 0, left: 0 }}
+                initial={{ opacity: 0, left: 270 }}
                 animate={{
                   opacity: 1,
                   left: 270
                 }}
-                exit={{ opacity: 0, left: 0 }}
-                transition={{ duration: 0.05 }}
+                exit={{ opacity: 0, left: 270 }}
+                transition={{ duration: 0.01 }}
                 className={`list-none font-medium text-sm gap-x-4 flex flex-row absolute ${pagename === "postcards" || pagename === "music" ? "" : "cursor-none pointer-events-none"}`}
                 style={{ willChange: "opacity, left" }}
               >
                 <AnimatePresence>
-                  {horizontalMenu && (
+                  {(menuDirection === "horizontal") && (
                     Object.keys(menuDirectionMap).filter(key => key !== "homepage").map((key, idx) => (
                       <motion.li
                         key={key}
                         style={{ willChange: "opacity, x, transform" }}
                         className="my-1"
-                        initial={{ opacity: 1, x: -400 }}
+                        initial={{ opacity: 0, y: -200 }}
                         animate={{
-                          opacity: pagename === "postcards" || pagename === "music" ? 1 : 0,
-                          x: pagename === "postcards" || pagename === "music" ? 0 : -400,
-                          transition: { duration: 0.2, delay: idx * 0.05 }
+                          opacity: 1,
+                          y: 0,
+                          transition: { duration: 0.2, ease: "easeInOut", delay: idx * 0.05 }
                         }}
 
-                        exit={{ opacity: 1, x: -400, transition: { duration: 0.2, delay: (Object.keys(menuDirectionMap).length - idx) * 0.05 } }}
+                        exit={{ opacity: 0, y: -200, transition: { duration: 0.2, ease: "easeInOut", delay: (Object.keys(menuDirectionMap).length - idx) * 0.05 } }}
                       >
                         <button
                           className="mx-auto box-content"
@@ -118,36 +112,36 @@ const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction
           </AnimatePresence>
         </div>
         <AnimatePresence>
-          {showMenuList && (
+          {showMenuList === "vertical" && (
             <motion.ul
-              className={`list-none absolute font-medium text-sm mt-2 ${pagename === "postcards" || pagename === "music" ? "cursor-none pointer-events-none" : ""}`}
+              className={`list-none absolute font-medium text-sm mt-2`}
               initial={{ opacity: 0 }}
               animate={{
                 opacity: 1,
               }}
               exit={{ opacity: 0 }}>
               <AnimatePresence>
-                {!horizontalMenu && Object.keys(menuDirectionMap).filter(key => key !== "homepage").map((key, idx) => (
+                {(menuDirection === "vertical") && Object.keys(menuDirectionMap).filter(key => key !== "homepage").map((key, idx) => (
                   <motion.li
                     key={key}
                     className="my-1 md:w-[254px] w-[172px]"
-                    initial={{ opacity: 1, x: align.from === "left" ? -200 : align.from === "right" ? 200 : -200 }}
+                    initial={{ opacity: 1, x: align.from === "left" ? -200 : align.from === "right" ? 200 : align.to === "right" ? 200 : align.to === "left" ? -200 : 0 }}
                     animate={{
-                      opacity: pagename === "postcards" || pagename === "music" ? 0 : 1,
+                      opacity: 1,
                       x: 0,
-                      transition: { duration: 0.2, delay: idx * 0.05 }
+                      transition: { duration: 0.2, ease: "easeInOut", delay: idx * 0.05 }
                     }}
-                    exit={{ opacity: 1, x: align.from === "left" ? -200 : align.from === "right" ? 200 : -200, transition: { duration: 0.2, delay: idx * 0.05 } }}
+                    exit={{ opacity: 1, x: (align.from === "left" && align.to === "horizontal") ? -400 : (align.from === "right" && align.to === "horizontal") ? 400 : 0, transition: { duration: 0.2, ease: "easeInOut", delay: idx * 0.05 } }}
                   >
                     {mobile ?
                       <motion.button
                         key={key}
                         className="mx-auto box-content"
-                        initial={{ x: align.from === "center" ? "calc(-50% + 86px)" : align.from === "left" ? "0px" : "calc(-100% + 172px)" }}
+                        initial={{ x: align.from === "center" ? "calc(-50% + 86px)" : align.from === "left" ? "0px" : align.from === "right" ? "calc(-100% + 172px)" : align.to === "center" ? "calc(-50% + 86px)" : align.to === "left" ? "0px" : align.to === "right" ? "calc(-100% + 172px)" : 0 }}
                         animate={{
                           x: align.to === "center" ? "calc(-50% + 86px)" : align.to === "left" ? "0px" : align.to === "right" ? "calc(-100% + 172px)" : align.to === "horizontal" ? align.from === "center" ? "calc(-50% + 86px)" : align.from === "left" ? "0px" : align.from === "right" ? "calc(-100% + 172px)" : "0px" : "0px"
                         }}
-                        transition={{ duration: 0.4 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
                         onClick={() => handleClickFunction(key as SectionKey)}>
                         [<span className="mx-2 uppercase">{key.toUpperCase()}</span>]
                       </motion.button>
@@ -155,11 +149,11 @@ const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction
                       <motion.button
                         key={key}
                         className="mx-auto box-content"
-                        initial={{ x: align.from === "center" ? "calc(-50% + 127px)" : align.from === "left" ? "0px" : "calc(-100% + 254px)" }}
+                        initial={{ x: align.from === "center" ? "calc(-50% + 127px)" : align.from === "left" ? "0px" : align.from === "right" ? "calc(-100% + 254px)" : (align.from === "horizontal" && align.to === "center") ? "calc(-50% + 127px)" : (align.from === "horizontal" && align.to === "left") ? "0px" : (align.from === "horizontal" && align.to === "right") ? "calc(-100% + 254px)" : 0 }}
                         animate={{
-                          x: align.to === "center" ? "calc(-50% + 127px)" : align.to === "left" ? "0px" : align.to === "right" ? "calc(-100% + 254px)" : align.to === "horizontal" ? align.from === "center" ? "calc(-50% + 127px)" : align.from === "left" ? "0px" : align.from === "right" ? "calc(-100% + 254px)" : "0px" : "0px"
+                          x: align.to === "center" ? "calc(-50% + 127px)" : align.to === "left" ? "0px" : align.to === "right" ? "calc(-100% + 254px)" : (align.to === "horizontal" && align.from === "center") ? "calc(-50% + 127px)" : (align.to === "horizontal" && align.from === "left") ? "0px" : (align.to === "horizontal" && align.from === "right") ? "calc(-100% + 254px)" : "0px"
                         }}
-                        transition={{ duration: 0.4 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
                         onClick={() => handleClickFunction(key as SectionKey)}>
                         [<span className="mx-2 uppercase">{key.toUpperCase()}</span>]
                       </motion.button>

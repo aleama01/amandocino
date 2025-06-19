@@ -5,10 +5,8 @@
 @tailwind utilities;
 
 html {
-  cursor: crosshair;
   background: #256D1F fixed;
   background-image: url('/Static_1.png');
-  /*background-blend-mode: color-burn;*/
   animation: moveNoise 1s steps(4) infinite;
   background-size: 800px;
   background-repeat: repeat;
@@ -31,6 +29,7 @@ html {
 body {
   font-family: 'ClashDisplay-Regular';
   font-size: 14px;
+  letter-spacing: 0.02rem;
   line-height: auto;
   color: #EDF0D8;
 }

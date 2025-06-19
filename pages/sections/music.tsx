@@ -25,14 +25,14 @@ const MusicPage = ({ songs }: { songs: any }) => {
           <meta name="description" content="Take a look at the projects I’ve embarked on, from academic pursuits to personal passions. This section showcases a range of activities that fuel my creativity and drive." />
         </Head>
         <AnimatePresence>
-          {showContent && (
+          {showContent == "music" && (
             <>
               <motion.div
                 key={"music"}
                 initial={{ top: '100dvh' }}
                 animate={overlayDirectionMapMobile['music' as SectionKey]}
                 exit={{ top: '100dvh' }}
-                transition={{ type: 'tween', duration: 0.4 }}
+                transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                 className='flex flex-col bg-[#101411] justify-start py-1 w-screen h-[75dvh] fixed '
                 style={{ willChange: 'transform, left' }}
               >
@@ -53,7 +53,7 @@ const MusicPage = ({ songs }: { songs: any }) => {
                 initial={{ left: '-100vw', bottom: ' 75dvh' }}
                 animate={{ left: '2vw', bottom: ' 75dvh' }}
                 exit={{ left: '-100vw', bottom: ' 75dvh' }}
-                transition={{ type: 'tween', duration: 0.4 }}
+                transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                 className='font-bold text-[48px] text-left absolute leading-none'
               >
                 MUSIC
@@ -71,14 +71,14 @@ const MusicPage = ({ songs }: { songs: any }) => {
           <meta name="description" content="Take a look at the projects I’ve embarked on, from academic pursuits to personal passions. This section showcases a range of activities that fuel my creativity and drive." />
         </Head>
         <AnimatePresence>
-          {showContent && (
+          {showContent == "music" && (
             <>
               <motion.div
                 key={"music"}
                 initial={{ bottom: '-100vh' }}
                 animate={overlayDirectionMap['music' as SectionKey]}
                 exit={{ bottom: '-100vh' }}
-                transition={{ type: 'tween', duration: 0.4 }}
+                transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                 className='flex flex-col bg-[#101411] justify-start px-[2vw] w-screen h-[80dvh] fixed '
                 style={{ willChange: 'transform, left', direction: 'rtl' }}
               >
@@ -109,7 +109,7 @@ const MusicPage = ({ songs }: { songs: any }) => {
                 initial={{ right: '-50vw' }}
                 animate={{ right: '2vw' }}
                 exit={{ right: '-50vw' }}
-                transition={{ type: 'tween', duration: 0.4 }}
+                transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                 className='font-bold text-[128px] fixed bottom-[80dvh] leading-none'
               >
                 MUSIC

@@ -23,14 +23,14 @@ const AboutPage = () => {
           <meta name="description" content="Dive into my story—from my passions and projects to my personal and professional milestones. Discover what drives my creativity and commitment." />
         </Head>
         <AnimatePresence>
-          {showContent && (
+          {showContent == "about" && (
             <div className='h-[100dvh] overflow-hidden'>
               <motion.div
                 key={"about-background"}
                 initial={{ left: 0, top: '100dvh' }}
                 animate={overlayDirectionMapMobile['about' as SectionKey]}
                 exit={{ left: 0, top: '100dvh' }}
-                transition={{ type: 'tween', duration: 0.4 }}
+                transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                 className='flex flex-col bg-[#101411] justify-center w-screen h-[75dvh] pt-1 pb-[5dvh] overflow-y-auto absolute'
               >
                 <div className='w-full h-[75dvh] px-[2vw] overflow-y-auto'>
@@ -43,7 +43,7 @@ const AboutPage = () => {
                 initial={{ left: '-100vw', bottom: ' 75dvh' }}
                 animate={{ left: '2vw', bottom: ' 75dvh' }}
                 exit={{ left: '-100vw', bottom: ' 75dvh' }}
-                transition={{ type: 'tween', duration: 0.4 }}
+                transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                 className='font-bold text-[48px] text-left absolute leading-none'
               >
                 ABOUT ME
@@ -72,14 +72,14 @@ const AboutPage = () => {
           <meta name="description" content="Dive into my story—from my passions and projects to my personal and professional milestones. Discover what drives my creativity and commitment." />
         </Head>
         <AnimatePresence>
-          {showContent && (
+          {showContent == "about" && (
             <>
               <motion.div
                 key={"about-background"}
                 initial={{ left: '100vw' }}
                 animate={overlayDirectionMap['about' as SectionKey]}
                 exit={{ left: '100vw' }}
-                transition={{ type: 'tween', duration: 0.4 }}
+                transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                 className='flex flex-col bg-[#101411] justify-center px-[2vw] w-[40vw] h-[100dvh] overflow-y-auto absolute top-0'
               />
 
@@ -88,7 +88,7 @@ const AboutPage = () => {
                 initial={{ left: '-100vw' }}
                 animate={{ left: 0 }}
                 exit={{ left: '-100vw' }}
-                transition={{ type: 'tween', duration: 0.4 }}
+                transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                 className='z-10 px-[2vw] w-[60vw] max-h-[100dvh] absolute top-0'
               >
                 <AboutMe />
@@ -98,7 +98,7 @@ const AboutPage = () => {
                 initial={{ x: '100vw', y: '32px' }}
                 animate={{ x: '60vw', y: '32px' }}
                 exit={{ x: '100vw', y: '32px' }}
-                transition={{ type: 'tween', duration: 0.4 }}
+                transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                 className='font-bold text-[128px] text-right z-10 leading-none'
                 style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', rotate: '180deg' }}
               >

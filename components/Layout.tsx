@@ -70,18 +70,41 @@ const Layout = ({ Component, pageProps }: any) => {
   const { setTransition } = useTransition();
   const [alignList, setAlignList] = useState({ from: textAlignMap[pagename], to: textAlignMap[pagename] });
   const { expandStory, setExpandStory, showContent, setShowContent, mobile, setMobile } = useContext(Context);
-  const [showMenuList, setShowMenuList] = useState(true);
+  const [showMenuList, setShowMenuList] = useState("vertical");
+  const [menuDirection, setMenuDirection] = useState("vertical");
+
+  useEffect(() => {
+    const cursor = document.getElementById('custom-cursor');
+
+    document.addEventListener('mousemove', (e) => {
+      cursor!.style.left = `${e.clientX - 126}px`; // center the circle
+      cursor!.style.top = `${e.clientY - 120}px`;
+    });
+  }, [])
+
+
+  useEffect(() => {
+    setShowContent(pagename)
+    if (pagename == "music" || pagename == "postcards") {
+      setShowMenuList("horizontal")
+      setMenuDirection("horizontal")
+    } else {
+      setShowMenuList("vertical")
+      setMenuDirection("vertical")
+    }
+  }, [])
 
   const handleClick = async (page: SectionKey) => {
 
     if (pathname.split('/').length > 3 && page === pagename && !mobile) {
       setExpandStory(false);
+      await new Promise(res => setTimeout(res, 400));
+      router.push(`/sections/${page}`)
+
       setTimeout(() => {
-        router.push(`/sections/${page}`)
-      }, 400);
-      setTimeout(() => {
-        setShowContent(true);
-      }, 400);
+        setShowContent(page);
+      }, 100);
+
       return;
     }
 
@@ -90,40 +113,53 @@ const Layout = ({ Component, pageProps }: any) => {
     if (!mobile) {
       let from = textAlignMap[pagename];
       let to = textAlignMap[page];
+
       setAlignList({ from, to });
-      await new Promise(res => setTimeout(res, 220));
+      await new Promise(res => setTimeout(res, 10));
 
       // 1. Hide menu list
-      if (to === "horizontal" || (from === "horizontal" && to != "horizontal")) {
-        setShowMenuList(false)
+      if ((from != "horizontal" && to === "horizontal") || (from === "horizontal" && to != "horizontal")) {
+        if (to === "horizontal") {
+          setMenuDirection("horizontal")
+        } else {
+          setMenuDirection("vertical")
+        }
+        await new Promise(res => setTimeout(res, 300));
+
+
+        setShowMenuList("none")
+        await new Promise(res => setTimeout(res, 300));
+
       }
-      // 2. Wait for menu list to disappear (match exit duration in Menu.tsx, e.g. 200ms)
-      await new Promise(res => setTimeout(res, 200));
 
       // 3. Move menu
       setTransition(page, menuDirectionMap[page]);
 
-      setShowContent(false);
+      setShowContent("");
       setExpandStory(false);
-
-
-      if (page !== "homepage") {
-        router.push(`/sections/${page}`);
-      } else {
-        router.push("/");
-      }
+      await new Promise(res => setTimeout(res, 400));
 
       // 4. Wait for menu move animation (match menuControls duration, e.g. 0.5s + 0.5s delay)
-      await menuControls.start({ ...menuDirectionMap[page], transition: { duration: 0.5, delay: 0.5 } });
+      await menuControls.start({ ...menuDirectionMap[page], transition: { duration: 0.4, ease: "easeInOut" } });
+
+      if (page !== "homepage") {
+        await router.push(`/sections/${page}`);
+      } else {
+        await router.push("/");
+      }
+
+      //await new Promise(res => setTimeout(res, 200));
 
       // 5. Show menu list again (if needed)
-      setShowMenuList(true);
+      setShowContent(page);
 
-      setTimeout(() => {
-        setShowContent(true);
-      }, 200);
+      if (to === "horizontal") {
+        setShowMenuList("horizontal")
+      } else {
+        setShowMenuList("vertical")
+      }
     } else {
-      setShowContent(false);
+      setShowContent("");
       setExpandStory(false);
 
       if (page !== "homepage") {
@@ -132,9 +168,7 @@ const Layout = ({ Component, pageProps }: any) => {
         await router.push("/");
       }
 
-      setTimeout(() => {
-        setShowContent(true);
-      }, 400);
+      setShowContent(page);
     }
   };
 
@@ -146,10 +180,11 @@ const Layout = ({ Component, pageProps }: any) => {
 
   return (
     <div className='relative overflow-hidden h-[100dvh] w-screen'>
-      <Menu pagename={pagename} handleClickFunction={handleClick} menuControls={menuControls} align={alignList} showMenuList={showMenuList} />
+      <Menu pagename={pagename} handleClickFunction={handleClick} menuControls={menuControls} align={alignList} showMenuList={showMenuList} menuDirection={menuDirection} />
       <SideMenuButton />
       <SideMenu handleClickFunction={handleClick} />
       <Contact />
+      <div className="custom-cursor" id="custom-cursor"></div>
       <Component {...pageProps} />
     </div>
   )

@@ -14,7 +14,7 @@ export const Context = React.createContext<IContext>({
   setOpenProjectModal(_config) { },
   expandStory: false,
   setExpandStory(_config) { },
-  showContent: false,
+  showContent: "homepage",
   setShowContent(_config) { },
   flippedIdx: null,
   setFlippedIdx(_config) { },
@@ -27,7 +27,7 @@ const ContextProvider: React.FC<Props> = ({ children }) => {
   const [mobile, setMobile] = React.useState<boolean>(false);
   const [openProjectModal, setOpenProjectModal] = React.useState<string>("");
   const [expandStory, setExpandStory] = React.useState<boolean>(false);
-  const [showContent, setShowContent] = React.useState<boolean>(true);
+  const [showContent, setShowContent] = React.useState<string>("homepage");
   const [flippedIdx, setFlippedIdx] = React.useState<string | null>(null);
   const [isAnimating, setIsAnimating] = React.useState<boolean>(false);
 

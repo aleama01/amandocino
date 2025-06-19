@@ -12,7 +12,7 @@ const Story = ({ story, idx, isVisible }: {
       <motion.div
         className='h-[200px] md:h-[300px] overflow-hidden w-auto flex flex-row justify-center items-center'
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { duration: 0.5 } }}
+        animate={{ opacity: 1, transition: { duration: 0.5, ease: "easeInOut" } }}
       >
         <div className='w-full h-full overflow-hidden'>
           <Image

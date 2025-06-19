@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Context } from '../Context';
@@ -37,16 +37,21 @@ const ContactModal = ({ handleClick }: { handleClick: any }) => {
 const Contact = () => {
   let pathname = usePathname()
   const [openContactModal, setOpenContactModal] = useState(false)
-  const { mobile, setOpenSideMenu } = useContext(Context)
+  const { mobile, setOpenSideMenu, showContent } = useContext(Context)
 
 
   let animation = { right: "2vw" }
   let animationModal = { right: "0vw" }
+  console.log(showContent)
 
-  if (pathname.split('/')[2] === "diary") {
+  if (showContent.split("/")[0] === "diary" || showContent === "diaryslug") {
     animation = { right: "57vw" }
     animationModal = { right: "55vw" }
   }
+
+  useEffect(() => {
+    console.log(showContent)
+  }, [showContent])
 
   const handleClick = () => {
     setOpenSideMenu(false)
@@ -64,7 +69,7 @@ const Contact = () => {
           className='fixed pointer-events-auto top-[5dvh] left-[2vw] w-[120px] font-medium z-10'
           style={{ willChange: "left" }}
         >
-          <button onClick={handleClick}>CONTACT</button>
+          <button onClick={handleClick}>[<span className="mx-2 uppercase">CONTACT</span>]</button>
         </motion.h2>
         <AnimatePresence>
 
@@ -95,7 +100,7 @@ const Contact = () => {
           className='fixed pointer-events-auto top-[5dvh] right-[2vw] font-medium z-50'
           style={{ willChange: "right" }}
         >
-          <button onClick={handleClick}>CONTACT</button>
+          <button onClick={handleClick}>[<span className="mx-2 uppercase">CONTACT</span>]</button>
         </motion.h2>
         <AnimatePresence>
 

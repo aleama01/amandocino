@@ -22,7 +22,7 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
   const router = useRouter();
 
   const handleStoryClick = (slug: string) => {
-    setShowContent(false);
+    setShowContent("diaryslug");
 
     setTimeout(() => {
       setExpandStory(true);
@@ -42,14 +42,14 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
         </Head>
         <div>
           <AnimatePresence>
-            {showContent && (
+            {showContent == "diary" && (
               <div className='h-[100dvh] overflow-hidden'>
                 <motion.div
                   key={"diary"}
                   initial={{ left: 0, top: "100vh" }}
                   animate={{ ...overlayDirectionMapMobile['diary' as SectionKey] }}
                   exit={{ left: 0, top: "100vh" }}
-                  transition={{ type: 'tween', duration: 0.4 }}
+                  transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                   className=' bg-[#101411] flex flex-row justify-start z-20 h-[75dvh] py-1 overflow-y-auto absolute'
                   style={{ willChange: 'transform, opacity, left' }}
                 >
@@ -86,7 +86,7 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
                   initial={{ right: '-100vw', bottom: ' 75dvh' }}
                   animate={{ right: '2vw', bottom: ' 75dvh' }}
                   exit={{ right: '-100vw', bottom: ' 75dvh' }}
-                  transition={{ type: 'tween', duration: 0.4 }}
+                  transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                   className='font-bold text-[48px] md:text-[128px] text-right fixed leading-none'
                   style={{ willChange: 'transform, opacity' }}
                 >
@@ -106,14 +106,14 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
           <meta name="description" content="Discover the personal stories and reflections in our archive, featuring a virtual diary filled with entries in Italian. Dive into the pages that track the passage of time and personal experiences." />
         </Head>
         <AnimatePresence>
-          {showContent && (
+          {showContent == "diary" && (
             <>
               <motion.div
                 key={"diary"}
                 initial={{ left: '100vw' }}
                 animate={{ ...overlayDirectionMap['diary' as SectionKey] }}
                 exit={{ left: '100vw' }}
-                transition={{ type: 'tween', duration: 0.4 }}
+                transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                 className=' bg-[#101411] flex flex-row justify-start z-20 max-h-[100dvh] overflow-y-auto absolute top-0'
                 style={{ willChange: 'transform, opacity, left' }}
               >
@@ -122,9 +122,9 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
                 </div>
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, x: "5vw", y: "-100px", scale: 0 }}
-                animate={{ opacity: 1, x: "5vw", y: "-100px", scale: 1 }}
-                exit={{ opacity: 0, x: "5vw", y: "-100px", scale: 0 }}
+                initial={{ opacity: 0, x: "0vw", y: "-100px", scale: 0 }}
+                animate={{ opacity: 1, x: "0vw", y: "-100px", scale: 1 }}
+                exit={{ opacity: 0, x: "0vw", y: "-100px", scale: 0 }}
                 transition={springTransition}
                 className="absolute flex flex-col items-center justify-center"
                 style={{ willChange: 'transform, opacity' }}
@@ -148,7 +148,7 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
                 initial={{ x: '100vw', y: '80dvh' }}
                 animate={{ x: '-56vw', y: '80dvh' }}
                 exit={{ x: '100vw', y: '80dvh' }}
-                transition={{ type: 'tween', duration: 0.2 }}
+                transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
                 className='font-bold text-[128px] text-right leading-none'
                 style={{ willChange: 'transform, opacity' }}
               >
