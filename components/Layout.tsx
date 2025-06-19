@@ -161,7 +161,7 @@ const Layout = ({ Component, pageProps }: any) => {
     } else {
       setShowContent("");
       setExpandStory(false);
-
+      await new Promise(res => setTimeout(res, 400));
       if (page !== "homepage") {
         await router.push(`/sections/${page}`);
       } else {
