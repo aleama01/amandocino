@@ -18,7 +18,7 @@ const MusicMobile = ({ songs }: { songs: Array<any> }) => {
       const container = containerRef.current
       const { height } = container.getBoundingClientRect()
       const scrollPosition = container.scrollTop
-      const totalHeight = songs.length * ITEM_HEIGHT + IMAGE_HEIGHT + 30
+      const totalHeight = songs.length * ITEM_HEIGHT + IMAGE_HEIGHT + 0
 
       // Calculate which item should be "hovered" based on scroll position
       if (scrollPosition > totalHeight - height) {

@@ -87,7 +87,7 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
                   animate={{ right: '2vw', bottom: ' 75dvh' }}
                   exit={{ right: '-100vw', bottom: ' 75dvh' }}
                   transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
-                  className='font-bold text-[48px] md:text-[128px] text-right fixed leading-none'
+                  className='font-bold text-[48px] lg:text-[128px] text-right fixed leading-none'
                   style={{ willChange: 'transform, opacity' }}
                 >
                   DIARY

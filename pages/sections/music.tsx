@@ -33,7 +33,7 @@ const MusicPage = ({ songs }: { songs: any }) => {
                 animate={overlayDirectionMapMobile['music' as SectionKey]}
                 exit={{ top: '100dvh' }}
                 transition={{ type: 'tween', duration: 0.4, ease: "easeInOut" }}
-                className='flex flex-col bg-[#101411] justify-start py-1 w-screen h-[75dvh] fixed '
+                className='flex flex-col bg-[#101411] justify-start py-1 w-screen h-[75dvh]  overflow-y-auto absolute top-0  z-20'
                 style={{ willChange: 'transform, left' }}
               >
                 <MusicMobile songs={songs.toReversed()} />

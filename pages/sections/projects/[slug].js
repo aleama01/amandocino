@@ -55,7 +55,7 @@ const PostDetails = ({ post }) => {
               >
                 <button
                   onClick={() => handleClickBack()}
-                  className="font-thin text-3xl md:text-[32px]"
+                  className="font-thin text-3xl lg:text-[32px]"
                   aria-label="Go back to previous page"
                 >
                   <BsArrowLeft />
@@ -100,7 +100,7 @@ const PostDetails = ({ post }) => {
               >
                 <button
                   onClick={() => handleClickBack()}
-                  className="font-thin text-3xl md:text-[32px]"
+                  className="font-thin text-3xl lg:text-[32px]"
                   aria-label="Go back to previous page"
                 >
                   <BsArrowLeft />

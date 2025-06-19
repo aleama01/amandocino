@@ -44,7 +44,7 @@ const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction
               {Object.keys(menuDirectionMap).filter(key => key !== "homepage").map((key, idx) => (
                 <li
                   key={key}
-                  className="my-1 md:w-[254px] w-[172px] text-center"
+                  className="my-1 lg:w-[254px] w-[172px] text-center"
                 >
                   <button
                     className="mx-auto box-content text-center"
@@ -124,7 +124,7 @@ const Menu: React.FC<MenuProps> = ({ pagename, menuControls, handleClickFunction
                 {(menuDirection === "vertical") && Object.keys(menuDirectionMap).filter(key => key !== "homepage").map((key, idx) => (
                   <motion.li
                     key={key}
-                    className="my-1 md:w-[254px] w-[172px]"
+                    className="my-1 lg:w-[254px] w-[172px]"
                     initial={{ opacity: 1, x: align.from === "left" ? -200 : align.from === "right" ? 200 : align.to === "right" ? 200 : align.to === "left" ? -200 : 0 }}
                     animate={{
                       opacity: 1,

@@ -19,7 +19,7 @@ export const Stories = ({ stories, onStoryClick }: { stories: Array<any>, onStor
   return (
     <div
       ref={parentRef}
-      className='flex flex-col w-full h-[100dvh] my-1 md:pb-0 md:my-[2dvh] overflow-auto'
+      className='flex flex-col w-full h-[100dvh] my-1 lg:pb-0 lg:my-[2dvh] overflow-auto'
     >
       <div
         style={{

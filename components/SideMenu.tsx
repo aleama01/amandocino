@@ -40,7 +40,7 @@ const SideMenu = ({ handleClickFunction }: { handleClickFunction: (key: SectionK
         style={{ right: openSideMenu ? '0vw' : '-100vw', pointerEvents: openSideMenu ? 'auto' : 'none' }}>
 
         <div className='relative w-full mt-[4dvh]'>
-          <button aria-label='Close side menu' className='left-[2vw] font-thin text-3xl absolute md:text-[32px] '
+          <button aria-label='Close side menu' className='left-[2vw] font-thin text-3xl absolute lg:text-[32px] '
             onClick={() => (setOpenSideMenu(false))}>
             <MdClose />
           </button>
@@ -53,7 +53,7 @@ const SideMenu = ({ handleClickFunction }: { handleClickFunction: (key: SectionK
             {Object.keys(menuDirectionMap).filter(key => key !== pagename).map((key, idx) => (
               <li
                 key={key}
-                className="my-1 md:w-[254px] w-[172px] text-right"
+                className="my-1 lg:w-[254px] w-[172px] text-right"
               >
                 <button
                   key={key}

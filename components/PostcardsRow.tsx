@@ -4,9 +4,9 @@ import { motion, useAnimation } from 'framer-motion'
 import { Context } from '../Context'
 
 const Stamp = (stampName: any) => {
-
+  console.log(stampName)
   return (
-    <Image src={`/stamps/${stampName["stampName"]}_stamp.jpg`} alt={stampName} width={128} height={128} className='w-[45px] h-auto object-contain bg-transparent' />
+    <Image src={`/stamps/${stampName["stampName"]}_stamp.jpg`} alt={stampName} width={128} height={128} className='w-[30px] lg:w-[45px] h-auto object-contain bg-transparent' />
   )
 }
 
@@ -127,10 +127,10 @@ const PostcardsRow = ({ postcards, direction, duration }: { postcards: Array<any
                     transition={{ delay: 0.2, duration: 0.05 }}
                   >
                     <div className='flex flex-row w-full'>
-                      <Stamp stampName={postcard.node.tag[0].title} />
-                      <div className='flex-grow w-full flex flex-col justify-end pl-2 gap-y-2'>
-                        <h3 className='font-medium'>{postcard.node.title}</h3>
-                        <div className='border-t w-4/5 pb-2 h-[1px] border-[#101411]' />
+                      <Stamp stampName={postcard.node.tag[0].name} />
+                      <div className='flex-grow w-full flex flex-col justify-end pl-2 gap-y-1'>
+                        <h3 className='font-medium text-xs'>{postcard.node.title}</h3>
+                        <div className='border-t w-4/5 pb-1 h-[1px] border-[#101411]' />
                       </div>
                     </div>
                     {postcard.node.content.raw.children.map((typeObj: any, index: any) => {

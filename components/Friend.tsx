@@ -12,7 +12,7 @@ import Image from 'next/image'
 const Friend = ({ friend, idx }: any) => {
   return (
     <div className='overflow-hidden'>
-      <motion.div className='h-[15vh] md:h-[300px] overflow-hidden w-auto flex flex-row justify-center items-center'
+      <motion.div className='h-[15vh] lg:h-[300px] overflow-hidden w-auto flex flex-row justify-center items-center'
         initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5 } }}
         style={{ willChange: "opacity" }}>
         <div className=' h-full w-full overflow-hidden' >
@@ -32,7 +32,7 @@ const Friend = ({ friend, idx }: any) => {
             <span className='absolute left-0 top-1'>{friend.title.toUpperCase()}</span>}
         </h1>
         <div className='border-[0.5px] border-[#9f9f9c] w-4/5' />
-        <div className='text-xs md:text-sm  my-2 whitespace-pre-wrap text-[#9f9f9c]'>
+        <div className='text-xs lg:text-sm  my-2 whitespace-pre-wrap text-[#9f9f9c]'>
           {friend.excerpt}
         </div>
       </div>

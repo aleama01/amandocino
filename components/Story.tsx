@@ -10,7 +10,7 @@ const Story = ({ story, idx, isVisible }: {
   return (
     <div className='overflow-hidden text-[#edf0d884] hover:text-[#EDF0D8] duration-200'>
       <motion.div
-        className='h-[200px] md:h-[300px] overflow-hidden w-auto flex flex-row justify-center items-center'
+        className='h-[200px] lg:h-[300px] overflow-hidden w-auto flex flex-row justify-center items-center'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { duration: 0.5, ease: "easeInOut" } }}
       >

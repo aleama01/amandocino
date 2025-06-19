@@ -10,6 +10,8 @@ html {
   animation: moveNoise 1s steps(4) infinite;
   background-size: 800px;
   background-repeat: repeat;
+  top:0;
+  overflow-y: hidden;
 }
 
 @keyframes moveNoise {
