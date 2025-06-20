@@ -13,7 +13,7 @@ export const Stories = ({ stories, onStoryClick }: { stories: Array<any>, onStor
     count: stories.length,
     getScrollElement: () => parentRef.current,
     estimateSize: () => mobile ? 230 : 330, // height of story + gap
-    overscan: 3 // number of items to render above/below viewport
+    overscan: 6 // number of items to render above/below viewport
   });
 
   return (

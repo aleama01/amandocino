@@ -39,7 +39,7 @@ const ProjectsPage = ({ projects }: { projects: any }) => {
       <>
         <Head>
           <title>Amandocino | Projects</title>
-          <meta name="description" content="Take a look at the projects I’ve embarked on, from academic pursuits to personal passions. This section showcases a range of activities that fuel my creativity and drive." />
+          <meta name="description" content="Take a look at the projects I worked or I'm working on. In this section I showcase my favourite projects, including academical and personal ones." />
         </Head>
         <AnimatePresence>
           {showContent == "projects" && (

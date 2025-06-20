@@ -20,7 +20,7 @@ const AboutPage = () => {
       <>
         <Head>
           <title>Amandocino | About</title>
-          <meta name="description" content="Dive into my story—from my passions and projects to my personal and professional milestones. Discover what drives my creativity and commitment." />
+          <meta name="description" content="I present myself in this section." />
         </Head>
         <AnimatePresence>
           {showContent == "about" && (

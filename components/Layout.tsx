@@ -75,7 +75,6 @@ const Layout = ({ Component, pageProps }: any) => {
   const [menuDirection, setMenuDirection] = useState("vertical");
 
   useEffect(() => {
-    console.log("page: ", page, " pathname:", pathname)
     if (page != pathname.split('/')[2] && pathname !== '/') {
       let from = textAlignMap[page as SectionKey];
       let to = textAlignMap[pathname.split('/')[2] as SectionKey];
@@ -84,6 +83,14 @@ const Layout = ({ Component, pageProps }: any) => {
       setTransition(pathname.split('/')[2], menuDirectionMap[pathname.split('/')[2] as SectionKey]);
       menuControls.start({ ...menuDirectionMap[pathname.split('/')[2] as SectionKey], transition: { duration: 0.4, ease: "easeInOut" } });
     }
+
+    if (pathname === '/') {
+      setPage("homepage");
+      setAlignList({ from: "center", to: "center" });
+      setTransition("homepage", menuDirectionMap["homepage"]);
+      menuControls.start({ ...menuDirectionMap["homepage"], transition: { duration: 0.4, ease: "easeInOut" } });
+    }
+
     setShowContent(pagename)
     if (pagename == "music" || pagename == "postcards") {
       setShowMenuList("horizontal")

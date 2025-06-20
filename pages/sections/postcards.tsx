@@ -27,7 +27,7 @@ const PostcardsPage = ({ postcards }: { postcards: Array<any> }) => {
       <>
         <Head>
           <title>Amandocino | Postcards</title>
-          <meta name="description" content="Browse through my collection of favorite photos, capturing the essence of various places visited over the years. Enjoy this personal gallery of nature shots, from woods to wildlife." />
+          <meta name="description" content="Browse through my collection of postcards and memories from various places visited over the years." />
         </Head>
         <AnimatePresence>
           {showContent == "postcards" && (

@@ -38,7 +38,7 @@ const StoriesPage = ({ stories }: { stories: Array<any> }) => {
       <>
         <Head>
           <title>Amandocino | Diary</title>
-          <meta name="description" content="Discover the personal stories and reflections in our archive, featuring a virtual diary filled with entries in Italian. Dive into the pages that track the passage of time and personal experiences." />
+          <meta name="description" content="Read through my virtual diary where I share my thoughts and, rarely, some stories I experienced. Unfortunately this section is in Italian only." />
         </Head>
         <div>
           <AnimatePresence>

@@ -22,7 +22,7 @@ const MusicPage = ({ songs }: { songs: any }) => {
       <div className='h-[100dvh] overflow-hidden'>
         <Head>
           <title>Amandocino | Music</title>
-          <meta name="description" content="Take a look at the projects I’ve embarked on, from academic pursuits to personal passions. This section showcases a range of activities that fuel my creativity and drive." />
+          <meta name="description" content="Explore the latest songs I saved on Spotify, you may find gems in here." />
         </Head>
         <AnimatePresence>
           {showContent == "music" && (

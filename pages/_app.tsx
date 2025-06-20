@@ -54,7 +54,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <meta name="theme-color" content="#EDF0D8" />
           <title>Amandocino</title>
-          <meta name="description" content="Dive in and get to know me, read my posts, watch my photos, look at what my friends do, watch the projects I work on." />
+          <meta name="description" content="Alessandro Amandonico's personal website." />
         </Head>
         <Layout Component={Component} pageProps={pageProps} />
       </TransitionProvider>

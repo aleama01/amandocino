@@ -110,7 +110,7 @@ const PostDetailMobile = ({ post, postCategory }: any) => {
     )
   } else if (postCategory === 'diary') {
     return (
-      <div className='flex flex-col w-[100dvw] pt-[12dvh] pb-[7dvh] overflow-y-auto overflow-x-hidden px-[2vw] ' >
+      <div className='flex flex-col w-[100dvw] pt-[12dvh] pb-[7dvh] overflow-y-auto overflow-x-hidden px-[5vw] ' >
         <div className='flex flex-col'>
           <div className=' justify-self-start relative mt-1 mb-8' >
 
