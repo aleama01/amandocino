@@ -4,7 +4,6 @@ import { motion, useAnimation } from 'framer-motion'
 import { Context } from '../Context'
 
 const Stamp = (stampName: any) => {
-  console.log(stampName)
   return (
     <Image src={`/stamps/${stampName["stampName"]}_stamp.jpg`} alt={stampName} width={128} height={128} className='w-[30px] lg:w-[45px] h-auto object-contain bg-transparent' />
   )

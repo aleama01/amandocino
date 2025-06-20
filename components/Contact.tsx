@@ -42,7 +42,6 @@ const Contact = () => {
 
   let animation = { right: "2vw" }
   let animationModal = { right: "0vw" }
-  console.log(showContent)
 
   if (showContent.split("/")[0] === "diary" || showContent === "diaryslug") {
     animation = { right: "57vw" }

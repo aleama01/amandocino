@@ -71,19 +71,19 @@ const Layout = ({ Component, pageProps }: any) => {
   const [alignList, setAlignList] = useState({ from: textAlignMap[pagename], to: textAlignMap[pagename] });
   const { expandStory, setExpandStory, showContent, setShowContent, mobile, setMobile } = useContext(Context);
   const [showMenuList, setShowMenuList] = useState("vertical");
+  const [page, setPage] = useState("");
   const [menuDirection, setMenuDirection] = useState("vertical");
 
   useEffect(() => {
-    const cursor = document.getElementById('custom-cursor');
-
-    document.addEventListener('mousemove', (e) => {
-      cursor!.style.left = `${e.clientX - 126}px`; // center the circle
-      cursor!.style.top = `${e.clientY - 120}px`;
-    });
-  }, [])
-
-
-  useEffect(() => {
+    console.log("page: ", page, " pathname:", pathname)
+    if (page != pathname.split('/')[2] && pathname !== '/') {
+      let from = textAlignMap[page as SectionKey];
+      let to = textAlignMap[pathname.split('/')[2] as SectionKey];
+      setAlignList({ from, to });
+      setPage(pathname.split('/')[2]);
+      setTransition(pathname.split('/')[2], menuDirectionMap[pathname.split('/')[2] as SectionKey]);
+      menuControls.start({ ...menuDirectionMap[pathname.split('/')[2] as SectionKey], transition: { duration: 0.4, ease: "easeInOut" } });
+    }
     setShowContent(pagename)
     if (pagename == "music" || pagename == "postcards") {
       setShowMenuList("horizontal")
@@ -92,9 +92,10 @@ const Layout = ({ Component, pageProps }: any) => {
       setShowMenuList("vertical")
       setMenuDirection("vertical")
     }
-  }, [])
+  }, [pathname])
 
   const handleClick = async (page: SectionKey) => {
+    setPage(page)
 
     if (pathname.split('/').length > 3 && page === pagename && !mobile) {
       setExpandStory(false);

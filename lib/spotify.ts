@@ -58,7 +58,6 @@ export const getPlaylists = async()=>{
     for (let id of ids) {
       const response = await getPlaylist(id);
       const item  = await response.json();
-      console.log(item)
       const playlist = {
           playlistUrl: item.external_urls.spotify,
           id: item.id,
@@ -85,7 +84,7 @@ export const getArtists = async()=>{
   for (let id of ids) {
     const response = await getArtist(id);
     const item  = await response.json();
-    console.log(item)
+
     const artist = {
       artistUrl:item.external_urls.spotify,
       followers:item.followers.total,
