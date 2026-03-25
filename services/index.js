@@ -6,7 +6,7 @@ import { GraphQLClient } from "graphql-request";
 //query to get all posts
 export const getPosts = async (category) => {
   const graphQLClient = new GraphQLClient(
-    "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master"
+    "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master",
   );
   const query = gql`
     query MyQuery($category: String!) {
@@ -34,6 +34,11 @@ export const getPosts = async (category) => {
             tag(first: 20) {
               name
             }
+            videos(first: 5) {
+              url
+            }
+            externalLink
+            githubLink
           }
         }
       }
@@ -46,7 +51,7 @@ export const getPosts = async (category) => {
 
 export const getRecentTenPosts = async (category) => {
   const graphQLClient = new GraphQLClient(
-    "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master"
+    "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master",
   );
   const query = gql`
     query MyQuery($category: String!) {
@@ -76,7 +81,7 @@ export const getRecentTenPosts = async (category) => {
 
 export const getPostDetails = async (slug) => {
   const graphQLClient = new GraphQLClient(
-    "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master"
+    "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clbfdr89b0mui01t8fixbhdj7/master",
   );
   const query = gql`
     query MyQuery($slug: String!) {
@@ -102,6 +107,11 @@ export const getPostDetails = async (slug) => {
         tag(first: 20) {
           name
         }
+        videos(first: 5) {
+          url
+        }
+        externalLink
+        githubLink
       }
     }
   `;

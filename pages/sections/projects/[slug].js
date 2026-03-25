@@ -28,7 +28,7 @@ const PostDetails = ({ post }) => {
     setExpandStory(false);
     setTimeout(() => {
       router.push(`/sections/${post.category.slug}`);
-    }, 400); // Match this to your exit animation duration
+    }, 400);
 
     setTimeout(() => {
       setShowContent(post.category.slug);

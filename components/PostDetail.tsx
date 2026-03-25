@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import { BsArrowUpRight } from 'react-icons/bs';
 
 /**
  * Post detail structure for posts in the friends and diary sections.
@@ -54,7 +55,7 @@ const PostDetail = ({ post, postCategory }: any) => {
     return (
       <div className='flex flex-col w-[60vw] py-[5dvh] overflow-y-auto overflow-x-hidden px-[5vw] '>
         <div className='flex flex-col items-end'>
-          <div className=' justify-self-start relative mt-1 flex flex-col items-end mb-8' >
+          <div className='justify-self-start relative mt-1 flex flex-col items-end mb-8' >
 
             <div className=' w-[450px] h-[450px] overflow-hidden' >
               <Image alt="Post main image" width={720} height={720} src={`${post.image.url}`}
@@ -89,12 +90,39 @@ const PostDetail = ({ post, postCategory }: any) => {
               return getContentFragment(index, children, typeObj, typeObj.type)
             })}
 
+
+            <div className='flex flex-row flex-wrap gap-x-4 mt-4 text-left justify-start'>
+              {post.externalLink && (
+                <a href={post.externalLink} target="_blank" rel="noopener noreferrer" className='text-sm text-[#EDF0D8] underline flex items-center gap-1'>
+                  <BsArrowUpRight /> View Project
+                </a>
+              )}
+
+              {post.githubLink && (
+                <a href={post.githubLink} target="_blank" rel="noopener noreferrer" className='text-sm text-[#EDF0D8] underline flex items-center gap-1'>
+                  <BsArrowUpRight /> View on GitHub
+                </a>
+              )}
+            </div>
+
+
             {post.images.map((image: any, index: any) => {
               const randomMarginLeft = Math.floor(Math.random() * 0);
               const randomMarginRight = Math.floor(Math.random() * 0);
               return (
                 <div className={`my-8`} style={{ marginLeft: `${randomMarginLeft}px` }} key={image.url}>
                   <Image alt="Post gallery image" width={512} height={512} src={`${image.url}`} className={`h-full object-cover`} />
+                </div>
+              )
+            })}
+
+            {post.videos && post.videos.map((video: any, index: any) => {
+              return (
+                <div className={`my-8`} key={video.url}>
+                  <video autoPlay loop muted playsInline className='w-full h-auto'>
+                    <source src={video.url} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               )
             })}
