@@ -191,10 +191,28 @@ const PostDetails = ({ post }) => {
 export default PostDetails;
 
 export async function getStaticProps({ params }) {
-  const data = await getPostDetails(params.slug);
+  const posts = await getPosts("Projects");
+  const post = posts.find(({ node }) => node.slug === params.slug)?.node;
+
+  if (!post) {
+    // If the post is not found in the initial fetch,
+    // maybe it was created after the build.
+    // Fallback to fetching it directly.
+    const directFetchPost = await getPostDetails(params.slug);
+    if (!directFetchPost) {
+      return {
+        notFound: true,
+      };
+    }
+    return {
+      props: { post: directFetchPost },
+      revalidate: 60, // Revalidate to cache this new page
+    };
+  }
 
   return {
-    props: { post: data },
+    props: { post },
+    revalidate: 60, // Optional: revalidate pages periodically
   };
 }
 export async function getStaticPaths() {
