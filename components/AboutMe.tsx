@@ -1,8 +1,4 @@
 import React, { useContext } from 'react'
-import Link from 'next/link'
-import { BsArrowLeft } from 'react-icons/bs'
-import { HiOutlineExternalLink } from 'react-icons/hi'
-import { motion } from 'framer-motion'
 import { Context } from '../Context'
 
 /**
@@ -23,22 +19,18 @@ export const AboutMe = () => {
 
           <div className=''>
             My name&#39;s Alessandro :)
-            <br />
-            I just want to give an overview of who I am, what I am doing and what I care about.
             <br /><br />
-            I&#39;m a Master&#39;s student of the EIT Digital program in Human-Computer Interaction and Design, currently working on my thesis following my studies in Aalto University and KTH. After one year and a half of cold Scandinavian weather I am now in Stuttgart, as an intern for the Human-Centred AI research team in Porsche. Cool stuff.
+            I&#39;m currently living in Stockholm, working as a fullstack developer for Digiproc. I studied computer science engineering and human computer interaction and design, but if you want to know more about my academical and work experience you can check my Linkedin :)
             <br /><br />
-            I enjoying creating and building things from scratch. Creativity and purpose are the things that motivate me, both in the work environment and outside. I love arts and I love to solve problems.
+            I enjoying creating and building things from scratch. I try to be creative and I like to have a purpose in everything I do. I have an issue with keeping things in order and optimising everything, you can ask my girlfriend about my optimal method to clean the dishes.
             <br /><br />
-            Sometimes I write things. My most recent hobby is birdwatching. I love nature and try to find inspiration from there. But I guess the best way to understand who I am is checking my socials.
-            <br />
-            (I am trying to keep it short that&#39;s why the short sentences)
+            Sometimes I write things, I do birdwatching and enjoy spending time in nature in general. This helps find inspiration and recharge my batteries.
             <br /><br />
             Feel free to contact me for any reason :)
           </div>
         </div>
         <div className='h-[200px] w-[300px] self-end bg-center bg-no-repeat bg-cover duration-200 z-10 '
-          style={{ backgroundImage: `url(/me.jpeg)` }} />
+          style={{ backgroundImage: `url(/about.jpeg)` }} />
 
         <ul className='flex text-xs flex-col justify-start flex-wrap gap-2 pt-4'>
           <li>
@@ -64,7 +56,7 @@ export const AboutMe = () => {
       <div className='flex flex-row justify-center text-[#EDF0D8] items-start py-[5dvh] h-[100dvh]' >
         <div className='flex-col basis-2/5 flex justify-center items-center space-y-2 relative' >
           <div className='h-[450px] w-[400px] bg-center bg-no-repeat bg-cover duration-200 z-10 '
-            style={{ backgroundImage: `url(/me.jpeg)` }} />
+            style={{ backgroundImage: `url(/about.jpeg)` }} />
         </div>
 
 
@@ -75,16 +67,12 @@ export const AboutMe = () => {
 
           <div className=''>
             My name&#39;s Alessandro :)
-            <br />
-            I just want to give an overview of who I am, what I am doing and what I care about.
             <br /><br />
-            I&#39;m a Master&#39;s student of the EIT Digital program in Human-Computer Interaction and Design, currently working on my thesis following my studies in Aalto University and KTH. After one year and a half of cold Scandinavian weather I am now in Stuttgart, as an intern for the Human-Centred AI research team in Porsche. Cool stuff.
+            I&#39;m currently living in Stockholm, working as a fullstack developer for Digiproc. I studied computer science engineering and human computer interaction and design, but if you want to know more about my academical and work experience you can check my Linkedin :)
             <br /><br />
-            I enjoying creating and building things from scratch. Creativity and purpose are the things that motivate me, both in the work environment and outside. I love arts and I love to solve problems.
+            I enjoying creating and building things from scratch. I try to be creative and I like to have a purpose in everything I do. I have an issue with keeping things in order and optimising everything, you can ask my girlfriend about my optimal method to clean the dishes.
             <br /><br />
-            Sometimes I write things. My most recent hobby is birdwatching. I love nature and try to find inspiration from there. But I guess the best way to understand who I am is checking my socials.
-            <br />
-            (I am trying to keep it short that&#39;s why the short sentences)
+            Sometimes I write things, I do birdwatching and enjoy spending time in nature in general. This helps find inspiration and recharge my batteries.
             <br /><br />
             Feel free to contact me for any reason :)
           </div>
@@ -105,6 +93,7 @@ export const AboutMe = () => {
               </a>
             </li>
           </ul>
+
 
         </div>
       </div>
