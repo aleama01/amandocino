@@ -20,13 +20,13 @@ export const AboutMe = () => {
           <div className=''>
             My name&#39;s Alessandro :)
             <br /><br />
-            I&#39;m currently living in Stockholm, working as a fullstack developer for Digiproc. I studied computer science engineering and human computer interaction and design, but if you want to know more about my academical and work experience you can check my Linkedin :)
+            I&#39;m currently living in Stockholm, working as a fullstack developer for DigiProc. I've a bachelor&#39;s degree in computer science engineering and a master&#39;s degree in human computer interaction and design, but if you want to know more about my academical and work experience you can check my LinkedIn :)
             <br /><br />
-            I enjoying creating and building things from scratch. I try to be creative and I like to have a purpose in everything I do. I have an issue with keeping things in order and optimising everything, you can ask my girlfriend about my optimal method to clean the dishes.
+            I enjoying being creative, whether it's through coding, design, or handcraft. I like to question things, keep things in order, being ergonomic. My ultimate goal is to create things that are useful and have a purpose in improving people&#39;s lives or society.
             <br /><br />
-            Sometimes I write things, I do birdwatching and enjoy spending time in nature in general. This helps find inspiration and recharge my batteries.
+            Sometimes I write stuff here, I do birdwatching and enjoy spending time in nature in general. This helps find inspiration and recharge my batteries.
             <br /><br />
-            Feel free to contact me for any reason :)
+            Feel free to contact me :)
           </div>
         </div>
         <div className='h-[200px] w-[300px] self-end bg-center bg-no-repeat bg-cover duration-200 z-10 '
@@ -68,13 +68,13 @@ export const AboutMe = () => {
           <div className=''>
             My name&#39;s Alessandro :)
             <br /><br />
-            I&#39;m currently living in Stockholm, working as a fullstack developer for Digiproc. I studied computer science engineering and human computer interaction and design, but if you want to know more about my academical and work experience you can check my Linkedin :)
+            I&#39;m currently living in Stockholm, working as a fullstack developer for DigiProc. I've a bachelor&#39;s degree in computer science engineering and a master&#39;s degree in human computer interaction and design, but if you want to know more about my academical and work experience you can check my LinkedIn :)
             <br /><br />
-            I enjoying creating and building things from scratch. I try to be creative and I like to have a purpose in everything I do. I have an issue with keeping things in order and optimising everything, you can ask my girlfriend about my optimal method to clean the dishes.
+            I enjoying being creative, whether it's through coding, design, or handcraft. I like to question things, keep things in order, being ergonomic. My ultimate goal is to create things that are useful and have a purpose in improving people&#39;s lives or society.
             <br /><br />
-            Sometimes I write things, I do birdwatching and enjoy spending time in nature in general. This helps find inspiration and recharge my batteries.
+            Sometimes I write stuff here, I do birdwatching and enjoy spending time in nature in general. This helps find inspiration and recharge my batteries.
             <br /><br />
-            Feel free to contact me for any reason :)
+            Feel free to contact me :)
           </div>
           <ul className='flex flex-col mr-auto justify-center flex-wrap gap-2 pt-4'>
             <li>
